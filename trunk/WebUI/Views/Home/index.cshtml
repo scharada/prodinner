@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2Faspnet-mvc-project-awesome%2F145701755486515&amp;width=292&amp;colorscheme=light&amp;show_faces=true&amp;stream=true&amp;header=true&amp;height=427" scrolling="no" frameborder="0" style="float:right;border:none; overflow:hidden; width:292px; height:427px;" allowTransparency="true"></iframe>
+    <h2>
+        simple demos</h2>        
+    <ul>
+     <li>
+            @Html.ActionLink("Lookup","index","lookupdemo") </li>
+        <li>
+            @Html.ActionLink("Autocomplete","index","autocompletedemo") </li>       
+        <li>
+            @Html.ActionLink("Ajax Dropdown","index","ajaxdropdowndemo") </li>
+        <li>
+            @Html.ActionLink("Popup","index","popupdemo") </li>
+        <li>
+            @Html.ActionLink("Popup-Form","index","popupformdemo") </li>
+        <li>
+            @Html.ActionLink("Confirm dialog","index","confirmdemo") </li>
+        <li>
+            @Html.ActionLink("Pager","index","pagerdemo") </li>
+    </ul>
+    <h2>
+        combined demos (crud)</h2>
+    <ul>
+        <li>
+            @Html.ActionLink("foobar","index","foobar") </li>
+        <li>
+            @Html.ActionLink("people","index","person") </li>
+        <li>
+            @Html.ActionLink("users roles","index","user") </li>
+        <li>
+            @Html.ActionLink("countries","index","country") </li>
+        <li>
+            @Html.ActionLink("hobbies","index","hobby") </li><li>
+            @Html.ActionLink("list binding","index","ListBinding") </li>
+    </ul>
+    <h2>
+        Generic controller (Cruder, in the code)
+    </h2>
+    
+    <p>
+        the Cruder was used for all the combined demos, it also uses the
+        "IBuilder&lt;TEntity,TInput&gt;" 
+        interface for mapping Entities to ViewModels and backwards
+    </p>
+    tested on mozilla, safari, chrome, opera, ie 9b/8/7/6
