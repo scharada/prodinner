@@ -1,0 +1,327 @@
+﻿html, body, button, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, ul, li
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    background: transparent;
+    line-height: normal;
+}
+
+html, body
+{
+    height: 100%;
+}
+
+body
+{
+    font-family: Verdana, Arial,Liberation Sans,DejaVu Sans,sans-serif;
+    font-size: 80%;
+    text-align: left;
+}
+.efield
+{
+    clear: both;
+    width: 95%;
+    float: left;
+    padding: 1.4em 0 0 0;
+}
+
+.elabel, .efield label
+{
+    width: 150px;
+    text-align: right;
+    float: left;
+    margin-right: 5px;
+}
+
+.einput
+{
+    border: 0 none;
+}
+
+.einput input, .einput select
+{
+    float: left;
+}
+#top-wrapper
+{
+    overflow: hidden;
+}
+
+#hlogo
+{
+    margin-top: 5px;
+    float: left;
+}
+
+.hmenus
+{
+    float: left;
+    padding: 10px 0px 0px 0px;
+    margin-left: 20px;
+}
+
+#hlinks
+{
+    float: right;
+    color: White;
+}
+
+#main
+{
+    padding: 15px 30px 15px 30px;
+    overflow: hidden;
+}
+
+#footer
+{
+    height: 55px;
+}
+
+.cbt
+{
+    clear: both;
+}
+
+.nav
+{
+    float: left;
+    font-size: 110%;
+}
+.nav ul
+{
+    margin: 0;
+}
+.nav li
+{
+    display: block;
+    float: left;
+    margin-right: 0px;
+    padding: 5px;
+}
+.nav a
+{
+    color: #fff;
+    display: block;
+    padding: 6px 12px 6px 12px;
+    text-decoration: none;
+}
+
+.maindiv
+{
+    margin: auto;
+    width: 77%;
+}
+
+#nos
+{
+    background: #ff5544;
+    text-align: center;
+    padding: 0.3em;
+    color: White;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.container
+{
+    margin: auto;
+    text-align: left;
+    width: 77%;
+}
+
+input, select
+{
+    padding: 5px;
+}
+
+input[type="text"], input[type="password"], select
+{
+    width: 200px;
+    border: 1px solid #aaa !important;
+}
+
+input[type="submit"]
+{
+    cursor: pointer;
+}
+
+select
+{
+    width: 212px;
+    border: 1px solid #aaa;
+}
+
+.fl
+{
+    float: left;
+}
+
+h2
+{
+    margin: 20px 0;
+}
+
+.hidden
+{
+    display: none;
+}
+
+table
+{
+    border-collapse: collapse;
+    padding: 5px;
+    width: 100%;
+}
+
+td, th
+{
+    padding: 2px 5px;
+}
+
+p
+{
+    margin: 15px 0px;
+    padding: 2px 0;
+}
+
+.atbl tbody td
+{
+    padding: 7px;
+}
+
+.fr
+{
+    float: right;
+}
+
+.bcol
+{
+    width: 55px;
+}
+
+pre
+{
+    font-size: 120%;
+}
+
+.abtn
+{
+    font-size: 100%;
+}
+
+a.abtn
+{
+    padding: 0.5em 1.1em;
+    text-decoration: none;
+}
+
+.changetheme
+{
+    padding-top: 15px;
+    float: right;
+}
+
+#more
+{
+    display: block;
+    padding: 1em;
+    cursor: pointer;
+    text-align: center;
+}
+.field-validation-error
+{
+    margin: 5px;
+    padding: 3px;
+    position: relative;
+    background: pink;
+    color: Purple;
+}
+
+.esmall input[type="text"], .esmall select
+{
+    width: 100px;
+}
+
+.example
+{
+    margin-left: 150px;
+    clear: both;
+    font-style: italic;
+    font-size: small;
+}
+
+fieldset
+{
+    border: 1px solid #aaa;
+    padding: 10px;
+}
+
+.big .elabel, .big .efield label
+{
+    width: 300px;
+}
+
+.big .example
+{
+    margin-left: 300px;
+}
+
+.ae-lookup-multidisplay
+{
+    float: left;
+    width: 200px;
+    border: 1px solid #aaa;
+    padding: 5px;
+    min-height: 18px;
+}
+
+.ae-lookup-multidisplay li
+{
+    display: block;
+    padding-bottom: 0.2em;
+}
+
+.ae-lookup-list li
+{
+    padding: 7px;
+    display: block;
+    cursor: pointer;
+}
+
+.ae-lookup-mbtn
+{
+    margin-right: 7px;
+    margin-top: 2px;
+}
+
+.boxy
+{
+    float: left;
+    width: 210px;
+    height: 70px;
+    margin: 9px;
+}
+
+.puzzl
+{
+    float: left;
+    margin: 9px;
+    min-width: 180px;
+    min-height: 135px;
+}
+
+.ico
+{
+    display: inline;
+    padding: 0 5px 0 5px;
+}
+
+.transparent
+{
+    filter: alpha(opacity=85);
+    -moz-opacity: 0.85;
+    -khtml-opacity: 0.85;
+    opacity: 0.85;
+}
