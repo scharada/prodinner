@@ -8,8 +8,8 @@
     <ProjectGuid>{046EF484-2278-4760-B7DD-FADF08ACE1F8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Omu.AwesomeDemo.Service</RootNamespace>
-    <AssemblyName>Omu.AwesomeDemo.Service</AssemblyName>
+    <RootNamespace>Omu.ProDinner.Service</RootNamespace>
+    <AssemblyName>Omu.ProDinner.Service</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Omu.ValueInjecter">
+      <HintPath>..\packages\ValueInjecter.2.1\lib\Omu.ValueInjecter.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

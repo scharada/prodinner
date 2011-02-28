@@ -8,8 +8,8 @@
     <ProjectGuid>{F668A08B-1888-468B-BA3F-9EE5513108CE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Omu.AwesomeDemo.Core</RootNamespace>
-    <AssemblyName>Omu.AwesomeDemo.Core</AssemblyName>
+    <RootNamespace>Omu.ProDinner.Core</RootNamespace>
+    <AssemblyName>Omu.ProDinner.Core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,7 +49,6 @@
     <Compile Include="Repository\IRepo.cs" />
     <Compile Include="Service\ICrudService.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

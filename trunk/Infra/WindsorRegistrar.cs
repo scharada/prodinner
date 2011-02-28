@@ -1,7 +1,7 @@
 ﻿using System;
 using Castle.MicroKernel.Registration;
 
-namespace Omu.AwesomeDemo.Infra
+namespace Omu.ProDinner.Infra
 {
     public class WindsorRegistrar
     {

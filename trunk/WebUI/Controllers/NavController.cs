@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Omu.AwesomeDemo.WebUI.Controllers
+namespace Omu.ProDinner.WebUI.Controllers
 {
     public class NavController : Controller
     {

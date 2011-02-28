@@ -1,4 +1,4 @@
-﻿namespace Omu.AwesomeDemo.Infra.Builder
+﻿namespace Omu.ProDinner.Infra.Builder
 {
     public interface IBuilder<TEntity, TInput> where TEntity : class, new() where TInput : new()
     {

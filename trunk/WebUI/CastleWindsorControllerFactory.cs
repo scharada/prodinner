@@ -6,7 +6,7 @@ using Castle.Windsor;
 using System.Reflection;
 using System.Web.Routing;
 
-namespace Omu.AwesomeDemo.WebUI
+namespace Omu.ProDinner.WebUI
 {
     public class WindsorControllerFactory : DefaultControllerFactory
     {

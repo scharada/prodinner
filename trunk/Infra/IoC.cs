@@ -1,7 +1,7 @@
 ﻿using System;
 using Castle.Windsor;
 
-namespace Omu.AwesomeDemo.Infra
+namespace Omu.ProDinner.Infra
 {
     public sealed class IoC
     {

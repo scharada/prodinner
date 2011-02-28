@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Omu.AwesomeDemo.Core.Model;
+using Omu.ProDinner.Core.Model;
 using Omu.ValueInjecter;
 
-namespace Omu.AwesomeDemo.Infra.Builder
+namespace Omu.ProDinner.Infra.Builder
 {
     public class EntitiesToInts : LoopValueInjection
     {

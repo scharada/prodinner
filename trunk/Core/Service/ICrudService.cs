@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
-using Omu.AwesomeDemo.Core.Model;
+using System.Linq.Expressions;
+using Omu.ProDinner.Core.Model;
 
-namespace Omu.AwesomeDemo.Core.Service
+namespace Omu.ProDinner.Core.Service
 {
     public interface ICrudService<T> where T: Entity, new()
     {
@@ -11,5 +13,6 @@ namespace Omu.AwesomeDemo.Core.Service
         T Get(int id);
         IEnumerable<T> GetAll();
         int Count();
+        IEnumerable<T> Where(Expression<Func<T, bool>> func);
     }
 }

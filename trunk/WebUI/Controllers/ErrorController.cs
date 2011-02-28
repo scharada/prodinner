@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Web.Mvc;
-using Omu.AwesomeDemo.Infra.Dto;
-using Omu.AwesomeDemo.Core;
+using Omu.ProDinner.Core;
+using Omu.ProDinner.Infra.Dto;
 
-namespace Omu.AwesomeDemo.WebUI.Controllers
+namespace Omu.ProDinner.WebUI.Controllers
 {
     public class ErrorController : Controller
     {

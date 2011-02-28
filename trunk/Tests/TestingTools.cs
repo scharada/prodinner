@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using NUnit.Framework;
 
-namespace Omu.AwesomeDemo.Tests
+namespace Omu.ProDinner.Tests
 {
     public static class TestingTools
     {

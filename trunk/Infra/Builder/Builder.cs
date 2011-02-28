@@ -1,8 +1,8 @@
-﻿using Omu.AwesomeDemo.Core;
-using Omu.AwesomeDemo.Core.Repository;
+﻿using Omu.ProDinner.Core;
+using Omu.ProDinner.Core.Repository;
 using Omu.ValueInjecter;
 
-namespace Omu.AwesomeDemo.Infra.Builder
+namespace Omu.ProDinner.Infra.Builder
 {
     public class Builder<TEntity, TInput> : IBuilder<TEntity, TInput>
         where TEntity : class, new()
