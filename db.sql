@@ -24,8 +24,8 @@ countryid int references countries(id)
 create table dinners(
 id int identity primary key,
 name nvarchar(50) not null,
-countryid int references countries(id),
-chefid int references chefs(id),
+countryid int references countries(id) not null,
+chefid int references chefs(id) not null,
 address nvarchar(50),
 date datetime
 )

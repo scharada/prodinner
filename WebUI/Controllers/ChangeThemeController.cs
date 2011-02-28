@@ -3,7 +3,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Omu.AwesomeDemo.WebUI.Controllers
+namespace Omu.ProDinner.WebUI.Controllers
 {
     public class ChangeThemeController : Controller
     {

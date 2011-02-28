@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Omu.AwesomeDemo.WebUI
+namespace Omu.ProDinner.WebUI
 {
     public static class InputHelpers
     {

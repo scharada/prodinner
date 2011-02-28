@@ -8,8 +8,8 @@
     <ProjectGuid>{4889C84C-9CDF-4928-BFE1-6801EB3E6380}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Omu.AwesomeDemo.Infra</RootNamespace>
-    <AssemblyName>Omu.AwesomeDemo.Infra</AssemblyName>
+    <RootNamespace>Omu.ProDinner.Infra</RootNamespace>
+    <AssemblyName>Omu.ProDinner.Infra</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -62,18 +62,8 @@
     <Compile Include="Builder\IBuilder.cs" />
     <Compile Include="Builder\IntsToEntities.cs" />
     <Compile Include="Builder\NullIntToEntity.cs" />
-    <Compile Include="Dto\AjaxDropdownDemoInput.cs" />
-    <Compile Include="Dto\AutocompleteDemoInput.cs" />
-    <Compile Include="Dto\CountryInput.cs" />
-    <Compile Include="Dto\EntityEditInput.cs" />
+    <Compile Include="Dto\Input.cs" />
     <Compile Include="Dto\ErrorDisplay.cs" />
-    <Compile Include="Dto\FoobarInput.cs" />
-    <Compile Include="Dto\HobbyInput.cs" />
-    <Compile Include="Dto\LookupDemoInput.cs" />
-    <Compile Include="Dto\PersonCreateInput.cs" />
-    <Compile Include="Dto\PersonEditInput.cs" />
-    <Compile Include="Dto\PopupFormDemoInput.cs" />
-    <Compile Include="Dto\UserInput.cs" />
     <Compile Include="WindsorRegistrar.cs" />
     <Compile Include="IoC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

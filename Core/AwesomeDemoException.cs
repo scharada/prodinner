@@ -1,6 +1,6 @@
 using System;
 
-namespace Omu.AwesomeDemo.Core
+namespace Omu.ProDinner.Core
 {
     [Serializable]
     public class AwesomeDemoException : Exception

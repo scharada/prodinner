@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
-using Omu.AwesomeDemo.Core.Model;
-using Omu.AwesomeDemo.Core.Repository;
-using Omu.AwesomeDemo.Core.Service;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+using Omu.ProDinner.Core.Model;
+using Omu.ProDinner.Core.Repository;
+using Omu.ProDinner.Core.Service;
+using Omu.ValueInjecter;
 
-namespace Omu.AwesomeDemo.Service
+namespace Omu.ProDinner.Service
 {
     public class CrudService<T> : ICrudService<T> where T : Entity, new()
     {
@@ -31,17 +34,27 @@ namespace Omu.AwesomeDemo.Service
 
         public virtual int Create(T e)
         {
-            return repo.Insert(e);
+            repo.Insert(e);
+            repo.Save();
+            return e.Id;
         }
 
         public virtual void Save(T e)
         {
-            repo.Update(e);
+            var o = repo.Get(e.Id);
+            o.InjectFrom(e);
+            repo.Save();
         }
 
-        public void Delete(int id)
+        public virtual void Delete(int id)
         {
-            repo.Delete(id);
+            repo.Delete(repo.Get(id));
+            repo.Save();
+        }
+
+        public IEnumerable<T> Where(Expression<Func<T, bool>> predicate)
+        {
+            return repo.Where(predicate);
         }
     }
 }

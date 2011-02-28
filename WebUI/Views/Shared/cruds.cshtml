@@ -1,11 +1,11 @@
-@model IEnumerable<Hobby>
+
 @{
     Layout = "_Layout.cshtml";
 
 
     var c = ViewContext.RouteData.Values["Controller"].ToString();
-    var h = 500;
-    var he = h - 100;
+    var h = 200;
+    var he = h;
 }
 @Html.Partial("header")
 @Html.Confirm("Are you sure you want to delete this " + c + " ?")

@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
-using Omu.AwesomeDemo.Infra;
 using Omu.Awesome.Mvc;
+using Omu.ProDinner.Infra;
 
-namespace Omu.AwesomeDemo.WebUI
+namespace Omu.ProDinner.WebUI
 {
     public class Bootstrapper
     {

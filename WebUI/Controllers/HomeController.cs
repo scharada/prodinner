@@ -1,16 +1,44 @@
 ﻿using System.Web.Mvc;
-namespace Omu.AwesomeDemo.WebUI.Controllers
+using Omu.ProDinner.Core.Model;
+using Omu.ProDinner.Core.Repository;
+
+namespace Omu.ProDinner.WebUI.Controllers
 {
     public class HomeController : BaseController
-    {        
+    {
+        private IRepo<Country> r;
+
+        public HomeController(IRepo<Country> r)
+        {
+            this.r = r;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            
+            return View(r.GetAll());
         }
 
         public ActionResult About()
         {
             return View();
+        }
+        
+        public ActionResult CreateCountry()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateCountry(Country c)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(c);
+            }
+            r.Insert(c);
+            r.Save();
+            return RedirectToAction("Index");
         }
     }
 }

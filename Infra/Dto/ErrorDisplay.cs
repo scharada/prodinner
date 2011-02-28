@@ -1,4 +1,4 @@
-﻿namespace Omu.AwesomeDemo.Infra.Dto
+﻿namespace Omu.ProDinner.Infra.Dto
 {
     public class ErrorDisplay
     {

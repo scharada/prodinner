@@ -1,11 +1,11 @@
-﻿using Omu.AwesomeDemo.Core.Model;
-using Omu.AwesomeDemo.Core.Service;
-using Omu.AwesomeDemo.Infra.Builder;
-using Omu.AwesomeDemo.Infra.Dto;
-using Omu.AwesomeDemo.Service;
-using Omu.AwesomeDemo.Infra;
+﻿using Omu.ProDinner.Core.Model;
+using Omu.ProDinner.Core.Service;
+using Omu.ProDinner.Infra.Builder;
+using Omu.ProDinner.Infra.Dto;
+using Omu.ProDinner.Service;
+using Omu.ProDinner.Infra;
 
-namespace Omu.AwesomeDemo.WebUI
+namespace Omu.ProDinner.WebUI
 {
     public class WindsorConfigurator
     {

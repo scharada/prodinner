@@ -3,9 +3,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.UI;
-using Omu.AwesomeDemo.WebUI.Controllers;
+using Omu.ProDinner.WebUI.Controllers;
 
-namespace Omu.AwesomeDemo.WebUI
+namespace Omu.ProDinner.WebUI
 {
     public class MvcApplication : HttpApplication
     {

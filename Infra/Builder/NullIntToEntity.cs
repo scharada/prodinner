@@ -1,9 +1,9 @@
 ﻿using System;
-using Omu.AwesomeDemo.Core.Model;
-using Omu.AwesomeDemo.Core.Repository;
+using Omu.ProDinner.Core.Model;
+using Omu.ProDinner.Core.Repository;
 using Omu.ValueInjecter;
 
-namespace Omu.AwesomeDemo.Infra.Builder
+namespace Omu.ProDinner.Infra.Builder
 {
     public class NullIntToEntity : LoopValueInjection
     {

@@ -1,12 +1,12 @@
 ﻿using System.Web.Mvc;
 using Omu.Awesome.Mvc;
-using Omu.AwesomeDemo.Core.Service;
-using Omu.AwesomeDemo.Infra.Builder;
-using Omu.AwesomeDemo.Infra.Dto;
-using Omu.AwesomeDemo.Core;
-using Omu.AwesomeDemo.Core.Model;
+using Omu.ProDinner.Core;
+using Omu.ProDinner.Core.Model;
+using Omu.ProDinner.Core.Service;
+using Omu.ProDinner.Infra.Builder;
+using Omu.ProDinner.Infra.Dto;
 
-namespace Omu.AwesomeDemo.WebUI.Controllers
+namespace Omu.ProDinner.WebUI.Controllers
 {
     /// <summary>
     /// generic crud controller for entities where there is difference between the edit and create view
@@ -16,7 +16,7 @@ namespace Omu.AwesomeDemo.WebUI.Controllers
     /// <typeparam name="TEditInput">edit viewmodel</typeparam>
     public class Crudere<TEntity, TCreateInput, TEditInput> : BaseController
         where TCreateInput : new()
-        where TEditInput : EntityEditInput, new()
+        where TEditInput : Input, new()
         where TEntity : Entity, new()
     {
         protected readonly ICrudService<TEntity> s;

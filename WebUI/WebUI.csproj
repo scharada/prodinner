@@ -10,8 +10,8 @@
     <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Omu.AwesomeDemo.WebUI</RootNamespace>
-    <AssemblyName>Omu.AwesomeDemo.WebUI</AssemblyName>
+    <RootNamespace>Omu.ProDinner.WebUI</RootNamespace>
+    <AssemblyName>Omu.ProDinner.WebUI</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
   </PropertyGroup>
@@ -90,6 +90,7 @@
     <Compile Include="CastleWindsorControllerFactory.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ChangeThemeController.cs" />
+    <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\Cruder.cs" />
     <Compile Include="Controllers\Crudere.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -126,7 +127,6 @@
     <Content Include="Views\Shared\Awesome\header.ascx" />
     <Content Include="Views\Shared\Awesome\MultiLookupPopup.ascx" />
     <Content Include="Views\Shared\Awesome\MultiLookup.ascx" />
-    <Content Include="Views\Shared\cruds.aspx" />
     <Content Include="Views\Shared\Awesome\Autocomplete.ascx" />
     <Content Include="Views\Shared\Awesome\Confirm.ascx" />
     <Content Include="Views\Shared\Awesome\Popup.ascx" />
@@ -162,7 +162,13 @@
     <Content Include="Views\Error\expectedp.cshtml" />
     <Content Include="Views\Error\HttpError404.cshtml" />
     <Content Include="Views\Error\HttpError505.cshtml" />
+    <Content Include="Views\Country\Create.cshtml" />
+    <Content Include="Views\Country\header.cshtml" />
+    <Content Include="Views\Country\hrow.cshtml" />
+    <Content Include="Views\Country\rows.cshtml" />
+    <Content Include="Views\Country\searchBox.cshtml" />
     <None Include="Views\Home\about.cshtml" />
+    <Content Include="Views\Home\CreateCountry.cshtml" />
     <None Include="Views\Home\index.cshtml" />
     <Content Include="Views\Shared\Site.Master" />
     <Content Include="Views\Web.config">

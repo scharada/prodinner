@@ -1,0 +1,12 @@
+﻿@model Country 
+@{
+    ViewBag.Title = "CreateCountry";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CreateCountry</h2>
+@using (Html.BeginForm()) { 
+    @Html.EditorFor(n=>n.Name)
+       <input type="submit"  value="Adauga"/>
+}
+    
