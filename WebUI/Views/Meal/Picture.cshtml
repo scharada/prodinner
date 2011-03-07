@@ -1,0 +1,15 @@
+﻿@model Meal
+@{
+    ViewBag.Title = "Picture";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>
+    Picture for @Model.Name</h2>
+
+ <img  src='@Url.Content("~/pictures/Meals/" + (Model.HasPic ? Model.Id : 0) + ".jpg")'  alt='picture' />
+@using (Html.BeginForm("Picture", "Meal", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{     
+    <input type="hidden" id="id" name="id" value="@Model.Id" />
+    <input type="file" id="fileUpload" name="fileUpload" />
+    <input type="submit" value="Upload file" />   
+}
