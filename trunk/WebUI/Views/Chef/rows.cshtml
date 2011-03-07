@@ -1,0 +1,25 @@
+@model IEnumerable<Chef>
+@foreach (var o in Model)
+   {
+<tr id='o@(o.Id)'>
+
+    <td>
+    
+        @o.FName
+    </td>
+    <td>
+        @o.LName
+    </td>
+     <td>
+        @(o.Country != null ? o.Country.Name:"")
+    </td>
+    <td>        
+        @Html.PopupFormActionLink("Edit", parameters: new object[] { o.Id }, htmlAttributes: new { @class = "abtn" })
+    </td>
+    <td>
+        <form class="fconfirm" method="post" action="@Url.Action("Delete", new{o.Id})">
+        <input type="submit" value="Delete" class="confirm" />
+        </form>
+    </td>
+</tr>
+}
