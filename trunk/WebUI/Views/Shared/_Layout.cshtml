@@ -22,13 +22,6 @@
     <script src="@Url.Content("~/Scripts/mvcvalidationfix.js")" type="text/javascript"></script>
 </head>
 <body>
-<script type='text/javascript'>
-    $(function () {
-        $('#langs li').click(function () {
-            $.post('@Url.Action("cl","home")', { l: $(this).data('val') });
-        });
-    });
-</script>
     <noscript>
         <div id="nos">
             this site works best with javascript allowed
@@ -46,13 +39,9 @@
                     @Html.Action("Index", "Nav")
                 </div>
             </div>
-            <ul id='langs'>
-            <li data-val='en'>english</li>
-            <li data-val='fr'>francais</li>
-            <li data-val='it'>italiano</li>
-            <li data-val='ro'>romana</li>
-            <li data-val='ru'>ruschii</li>
-            </ul>            
+            <div class="langs">
+            @Html.Action("index", "mui")
+            </div>           
         </div>
     </div>
     <div id="main-container"> <div id="main" class="maindiv ">  
