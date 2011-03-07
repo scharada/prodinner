@@ -102,9 +102,9 @@
     <Compile Include="Controllers\Crudere.cs" />
     <Compile Include="Controllers\DinnerController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MealController.cs" />
     <Compile Include="Controllers\MealsLookupController.cs" />
+    <Compile Include="Controllers\MuiController.cs" />
     <Compile Include="Controllers\NavController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -191,9 +191,6 @@
     <Content Include="Views\Dinner\header.cshtml" />
     <Content Include="Views\Dinner\hrow.cshtml" />
     <Content Include="Views\Dinner\rows.cshtml" />
-    <None Include="Views\Home\about.cshtml" />
-    <Content Include="Views\Home\CreateCountry.cshtml" />
-    <None Include="Views\Home\index.cshtml" />
     <Content Include="Views\Shared\Site.Master" />
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
@@ -207,6 +204,8 @@
     <Content Include="Views\Meal\rows.cshtml" />
     <Content Include="Views\MealsLookup\item.cshtml" />
     <Content Include="Views\Meal\Picture.cshtml" />
+    <Content Include="Views\Mui\Index.cshtml" />
+    <Content Include="Views\Mui\Langs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

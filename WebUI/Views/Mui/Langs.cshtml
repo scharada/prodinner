@@ -1,0 +1,15 @@
+﻿<ul id='langs' class='ui-widget-content'>
+    <li data-val='en'>english</li>
+    <li data-val='fr'>francais</li>
+    <li data-val='it'>italiano</li>
+    <li data-val='ro'>romana</li>
+    <li data-val='ru'>ruschii</li>    
+</ul>
+<script type='text/javascript'>
+    $(function () {
+        $('#langs li').click(function () {
+            $.post('@Url.Action("change","mui")', { l: $(this).data('val') }, function () { location.reload(true); });
+
+        });
+    });
+</script>

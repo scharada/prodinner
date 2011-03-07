@@ -16,7 +16,7 @@ namespace Omu.ProDinner.WebUI
 
             Settings.Confirm.NoText = "No";
             Settings.PopupForm.OkText = "Submit";
-            Settings.PopupForm.ClientSideValidation = true;
+            Settings.PopupForm.ClientSideValidation = false;
         }
     }
 }

@@ -331,3 +331,21 @@ fieldset
     width: 200px;
     height: 150px;
     }
+    
+    .langs 
+    {            
+    position: absolute;
+    right: 100px;
+    cursor: pointer !important;
+}
+
+.langs a
+{
+    text-decoration: underline !important;
+}
+
+.langs li
+{
+    display: block;
+    text-align: right;
+    }
