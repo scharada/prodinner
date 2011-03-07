@@ -4,12 +4,16 @@
 
 
     var c = ViewContext.RouteData.Values["Controller"].ToString();
+     
     var h = 200;
     var he = h;
+    if(c=="Dinner"){
+        h = he = 500;
+    }
 }
 @Html.Partial("header")
-@Html.Confirm("Are you sure you want to delete this " + c + " ?")
-@Html.MakePopupForm("create", title: "create " + c, successFunction: "create", height: h)
+@Html.Confirm(@Mui.confirm_delete)
+@Html.MakePopupForm("create", successFunction: "create", height: h)
 @Html.MakePopupForm("Edit", new[] { "id" }, title: "edit " + c, successFunction: "edit", height: he)
 
 <script type="text/javascript">
@@ -64,4 +68,4 @@
     </tbody>
 </table>
 <br />
-<a id="more" class="abtn" style="display:none;">more</a> 
+<a id="more" class="abtn" style="display:none;">@Mui.more</a> 

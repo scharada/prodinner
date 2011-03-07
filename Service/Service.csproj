@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Omu.ValueInjecter">
-      <HintPath>..\packages\ValueInjecter.2.1\lib\Omu.ValueInjecter.dll</HintPath>
+      <HintPath>..\libs\Omu.ValueInjecter.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
