@@ -15,4 +15,9 @@ namespace Omu.ProDinner.Core.Service
         int Count();
         IEnumerable<T> Where(Expression<Func<T, bool>> func);
     }
+
+    public interface IMealService : ICrudService<Meal>
+    {
+        void HasPic(int id);
+    }
 }

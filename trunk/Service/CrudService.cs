@@ -8,6 +8,18 @@ using Omu.ValueInjecter;
 
 namespace Omu.ProDinner.Service
 {
+    public class MealService : CrudService<Meal>, IMealService
+    {
+        public MealService(IRepo<Meal> repo) : base(repo)
+        {
+        }
+
+        public void HasPic(int id)
+        {
+            repo.Get(id).HasPic = true;
+            repo.Save();
+        }
+    }
     public class CrudService<T> : ICrudService<T> where T : Entity, new()
     {
         protected IRepo<T> repo;

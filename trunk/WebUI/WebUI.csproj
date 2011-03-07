@@ -46,7 +46,11 @@
     <Reference Include="Omu.Awesome.Mvc">
       <HintPath>..\libs\Omu.Awesome.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="Omu.Drawing">
+      <HintPath>..\libs\Omu.Drawing.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -90,11 +94,17 @@
     <Compile Include="CastleWindsorControllerFactory.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ChangeThemeController.cs" />
+    <Compile Include="Controllers\ChefAjaxDropdownController.cs" />
+    <Compile Include="Controllers\ChefController.cs" />
+    <Compile Include="Controllers\CountryAjaxDropdownController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\Cruder.cs" />
     <Compile Include="Controllers\Crudere.cs" />
+    <Compile Include="Controllers\DinnerController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MealController.cs" />
+    <Compile Include="Controllers\MealsLookupController.cs" />
     <Compile Include="Controllers\NavController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -110,12 +120,15 @@
     <Content Include="Content\error-lolcat-problemz.jpg" />
     <Content Include="Content\FaceBook-icon.png" />
     <Content Include="Content\Google-icon.png" />
+    <Content Include="Content\Jcrop.gif" />
+    <Content Include="Content\jquery.Jcrop.css" />
     <Content Include="Content\strawberry.png" />
     <Content Include="Content\Twitter-icon.png" />
     <Content Include="favicon2.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Awesome.js" />
     <Content Include="Scripts\jquery.form.min.js" />
+    <Content Include="Scripts\jquery.Jcrop.min.js" />
     <Content Include="Scripts\mvcvalidationfix.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
@@ -123,6 +136,7 @@
     <Content Include="Scripts\style.js" />
     <Content Include="Scripts\jquery.form.js" />
     <None Include="Views\ChangeTheme\index.cshtml" />
+    <None Include="Views\Meal\crop.cshtml" />
     <Content Include="Views\Shared\Awesome\AjaxDropdown.ascx" />
     <Content Include="Views\Shared\Awesome\header.ascx" />
     <Content Include="Views\Shared\Awesome\MultiLookupPopup.ascx" />
@@ -167,6 +181,16 @@
     <Content Include="Views\Country\hrow.cshtml" />
     <Content Include="Views\Country\rows.cshtml" />
     <Content Include="Views\Country\searchBox.cshtml" />
+    <Content Include="Views\Chef\Create.cshtml" />
+    <Content Include="Views\Chef\searchBox.cshtml" />
+    <Content Include="Views\Chef\header.cshtml" />
+    <Content Include="Views\Chef\hrow.cshtml" />
+    <Content Include="Views\Chef\rows.cshtml" />
+    <Content Include="Views\Dinner\Create.cshtml" />
+    <Content Include="Views\Dinner\searchBox.cshtml" />
+    <Content Include="Views\Dinner\header.cshtml" />
+    <Content Include="Views\Dinner\hrow.cshtml" />
+    <Content Include="Views\Dinner\rows.cshtml" />
     <None Include="Views\Home\about.cshtml" />
     <Content Include="Views\Home\CreateCountry.cshtml" />
     <None Include="Views\Home\index.cshtml" />
@@ -176,9 +200,17 @@
     </Content>
     <Content Include="Views\Nav\Index.cshtml" />
     <Content Include="Views\Shared\cruds.cshtml" />
+    <Content Include="Views\Meal\Create.cshtml" />
+    <Content Include="Views\Meal\searchBox.cshtml" />
+    <Content Include="Views\Meal\header.cshtml" />
+    <Content Include="Views\Meal\hrow.cshtml" />
+    <Content Include="Views\Meal\rows.cshtml" />
+    <Content Include="Views\MealsLookup\item.cshtml" />
+    <Content Include="Views\Meal\Picture.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="pictures\Meals\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj">
@@ -192,6 +224,10 @@
     <ProjectReference Include="..\Infra\Infra.csproj">
       <Project>{4889C84C-9CDF-4928-BFE1-6801EB3E6380}</Project>
       <Name>Infra</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{B603F35A-0F5C-4F45-9A5F-633DED479F1F}</Project>
+      <Name>Resources</Name>
     </ProjectReference>
     <ProjectReference Include="..\Service\Service.csproj">
       <Project>{046EF484-2278-4760-B7DD-FADF08ACE1F8}</Project>

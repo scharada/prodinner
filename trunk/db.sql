@@ -1,3 +1,4 @@
+
 create database prodinner
 go
 use prodinner
@@ -11,7 +12,8 @@ name nvarchar(20) not null
 create table meals(
 id int identity primary key,
 name nvarchar(50) not null,
-comments nvarchar(max)
+comments nvarchar(max),
+haspic bit default(0)
 )
 
 create table chefs(
@@ -45,12 +47,12 @@ insert countries values('Mexico')
 insert countries values('Brazil')
 insert countries values('Japan')
 
-insert meals values('broccoli', 'broccoli as is in its natural form')
-insert meals values('broccoli with broccoli', 'broccoli, brocoli leaves, broccoli tree, water, salt and pepper')
-insert meals values('broccoli soup', 'pro style broccoli soup')
-insert meals values('banana', 'yellow fruit')
-insert meals values('pineapple', 'apple with a poohawk')
-insert meals values('strawberries', 'awesome fruits')
+insert meals values('broccoli', 'broccoli as is in its natural form',1)
+insert meals values('broccoli with broccoli', 'broccoli, brocoli leaves, broccoli tree, water, salt and pepper',1)
+insert meals values('broccoli soup', 'pro style broccoli soup',0)
+insert meals values('banana', 'yellow fruit',0)
+insert meals values('pineapple', 'apple with a poohawk',0)
+insert meals values('strawberries', 'awesome fruits',0)
 
 insert chefs values('athene', 'wins', 4)
 insert chefs values('naked', 'chef', 3)

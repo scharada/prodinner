@@ -12,14 +12,15 @@ namespace Omu.ProDinner.Core.Model
     {
         public string Name { get; set; }
         public virtual ICollection<Chef> Chefs { get; set; }
-        public virtual ICollection<Dinner> Dinners { get; set;}
+        public virtual ICollection<Dinner> Dinners { get; set; }
     }
 
     public class Meal : Entity
     {
         public string Name { get; set; }
         public string Comments { get; set; }
-        public virtual ICollection<Dinner> Dinners { get; set;}
+        public virtual ICollection<Dinner> Dinners { get; set; }
+        public bool HasPic { get; set; }
     }
 
     public class Chef : Entity
@@ -36,6 +37,6 @@ namespace Omu.ProDinner.Core.Model
         public virtual Chef Chef { get; set; }
         public string Address { get; set; }
         public DateTime Date { get; set; }
-        public virtual ICollection<Meal> Meals { get; set;}
+        public virtual ICollection<Meal> Meals { get; set; }
     }
 }

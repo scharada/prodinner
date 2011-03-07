@@ -16,13 +16,15 @@ namespace Omu.ProDinner.WebUI
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
+            var c = Request.Cookies["lang"];
+            var l = c == null ? "auto:en-US" : c.Value;
             // Uses WebForms code to apply "auto" culture to current thread and deal with
             // invalid culture requests automatically. Defaults to en-US when not specified.
             using (var fakePage = new Page())
             {
                 var ignored = fakePage.Server; // Work around a WebForms quirk
                 fakePage.Culture = "en-US"; // Apply local formatting to this thread
-                fakePage.UICulture = "en-US"; // Apply local language to this thread
+                fakePage.UICulture = l; // Apply local language to this thread
             }
         }
 

@@ -5,6 +5,11 @@ namespace Omu.ProDinner.Infra
 {
     public class WindsorRegistrar
     {
+        public static void RegisterSingleton(Type interfaceType, Type implementationType)
+        {
+            IoC.Container.Register(Component.For(interfaceType).ImplementedBy(implementationType).LifeStyle.Singleton);
+        }
+        
         public static void Register(Type interfaceType, Type implementationType)
         {
             IoC.Container.Register(Component.For(interfaceType).ImplementedBy(implementationType).LifeStyle.PerWebRequest);
