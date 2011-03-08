@@ -33,7 +33,7 @@ namespace Omu.ProDinner.WebUI.Controllers
         {
             return Json(r.GetAll().Where(o => selected.Contains(o.Id)).Select(v => new 
             { 
-                Text = @"<img  src='/prodinner/pictures/Meals/" + (v.HasPic ? v.Id : 0) + "_.jpg'  />"+ v.Name 
+                Text = @"<img  src='/prodinner/pictures/Meals/" + (v.HasPic ? v.Id : 0) + "m.jpg' class='mthumb' />"+ v.Name 
             }));
         }
 

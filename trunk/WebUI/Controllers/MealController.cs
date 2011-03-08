@@ -69,9 +69,11 @@ namespace Omu.ProDinner.WebUI.Controllers
             {
                 var img = Imager.CropImage(image, new Rectangle(x, y, w, h));
                 var resized = Imager.ResizeImage(img, 200, 150, true);
+                var small = Imager.ResizeImage(img, 100, 75, true);
                 var mini = Imager.ResizeImage(img, 45, 34, true);
                 Imager.SaveJpeg(@ConfigurationManager.AppSettings["storagePath"] + @"\Meals\" + id + ".jpg", resized);
-                Imager.SaveJpeg(@ConfigurationManager.AppSettings["storagePath"] + @"\Meals\" + id + "_.jpg", mini);
+                Imager.SaveJpeg(@ConfigurationManager.AppSettings["storagePath"] + @"\Meals\" + id + "s.jpg", small);
+                Imager.SaveJpeg(@ConfigurationManager.AppSettings["storagePath"] + @"\Meals\" + id + "m.jpg", mini);
                 s.HasPic(id);
             }
             return RedirectToAction("Picture", new { id });

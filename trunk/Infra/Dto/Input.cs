@@ -36,7 +36,7 @@ namespace Omu.ProDinner.Infra.Dto
         [Required]
         public string Name { get; set; }
         [Required]
-        [UIHint("AjaxDropdown")]
+        [UIHint("Lookup")]
         public int?  Country { get; set; }
         [Required]
         [UIHint("AjaxDropdown")]

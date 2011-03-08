@@ -9,11 +9,12 @@ namespace Omu.ProDinner.WebUI.Controllers
     {
         public ActionResult Index(Exception error)
         {
+            ViewBag.Message = error.Message;
             if(Request.IsAjaxRequest())
             {
                 if (error is AwesomeDemoException)
-                    return PartialView("Expectedp", new ErrorDisplay { Message = error.Message });
-                return PartialView("Errorp", new ErrorDisplay { Message = error.Message });
+                    return View("Expectedp");
+                return View("Errorp");
             }
 
             if (error is AwesomeDemoException)

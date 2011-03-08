@@ -61,6 +61,24 @@ namespace Omu.ProDinner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chef.
+        /// </summary>
+        public static string Chef {
+            get {
+                return ResourceManager.GetString("Chef", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to are you sure you want to delete this item ?.
         /// </summary>
         public static string confirm_delete {
@@ -106,11 +124,65 @@ namespace Omu.ProDinner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string Home {
+            get {
+                return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to host a dinner.
+        /// </summary>
+        public static string host_a_dinner {
+            get {
+                return ResourceManager.GetString("host_a_dinner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Meals.
+        /// </summary>
+        public static string Meals {
+            get {
+                return ResourceManager.GetString("Meals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to more.
         /// </summary>
         public static string more {
             get {
                 return ResourceManager.GetString("more", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Picture.
+        /// </summary>
+        public static string Picture {
+            get {
+                return ResourceManager.GetString("Picture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to search for a dinner.
+        /// </summary>
+        public static string search_for_a_dinner {
+            get {
+                return ResourceManager.GetString("search_for_a_dinner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stuff.
+        /// </summary>
+        public static string Stuff {
+            get {
+                return ResourceManager.GetString("Stuff", resourceCulture);
             }
         }
     }

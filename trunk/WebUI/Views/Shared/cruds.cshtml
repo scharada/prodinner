@@ -5,7 +5,7 @@
 
     var c = ViewContext.RouteData.Values["Controller"].ToString();
      
-    var h = 200;
+    var h = 300;
     var he = h;
     if(c=="Dinner"){
         h = he = 500;
@@ -57,7 +57,7 @@
 @Html.Partial("searchbox")
 </form>
 <br />
-@Html.PopupFormActionLink("create", htmlAttributes: new { @class = "abtn" })
+@Html.PopupFormActionLink("create", Mui.create, htmlAttributes: new { @class = "abtn" })
 <br />
 <br />
 <table class="atbl">

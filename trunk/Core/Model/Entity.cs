@@ -6,6 +6,7 @@ namespace Omu.ProDinner.Core.Model
     public class Entity
     {
         public int Id { get; set; }
+        public bool IsDeleted { get; set; }
     }
 
     public class Country : Entity
@@ -28,6 +29,7 @@ namespace Omu.ProDinner.Core.Model
         public string FName { get; set; }
         public string LName { get; set; }
         public virtual Country Country { get; set; }
+        public virtual ICollection<Dinner> Dinners { get; set; }
     }
 
     public class Dinner : Entity

@@ -98,6 +98,7 @@
     <Compile Include="Controllers\ChefController.cs" />
     <Compile Include="Controllers\CountryAjaxDropdownController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
+    <Compile Include="Controllers\CountryLookupController.cs" />
     <Compile Include="Controllers\Cruder.cs" />
     <Compile Include="Controllers\Crudere.cs" />
     <Compile Include="Controllers\DinnerController.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="Controllers\MealsLookupController.cs" />
     <Compile Include="Controllers\MuiController.cs" />
     <Compile Include="Controllers\NavController.cs" />
+    <Compile Include="Controllers\StuffController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -136,6 +138,8 @@
     <Content Include="Scripts\style.js" />
     <Content Include="Scripts\jquery.form.js" />
     <None Include="Views\ChangeTheme\index.cshtml" />
+    <Content Include="Views\Dinner\Index.cshtml" />
+    <Content Include="Views\CountryLookup\item.cshtml" />
     <None Include="Views\Meal\crop.cshtml" />
     <Content Include="Views\Shared\Awesome\AjaxDropdown.ascx" />
     <Content Include="Views\Shared\Awesome\header.ascx" />
@@ -188,8 +192,6 @@
     <Content Include="Views\Chef\rows.cshtml" />
     <Content Include="Views\Dinner\Create.cshtml" />
     <Content Include="Views\Dinner\searchBox.cshtml" />
-    <Content Include="Views\Dinner\header.cshtml" />
-    <Content Include="Views\Dinner\hrow.cshtml" />
     <Content Include="Views\Dinner\rows.cshtml" />
     <Content Include="Views\Shared\Site.Master" />
     <Content Include="Views\Web.config">
@@ -206,6 +208,7 @@
     <Content Include="Views\Meal\Picture.cshtml" />
     <Content Include="Views\Mui\Index.cshtml" />
     <Content Include="Views\Mui\Langs.cshtml" />
+    <Content Include="Views\Stuff\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

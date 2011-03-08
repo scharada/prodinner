@@ -40,16 +40,23 @@
                 </div>
             </div>
             <div class="langs">
-            @Html.Action("index", "mui")
-            </div>           
+                @Html.Action("index", "mui")
+            </div>
         </div>
     </div>
-    <div id="main-container"> <div id="main" class="maindiv ">  
-    @Mui.hi  
-    @RenderBody()
-    </div> </div> <div id="footer" class="ui-state-default"> <div class="maindiv"> <div
-    class="changetheme">
-    @Html.Action("Index", "ChangeTheme")
-    </div> </div> </div>
+    <div id="main-container">
+        <div id="main" class="maindiv ">
+            @RenderBody()
+        </div>
+    </div>
+    <div id="footer" class="ui-state-default">
+        <div class="maindiv">
+            <div class="changetheme">
+                <div class="fl" style="margin-right: 1em;margin-top: 0.5em;">
+                    Theme:</div>
+                <div class="fl">@Html.Action("Index", "ChangeTheme")</div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
