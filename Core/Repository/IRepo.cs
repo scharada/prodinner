@@ -14,8 +14,6 @@ namespace Omu.ProDinner.Core.Repository
         void Insert(T o);
         void Save();
         void Delete(T o);
-        void Delete(IEnumerable<T> oo);
-        void Insert(IEnumerable<T> oo);
     }
 
     public interface IUniRepo

@@ -27,36 +27,24 @@ namespace Omu.ProDinner.Data
             c.Set<T>().Add(o);
         }
 
-        public void Insert(IEnumerable<T> oo)
+        public void Delete(T o)
         {
-            foreach (var o in oo)
-                Insert(o);
+            o.IsDeleted = true;
         }
 
-        public virtual void Delete(T o)
+        public IEnumerable<T> Where(Expression<Func<T, bool>> predicate)
         {
-            c.Set<T>().Remove(o);
+            return c.Set<T>().Where(predicate).Where(o => o.IsDeleted == false);
         }
 
-        public virtual void Delete(IEnumerable<T> oo)
+        public IEnumerable<T> GetAll()
         {
-            foreach (var o in oo)
-                Delete(o);
+            return c.Set<T>().Where(o => o.IsDeleted == false);
         }
 
         public T Get(long id)
         {
             return c.Set<T>().Find(id);
-        }
-
-        public virtual IEnumerable<T> Where(Expression<Func<T, bool>> predicate)
-        {
-            return c.Set<T>().Where(predicate);
-        }
-
-        public virtual IEnumerable<T> GetAll()
-        {
-            return c.Set<T>();
         }
 
         public int Count()

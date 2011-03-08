@@ -127,10 +127,10 @@ function ae_lookupChoose(o, url, sel) {
     $("#lp" + o).dialog('close');
 }
 
-function ae_multiLookupChoose(o, loadUrl) {
+function ae_multiLookupChoose(o, loadUrl, prop) {
     $("#" + o).empty();
     $.each($("#" + o + "se li").map(function () { return $(this).attr("data-value"); }).get(), function () {
-        $("#" + o).append($("<input type='hidden' name='" + o + "' \>").attr("value", this));
+        $("#" + o).append($("<input type='hidden' name='" + prop + "' \>").attr("value", this));
     });
     $("#" + o).change();
     ae_loadMultiLookupDisplay(o, loadUrl);
@@ -146,7 +146,8 @@ function ae_lookupClear(o) {
 
 function ae_multiLookupClear(o) {
     $("#lc" + o).click(function () {
-        $("#" + o + ",#ld" + o).empty();
+        $("#" + o + ",#ld" + o).empty(); 
+        $("#" + o).change();
     });
 }
 

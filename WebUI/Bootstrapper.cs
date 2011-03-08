@@ -14,9 +14,10 @@ namespace Omu.ProDinner.WebUI
             WindsorConfigurator.Configure();
             ModelMetadataProviders.Current = new AwesomeModelMetadataProvider();
 
-            Settings.Confirm.NoText = "No";
-            Settings.PopupForm.OkText = "Submit";
+            //Settings.Confirm.NoText = "No";
+            //Settings.PopupForm.OkText = "Submit";
             Settings.PopupForm.ClientSideValidation = false;
+            Settings.Lookup.CancelText = "X";
         }
     }
 }

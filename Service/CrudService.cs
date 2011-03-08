@@ -5,6 +5,7 @@ using Omu.ProDinner.Core.Model;
 using Omu.ProDinner.Core.Repository;
 using Omu.ProDinner.Core.Service;
 using Omu.ValueInjecter;
+using Omu.ProDinner.Core;
 
 namespace Omu.ProDinner.Service
 {
@@ -20,6 +21,9 @@ namespace Omu.ProDinner.Service
             repo.Save();
         }
     }
+
+    
+
     public class CrudService<T> : ICrudService<T> where T : Entity, new()
     {
         protected IRepo<T> repo;

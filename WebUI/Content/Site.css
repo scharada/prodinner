@@ -158,6 +158,11 @@ select
     float: left;
 }
 
+.fr
+{
+    float: right;
+    }
+
 h2
 {
     margin: 20px 0;
@@ -330,10 +335,22 @@ fieldset
 {
     width: 200px;
     height: 150px;
-    }
-    
-    .langs 
-    {            
+}
+
+.sthumb
+{
+    width: 100px;
+    height: 75px;
+}
+
+.mthumb
+{
+    width: 45px;
+    height: 34px;
+}
+
+.langs
+{
     position: absolute;
     right: 100px;
     cursor: pointer !important;
@@ -348,4 +365,23 @@ fieldset
 {
     display: block;
     text-align: right;
-    }
+}
+
+.dinner
+{
+    display: block;
+    margin-bottom: 1em;
+    padding: 1em;
+}
+
+.si
+{
+    float: left;
+    margin-right: 1em;
+}
+
+.mealitem
+{
+   float:left;
+   margin:3px;    
+}

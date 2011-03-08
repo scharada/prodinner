@@ -30,7 +30,6 @@ namespace Omu.ProDinner.WebUI
 
         protected void Application_Error(object sender, EventArgs e)
         {
-            return;
             var exception = Server.GetLastError();
             // Log the exception.
             Response.Clear();
