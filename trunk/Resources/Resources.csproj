@@ -40,6 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mui.it.Designer.cs">
+      <DependentUpon>Mui.it.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Mui.de.Designer.cs">
       <DependentUpon>Mui.de.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -73,6 +78,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Mui.it.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Mui.it.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mui.de.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Mui.de.Designer.cs</LastGenOutput>
