@@ -34,7 +34,7 @@ namespace Omu.ProDinner.Infra.Builder
         {
             var e = id.HasValue ? repo.Get(id.Value) : new TEntity();
             if (e == null)
-                throw new AwesomeDemoException("this entity doesn't exist anymore");
+                throw new ProDinnerException("this entity doesn't exist anymore");
 
             e.InjectFrom(input)
                .InjectFrom<NullIntToEntity>(input)

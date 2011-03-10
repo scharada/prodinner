@@ -9,7 +9,7 @@
         ae_loadMultiLookupDisplay(o,'<%=Url.Action("GetMultiple", Model.Controller) %>');
         $("."+o+"ie8").remove();
         $("#lp"+o).addClass(o+"ie8");
-        ae_popup('lp'+o, <%=Model.Width %>, <%=Model.Height %>, '<%=AwesomeTools.JsEncode(Model.Title) %>', true, 'center', true, {'<%=AwesomeTools.JsEncode(Model.ChooseText) %>': function () {ae_multiLookupChoose(o, '<%=Url.Action("GetMultiple", Model.Controller) %>', '<%=Model.Prop %>');},'<%=AwesomeTools.JsEncode(Model.CancelText) %>': function () { $(this).dialog('close'); }}, <%=Model.Fullscreen.ToString().ToLower() %>);
+        ae_popup('lp'+o, <%=Model.Width %>, <%=Model.Height %>, '<%=AwesomeTools.JsEncode(Model.Title) %>', true, 'center', true, {'<%=AwesomeTools.JsEncode(Model.ChooseText) %>': function () {ae_multiLookupChoose(o, '<%=Url.Action("GetMultiple", Model.Controller) %>', '<%=Model.Prop %>');},'<%=AwesomeTools.JsEncode(Mui.Cancel) %>': function () { $(this).dialog('close'); }}, <%=Model.Fullscreen.ToString().ToLower() %>);
         
         var lck<%=o %> = null;        
         ae_lookupPopupOpenClick(o, lck<%=o %>, '<%=Url.Action("index", Model.Controller) %>', <%=Model.Paging.ToString().ToLower() %>, <%=Model.Multiselect.ToString().ToLower() %>, [<%=Model.Data  != null ? AwesomeTools.MakeJsArray(Model.Data.Keys) :""%>], [<%=Model.Data != null ? AwesomeTools.MakeIdJsArray(Model.Data.Values) :""%>]);        

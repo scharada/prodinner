@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AwesomeDemoException.cs">
+    <Compile Include="ProDinnerException.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\Entity.cs" />

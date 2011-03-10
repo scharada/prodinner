@@ -12,12 +12,12 @@ namespace Omu.ProDinner.WebUI.Controllers
             ViewBag.Message = error.Message;
             if(Request.IsAjaxRequest())
             {
-                if (error is AwesomeDemoException)
+                if (error is ProDinnerException)
                     return View("Expectedp");
                 return View("Errorp");
             }
 
-            if (error is AwesomeDemoException)
+            if (error is ProDinnerException)
                 return View("Expected", new ErrorDisplay { Message = error.Message });
             return View("Error", new ErrorDisplay{Message = error.Message});
         }

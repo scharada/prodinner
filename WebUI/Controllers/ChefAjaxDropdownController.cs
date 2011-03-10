@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Omu.ProDinner.Core.Model;
 using Omu.ProDinner.Core.Repository;
+using Omu.ProDinner.Resources;
 
 namespace Omu.ProDinner.WebUI.Controllers
 {
@@ -17,7 +18,7 @@ namespace Omu.ProDinner.WebUI.Controllers
 
         public ActionResult GetItems(int? key)
         {
-            var list = new List<SelectListItem> { new SelectListItem { Text = "not selected", Value = "" } };
+            var list = new List<SelectListItem> { new SelectListItem { Text = Mui.not_selected, Value = "" } };
 
 
             list.AddRange(r.GetAll().Select(o => new SelectListItem

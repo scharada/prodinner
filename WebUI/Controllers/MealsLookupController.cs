@@ -28,12 +28,14 @@ namespace Omu.ProDinner.WebUI.Controllers
             return View(@"Awesome\LookupList", r.GetAll().Where(o => selected != null && selected.Contains(o.Id)));
         }
 
-
         public ActionResult GetMultiple(IEnumerable<int> selected)
         {
-            return Json(r.GetAll().Where(o => selected.Contains(o.Id)).Select(v => new 
-            { 
-                Text = @"<img  src='/prodinner/pictures/Meals/" + (v.HasPic ? v.Id : 0) + "m.jpg' class='mthumb' />"+ v.Name 
+            return Json(r.GetAll().Where(o => selected.Contains(o.Id)).Select(v => new
+            {
+                Text = @"<img  src='" + 
+                Url.Content("~/pictures/Meals/" + (v.HasPic ? v.Id : 0) + "m.jpg") + 
+                "' class='mthumb' />" + 
+                v.Name
             }));
         }
 

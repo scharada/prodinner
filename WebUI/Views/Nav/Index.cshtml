@@ -2,5 +2,6 @@
     <li>@Html.ActionLink(Mui.Home, "Index", "Dinner")</li>           
     <li>@Html.ActionLink(Mui.Meals, "Index", "Meal")</li>
     <li>@Html.ActionLink(Mui.Stuff, "Index", "Stuff")</li>
-    <li>@Html.ActionLink("About", "About", "Home")</li>
+    <li>@Html.PopupActionLink("About", Mui.About, controller: "Dinner")</li>
 </ul>
+@Html.MakePopup("About", controller: "Dinner", title: Mui.About + " prodinner", fullScreen: true, modal:true)

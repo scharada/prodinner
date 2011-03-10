@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Omu.Awesome.Mvc;
-using Omu.ProDinner.Core.Model;
+using Omu.ProDinner.Resources;
 
 namespace Omu.ProDinner.Infra.Dto
 {
@@ -10,45 +10,68 @@ namespace Omu.ProDinner.Infra.Dto
     {
         public int Id { get; set; }
     }
-    public class CountryInput:Input
+
+    public class CountryInput : Input
     {
-        [Required]
-        public string Name { get; set;}
+        [Req]
+        [Display(ResourceType = typeof(Mui), Name = "Name")]
+        public string Name { get; set; }
     }
-    public class ChefInput:Input
+
+    public class ChefInput : Input
     {
-        [Required]
+        [Req]
+        [Display(ResourceType = typeof(Mui), Name = "First_Name")]
         public string FName { get; set; }
-        [Required]
+
+        [Req]
+        [Display(ResourceType = typeof(Mui), Name = "Last_Name")]
         public string LName { get; set; }
-        [Required]
+
+        [Req]
         [UIHint("AjaxDropdown")]
+        [Display(ResourceType = typeof(Mui), Name = "Country")]
         public int? Country { get; set; }
     }
-    public class MealInput:Input
+
+    public class MealInput : Input
     {
-        [Required]
-        public string Name{ get; set;}
+        [Req]
+        [Display(ResourceType = typeof(Mui), Name = "Name")]
+        public string Name { get; set; }
+
+        [Display(ResourceType = typeof(Mui), Name = "Comments")]
         public string Comments { get; set; }
     }
-    public class DinnerInput:Input
+
+    public class DinnerInput : Input
     {
-        [Required]
+        [Req]
+        [Display(ResourceType = typeof(Mui), Name="Name")]
         public string Name { get; set; }
-        [Required]
+
+        [Req]
         [UIHint("Lookup")]
-        public int?  Country { get; set; }
-        [Required]
+        [Display(ResourceType = typeof(Mui), Name="Country")]
+        public int? Country { get; set; }
+
+        [Req]
         [UIHint("AjaxDropdown")]
-        public int?  Chef { get; set; }
-        [Required]
+        [Display(ResourceType = typeof(Mui), Name="Chef")]
+        public int? Chef { get; set; }
+
+        [Req]
+        [Display(ResourceType = typeof(Mui), Name="Address")]
         public string Address { get; set; }
-        [Required]
+
+        [Req]
+        [Display(ResourceType = typeof(Mui), Name="Date")]
         public DateTime? Date { get; set; }
 
-        [Required]
+        [Req]
         [UIHint("Lookup")]
         [Lookup(Multiselect = true, Fullscreen = true)]
+        [Display(ResourceType = typeof(Mui), Name="Meals")]
         public IEnumerable<int> Meals { get; set; }
     }
 
@@ -57,5 +80,14 @@ namespace Omu.ProDinner.Infra.Dto
         public int ImageHeight { get; set; }
         public int ImageWidth { get; set; }
         public int Id { get; set; }
+    }
+
+    public class ReqAttribute : RequiredAttribute
+    {
+        public ReqAttribute()
+        {
+            ErrorMessageResourceName = "required";
+            ErrorMessageResourceType = typeof(Mui);
+        }
     }
 }
