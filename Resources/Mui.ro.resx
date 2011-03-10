@@ -130,7 +130,7 @@
     <value>Data</value>
   </data>
   <data name="Meals" xml:space="preserve">
-    <value>Mancaruri</value>
+    <value>Bucate</value>
   </data>
   <data name="Stuff" xml:space="preserve">
     <value>Chestii</value>
@@ -145,7 +145,7 @@
     <value>Nume</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>Cauta</value>
+    <value>Caută</value>
   </data>
   <data name="Country" xml:space="preserve">
     <value>Tara</value>
@@ -163,34 +163,34 @@
     <value>gateste</value>
   </data>
   <data name="required" xml:space="preserve">
-    <value>campul {0} este obligatoriu</value>
+    <value>câmpul {0} este obligatoriu</value>
   </data>
   <data name="select_thumbnail" xml:space="preserve">
-    <value>selectati thumbnail</value>
+    <value>selectați thumbnail</value>
   </data>
   <data name="upload_file" xml:space="preserve">
     <value>încărcaţi un fişier</value>
   </data>
   <data name="Chef" xml:space="preserve">
-    <value>Bucatar</value>
+    <value>Bucătar</value>
   </data>
   <data name="confirm_delete" xml:space="preserve">
-    <value>Sunteti sigur ca doriti sa stergeti acest item ?</value>
+    <value>Sunteți sigur că doriți să ștergeți acest item ?</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Creaza</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Sterge</value>
+    <value>Șterge</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Modifica</value>
+    <value>Modifică</value>
   </data>
   <data name="Home" xml:space="preserve">
-    <value>Acasa</value>
+    <value>Acasă</value>
   </data>
   <data name="host_a_dinner" xml:space="preserve">
-    <value>gazduieste o cina</value>
+    <value>găzduiește o cină</value>
   </data>
   <data name="more" xml:space="preserve">
     <value>mai mult</value>
@@ -199,7 +199,7 @@
     <value>Imagine</value>
   </data>
   <data name="search_for_a_dinner" xml:space="preserve">
-    <value>cauta o cina</value>
+    <value>caută o cină</value>
   </data>
   <data name="hi" xml:space="preserve">
     <value>bonjour comment allez vous</value>

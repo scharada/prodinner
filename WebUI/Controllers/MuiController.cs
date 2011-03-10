@@ -16,6 +16,7 @@ namespace Omu.ProDinner.WebUI.Controllers
                                                         {"ro","română"},
                                                         {"de","deutsch"},
                                                         {"ru","русский"},
+                                                        {"it","italiano"}
                                                     };
         public ActionResult Index()
         {
