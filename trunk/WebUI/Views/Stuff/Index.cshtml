@@ -1,11 +1,11 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>stuff</h2>
+<h2>@Mui.Stuff</h2>
 
 <p>
-@Html.ActionLink("Countries", "index","country")
+@Html.ActionLink(@Mui.Country, "index","country")
 </p>
 <p>
-@Html.ActionLink("Chefs", "index","chef")
+@Html.ActionLink(@Mui.Chef, "index","chef")
 </p>

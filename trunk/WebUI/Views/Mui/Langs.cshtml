@@ -1,14 +1,13 @@
-﻿<ul id='langs' class='ui-widget-content'>
-    <li data-val='en'>english</li>
-    <li data-val='fr'>francais</li>
-    <li data-val='it'>italiano</li>
-    <li data-val='ro'>romana</li>
-    <li data-val='ru'>ruschii</li>    
+﻿@model IDictionary<string, string>
+<ul id='langs' class='ui-widget-content'>
+    @foreach(var o in Model) {
+    <li data-val='@o.Key'>@o.Value</li>
+    } 
 </ul>
 <script type='text/javascript'>
     $(function () {
         $('#langs li').click(function () {
-            $.post('@Url.Action("change","mui")', { l: $(this).data('val') }, function () { location.reload(true); });
+            $.post('@Url.Action("change", "mui")', { l: $(this).data('val') }, function () { location.reload(true); });
 
         });
     });

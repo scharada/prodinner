@@ -25,6 +25,7 @@ namespace Omu.ProDinner.WebUI
                 var ignored = fakePage.Server; // Work around a WebForms quirk
                 fakePage.Culture = "en-US"; // Apply local formatting to this thread
                 fakePage.UICulture = l; // Apply local language to this thread
+                HttpContext.Current.Items.Add("lang", l);
             }
         }
 
@@ -76,5 +77,5 @@ namespace Omu.ProDinner.WebUI
                  new HttpContextWrapper(Context), routeData));
         }
     }
-    
+
 }

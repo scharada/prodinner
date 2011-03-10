@@ -3,9 +3,9 @@ using System;
 namespace Omu.ProDinner.Core
 {
     [Serializable]
-    public class AwesomeDemoException : Exception
+    public class ProDinnerException : Exception
     {
-        public AwesomeDemoException(string message)
+        public ProDinnerException(string message)
             : base(message)
         {
         }

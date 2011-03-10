@@ -46,7 +46,7 @@ namespace Omu.ProDinner.WebUI.Controllers
                 var filePath = @ConfigurationManager.AppSettings["storagePath"] + @"Meals\Temp\" + id + ".jpg";
                 using (var image = Image.FromStream(file.InputStream))
                 {
-                    var resized = Imager.ResizeImage(image, 640, 480, true);
+                    var resized = Imager.Resize(image, 640, 480, true);
                     Imager.SaveJpeg(filePath, resized);
                     return RedirectToAction("Crop", new CropInput { ImageWidth = resized.Width, ImageHeight = resized.Height, Id = id });
                 }
@@ -67,10 +67,10 @@ namespace Omu.ProDinner.WebUI.Controllers
         {
             using (var image = Image.FromFile(@ConfigurationManager.AppSettings["storagePath"] + @"\Meals\Temp\" + id + ".jpg"))
             {
-                var img = Imager.CropImage(image, new Rectangle(x, y, w, h));
-                var resized = Imager.ResizeImage(img, 200, 150, true);
-                var small = Imager.ResizeImage(img, 100, 75, true);
-                var mini = Imager.ResizeImage(img, 45, 34, true);
+                var img = Imager.Crop(image, new Rectangle(x, y, w, h));
+                var resized = Imager.Resize(img, 200, 150, true);
+                var small = Imager.Resize(img, 100, 75, true);
+                var mini = Imager.Resize(img, 45, 34, true);
                 Imager.SaveJpeg(@ConfigurationManager.AppSettings["storagePath"] + @"\Meals\" + id + ".jpg", resized);
                 Imager.SaveJpeg(@ConfigurationManager.AppSettings["storagePath"] + @"\Meals\" + id + "s.jpg", small);
                 Imager.SaveJpeg(@ConfigurationManager.AppSettings["storagePath"] + @"\Meals\" + id + "m.jpg", mini);

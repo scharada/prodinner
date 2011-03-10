@@ -39,14 +39,14 @@ function ae_loadAjaxDropdown(o, p, url, c, keys, values) {
     if (p) data.push({ name: "parent", value: $('#' + p).val() });
 
     $.each(keys, function (i, k) {
-        
+
 
         $('#' + k).change(function () { ae_loadAjaxDropdown(o, p, url, c, keys, values); });
         if ($('#' + k).attr('name')) {
             data.push({ name: values[i], value: $('#' + k).val() });
         } else {
             $('#' + k).find('input').each(function (index) {
-                data.push({ name: values[i], value: $(this).val() });                
+                data.push({ name: values[i], value: $(this).val() });
             });
         }
     });
@@ -146,7 +146,7 @@ function ae_lookupClear(o) {
 
 function ae_multiLookupClear(o) {
     $("#lc" + o).click(function () {
-        $("#" + o + ",#ld" + o).empty(); 
+        $("#" + o + ",#ld" + o).empty();
         $("#" + o).change();
     });
 }
@@ -159,17 +159,18 @@ function ae_confirm(o, f, h, w, yes, no) {
         height: h,
         width: w,
         modal: true,
-        autoOpen: false,
-        buttons: {
-            yes: function () {
-                $(this).dialog('close');
-                f.submit();
-            },
-            no: function () {
-                $(this).dialog('close');
-            }
-        }
-    });
+        autoOpen: false
+    })
+    .dialog("option", "buttons", [
+    {
+        text: yes,
+        click: function () { $(this).dialog("close"); f.submit(); }
+    }, 
+    {
+        text: no,
+        click: function () { $(this).dialog("close"); }
+    },
+    ]);
 
     $("." + o).live('click', function () {
         f = $(this).closest('form');

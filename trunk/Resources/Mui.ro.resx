@@ -118,99 +118,99 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="No" xml:space="preserve">
-    <value>Non</value>
+    <value>Nu</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Oui</value>
+    <value>Da</value>
   </data>
   <data name="Address" xml:space="preserve">
-    <value>Adresse</value>
+    <value>Adresa</value>
   </data>
   <data name="Date" xml:space="preserve">
-    <value>Date</value>
+    <value>Data</value>
   </data>
   <data name="Meals" xml:space="preserve">
-    <value>Repas</value>
+    <value>Mancaruri</value>
   </data>
   <data name="Stuff" xml:space="preserve">
-    <value>Choses</value>
+    <value>Chestii</value>
   </data>
   <data name="Comments" xml:space="preserve">
-    <value>Commentaires</value>
+    <value>Comentarii</value>
   </data>
   <data name="Language" xml:space="preserve">
-    <value>la langue</value>
+    <value>Limba</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Nom</value>
+    <value>Nume</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>Recherche</value>
+    <value>Cauta</value>
   </data>
   <data name="Country" xml:space="preserve">
-    <value>Pays</value>
+    <value>Tara</value>
   </data>
   <data name="First_Name" xml:space="preserve">
-    <value>prénom</value>
+    <value>Prenume</value>
   </data>
   <data name="Last_Name" xml:space="preserve">
-    <value>nom de famille</value>
+    <value>Nume</value>
   </data>
   <data name="from" xml:space="preserve">
-    <value>du</value>
+    <value>din</value>
   </data>
   <data name="is_cooking" xml:space="preserve">
-    <value>est la cuisson</value>
+    <value>gateste</value>
   </data>
   <data name="required" xml:space="preserve">
-    <value>le champ {0} est obligatoire</value>
+    <value>campul {0} este obligatoriu</value>
   </data>
   <data name="select_thumbnail" xml:space="preserve">
-    <value>thumbnail sélectionnez</value>
+    <value>selectati thumbnail</value>
   </data>
   <data name="upload_file" xml:space="preserve">
-    <value>télécharger le fichier</value>
+    <value>încărcaţi un fişier</value>
   </data>
   <data name="Chef" xml:space="preserve">
-    <value>Chef</value>
+    <value>Bucatar</value>
   </data>
   <data name="confirm_delete" xml:space="preserve">
-    <value>Êtes-vous sûr de vouloir supprimer cet élément?</value>
+    <value>Sunteti sigur ca doriti sa stergeti acest item ?</value>
   </data>
   <data name="Create" xml:space="preserve">
-    <value>Créer</value>
+    <value>Creaza</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Supprimer</value>
+    <value>Sterge</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Modifier</value>
+    <value>Modifica</value>
   </data>
   <data name="Home" xml:space="preserve">
-    <value>Accueil</value>
+    <value>Acasa</value>
   </data>
   <data name="host_a_dinner" xml:space="preserve">
-    <value>hôte d'un dîner</value>
+    <value>gazduieste o cina</value>
   </data>
   <data name="more" xml:space="preserve">
-    <value>plus</value>
+    <value>mai mult</value>
   </data>
   <data name="Picture" xml:space="preserve">
-    <value>Image</value>
+    <value>Imagine</value>
   </data>
   <data name="search_for_a_dinner" xml:space="preserve">
-    <value>recherche d'un dîner</value>
+    <value>cauta o cina</value>
   </data>
   <data name="hi" xml:space="preserve">
     <value>bonjour comment allez vous</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Anuller</value>
+    <value>Anulare</value>
   </data>
   <data name="About" xml:space="preserve">
-    <value>A propos</value>
+    <value>Despre</value>
   </data>
   <data name="not_selected" xml:space="preserve">
-    <value>pas sélectionné</value>
+    <value>nu este selectat</value>
   </data>
 </root>

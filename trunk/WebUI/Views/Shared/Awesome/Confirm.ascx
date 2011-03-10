@@ -5,7 +5,7 @@
 <script type="text/javascript">
         var currentForm<%=Model.CssClass %>;      
         $(function () {
-            ae_confirm('<%=o %>', currentForm<%=Model.CssClass %>, <%=Model.Height %>, <%=Model.Width %>, '<%=AwesomeTools.JsEncode(Model.YesText) %>', '<%=AwesomeTools.JsEncode(Model.NoText) %>');
+            ae_confirm('<%=o %>', currentForm<%=Model.CssClass %>, <%=Model.Height %>, <%=Model.Width %>, '<%=AwesomeTools.JsEncode(Mui.Yes) %>', '<%=AwesomeTools.JsEncode(Mui.No) %>');
         });
 </script>
 <div id="dialog-confirm-<%=o %>" title="<%=Model.Title %>">

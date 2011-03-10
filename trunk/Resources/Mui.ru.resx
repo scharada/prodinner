@@ -118,99 +118,99 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="No" xml:space="preserve">
-    <value>Non</value>
+    <value>Нет</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Oui</value>
+    <value>Да</value>
   </data>
   <data name="Address" xml:space="preserve">
-    <value>Adresse</value>
+    <value>Адрес</value>
   </data>
   <data name="Date" xml:space="preserve">
-    <value>Date</value>
+    <value>Дата</value>
   </data>
   <data name="Meals" xml:space="preserve">
-    <value>Repas</value>
+    <value>Блюда</value>
   </data>
   <data name="Stuff" xml:space="preserve">
-    <value>Choses</value>
+    <value>Прочие</value>
   </data>
   <data name="Comments" xml:space="preserve">
-    <value>Commentaires</value>
+    <value>Комментарии</value>
   </data>
   <data name="Language" xml:space="preserve">
-    <value>la langue</value>
+    <value>Язык</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Nom</value>
+    <value>Название</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>Recherche</value>
+    <value>Поиск</value>
   </data>
   <data name="Country" xml:space="preserve">
-    <value>Pays</value>
+    <value>Страна</value>
   </data>
   <data name="First_Name" xml:space="preserve">
-    <value>prénom</value>
+    <value>Имя</value>
   </data>
   <data name="Last_Name" xml:space="preserve">
-    <value>nom de famille</value>
+    <value>Фамилия</value>
   </data>
   <data name="from" xml:space="preserve">
-    <value>du</value>
+    <value>из</value>
   </data>
   <data name="is_cooking" xml:space="preserve">
-    <value>est la cuisson</value>
+    <value>готовит</value>
   </data>
   <data name="required" xml:space="preserve">
-    <value>le champ {0} est obligatoire</value>
+    <value>поле {0} является обязательным</value>
   </data>
   <data name="select_thumbnail" xml:space="preserve">
-    <value>thumbnail sélectionnez</value>
+    <value>выберите thumbnail</value>
   </data>
   <data name="upload_file" xml:space="preserve">
-    <value>télécharger le fichier</value>
+    <value>Загрузить файл</value>
   </data>
   <data name="Chef" xml:space="preserve">
-    <value>Chef</value>
+    <value>Шеф-повар</value>
   </data>
   <data name="confirm_delete" xml:space="preserve">
-    <value>Êtes-vous sûr de vouloir supprimer cet élément?</value>
+    <value>Вы уверены, что хотите это удалить ?</value>
   </data>
   <data name="Create" xml:space="preserve">
-    <value>Créer</value>
+    <value>Создать</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Supprimer</value>
+    <value>Удалить</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Modifier</value>
+    <value>Изменить</value>
   </data>
   <data name="Home" xml:space="preserve">
-    <value>Accueil</value>
+    <value>Главная</value>
   </data>
   <data name="host_a_dinner" xml:space="preserve">
-    <value>hôte d'un dîner</value>
+    <value>организовать ужин</value>
   </data>
   <data name="more" xml:space="preserve">
-    <value>plus</value>
+    <value>больше</value>
   </data>
   <data name="Picture" xml:space="preserve">
-    <value>Image</value>
+    <value>Фото</value>
   </data>
   <data name="search_for_a_dinner" xml:space="preserve">
-    <value>recherche d'un dîner</value>
+    <value>Поиск обеда</value>
   </data>
   <data name="hi" xml:space="preserve">
     <value>bonjour comment allez vous</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Anuller</value>
+    <value>Отмена</value>
   </data>
   <data name="About" xml:space="preserve">
-    <value>A propos</value>
+    <value>Про</value>
   </data>
   <data name="not_selected" xml:space="preserve">
-    <value>pas sélectionné</value>
+    <value>не выбрано</value>
   </data>
 </root>

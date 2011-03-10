@@ -1,4 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.UI;
 using Omu.Awesome.Mvc;
 using Omu.ProDinner.Core;
 using Omu.ProDinner.Core.Model;
@@ -8,6 +11,20 @@ using Omu.ProDinner.Infra.Dto;
 
 namespace Omu.ProDinner.WebUI.Controllers
 {
+    public class NoCacheAttribute : ActionFilterAttribute
+    {
+        public override void OnResultExecuting(ResultExecutingContext filterContext)
+        {
+            filterContext.HttpContext.Response.Cache.SetExpires(DateTime.UtcNow.AddDays(-1));
+            filterContext.HttpContext.Response.Cache.SetValidUntilExpires(false);
+            filterContext.HttpContext.Response.Cache.SetRevalidation(HttpCacheRevalidation.AllCaches);
+            filterContext.HttpContext.Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            filterContext.HttpContext.Response.Cache.SetNoStore();
+
+            base.OnResultExecuting(filterContext);
+        }
+    }
+
     /// <summary>
     /// generic crud controller for entities where there is difference between the edit and create view
     /// </summary>
@@ -39,6 +56,7 @@ namespace Omu.ProDinner.WebUI.Controllers
         {
             return View("cruds");
         }
+
         public ActionResult Row(int id)
         {
             return View("rows", new[] { s.Get(id) });
@@ -60,7 +78,7 @@ namespace Omu.ProDinner.WebUI.Controllers
         public ActionResult Edit(int id)
         {
             var o = s.Get(id);
-            if(o == null) throw new AwesomeDemoException("this entity doesn't exist anymore");
+            if(o == null) throw new ProDinnerException("this entity doesn't exist anymore");
             return View(EditView, ve.BuildInput(o));
         }
 
@@ -73,7 +91,7 @@ namespace Omu.ProDinner.WebUI.Controllers
                     return View(EditView, ve.RebuildInput(input, input.Id));
                 s.Save(ve.BuildEntity(input, input.Id));
             }
-            catch(AwesomeDemoException ex)
+            catch(ProDinnerException ex)
             {
                 return Content(ex.Message);
             }

@@ -140,6 +140,7 @@
     <None Include="Views\ChangeTheme\index.cshtml" />
     <Content Include="Views\Dinner\Index.cshtml" />
     <Content Include="Views\CountryLookup\item.cshtml" />
+    <Content Include="Views\Dinner\About.cshtml" />
     <None Include="Views\Meal\crop.cshtml" />
     <Content Include="Views\Shared\Awesome\AjaxDropdown.ascx" />
     <Content Include="Views\Shared\Awesome\header.ascx" />
@@ -156,12 +157,12 @@
     <Content Include="Views\Shared\EditorTemplates\Dropdown.aspx" />
     <Content Include="Views\Shared\EditorTemplates\Enum.aspx" />
     <Content Include="Views\Shared\EditorTemplates\Lookup.aspx" />
-    <Content Include="Views\Shared\EditorTemplates\Password.aspx" />
-    <Content Include="Views\Shared\EditorTemplates\String.aspx" />
     <Content Include="Views\Shared\Awesome\Lookup.ascx" />
     <Content Include="Views\Shared\Awesome\LookupList.ascx" />
     <Content Include="Views\Shared\Awesome\LookupPopup.ascx" />
     <Content Include="Views\Shared\Awesome\PopupForm.ascx" />
+    <Content Include="Views\Shared\EditorTemplates\Password.aspx" />
+    <Content Include="Views\Shared\EditorTemplates\String.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -190,7 +191,7 @@
     <Content Include="Views\Chef\header.cshtml" />
     <Content Include="Views\Chef\hrow.cshtml" />
     <Content Include="Views\Chef\rows.cshtml" />
-    <Content Include="Views\Dinner\Create.cshtml" />
+    <Content Include="Views\Dinner\create.cshtml" />
     <Content Include="Views\Dinner\searchBox.cshtml" />
     <Content Include="Views\Dinner\rows.cshtml" />
     <Content Include="Views\Shared\Site.Master" />
@@ -209,6 +210,7 @@
     <Content Include="Views\Mui\Index.cshtml" />
     <Content Include="Views\Mui\Langs.cshtml" />
     <Content Include="Views\Stuff\Index.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Template.Master" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -235,9 +237,6 @@
       <Project>{046EF484-2278-4760-B7DD-FADF08ACE1F8}</Project>
       <Name>Service</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\EditorTemplates\Template.Master" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

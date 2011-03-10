@@ -1,10 +1,10 @@
 ﻿@model DinnerInput
 @using (Html.BeginForm())
-{
-    @Html.EditorFor(c=>c.Name)
-    @Html.EditorFor(c=>c.Country)
-    @Html.EditorFor(c=>c.Chef)
-    @Html.EditorFor(c=>c.Address)
-    @Html.EditorFor(c=>c.Date)
-    @Html.EditorFor(c=>c.Meals)
+{        
+    @Html.EditorFor(o => o.Name)  
+    @Html.EditorFor(o => o.Country)           
+    @Html.EditorFor(o => o.Chef)         
+    @Html.EditorFor(o => o.Address)           
+    @Html.EditorFor(o => o.Date)           
+    @Html.EditorFor(o => o.Meals)          
 }

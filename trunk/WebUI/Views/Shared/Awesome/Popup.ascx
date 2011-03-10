@@ -4,7 +4,7 @@
 %>
 
 <script type="text/javascript">
-        $(function () {ae_popup('<%=o %>',<%=Model.Width %>, <%=Model.Height %>, '<%=Model.Title %>', <%=Model.Modal.ToString().ToLower() %>, <%=Model.Position %>, <%=Model.Resizable.ToString().ToLower() %>, {<%var i = 0;foreach (var button in Model.Buttons){i++;%>  "<%=button.Key %>" : <%=button.Value %><%=i == Model.Buttons.Count ? "": "," %><%} %>});});
+        $(function () {ae_popup('<%=o %>',<%=Model.Width %>, <%=Model.Height %>, '<%=Model.Title %>', <%=Model.Modal.ToString().ToLower() %>, <%=Model.Position %>, <%=Model.Resizable.ToString().ToLower() %>, {<%var i = 0;foreach (var button in Model.Buttons){i++;%>  "<%=button.Key %>" : <%=button.Value %><%=i == Model.Buttons.Count ? "": "," %><%} %>}, <%=Model.FullScreen.ToString().ToLower() %>);});
         var l<%=o %> = null;
         function call<%=o %>(<%=JsTools.MakeParameters(Model.Parameters) %>) { 
             if(l<%=o %> != null) return;

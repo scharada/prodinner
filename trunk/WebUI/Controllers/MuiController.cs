@@ -8,17 +8,17 @@ namespace Omu.ProDinner.WebUI.Controllers
     //http://www.screwturn.eu/ResxSync.ashx
     public class MuiController : Controller
     {
-        public ActionResult Index()
-        {
-            IDictionary<string, string> langs = new Dictionary<string, string>
+        readonly IDictionary<string, string> langs = new Dictionary<string, string>
                                                     {
                                                         {"en","english"},
                                                         {"fr","francais"},
-                                                        {"it","italiano"},
-                                                        {"ro","romana"},
-                                                        {"de","deutch"},
-                                                        {"ru","ruschii"},
+                                                        {"es","español"},
+                                                        {"ro","română"},
+                                                        {"de","deutsch"},
+                                                        {"ru","русский"},
                                                     };
+        public ActionResult Index()
+        {
             var c = Request.Cookies["lang"];
             var k = c == null ? "en" : c.Value;
             ViewBag.lang = langs[k];
@@ -27,7 +27,7 @@ namespace Omu.ProDinner.WebUI.Controllers
 
         public ActionResult Langs()
         {
-            return View();
+            return View(langs);
         }
 
         [HttpPost]
