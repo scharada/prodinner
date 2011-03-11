@@ -4,6 +4,7 @@
         });
 
         function styleup() {
+            var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
             $("select,fieldset,input:text,.ae-lookup-multidisplay, .dinner").addClass("ui-corner-all");
             $("input:text,.ae-lookup-multidisplay").addClass('ui-widget-content');
             $("input[type=submit]").addClass("abtn");
@@ -23,10 +24,15 @@
             mybutton(".ae-lookup-morebtn");
 
             $(".field-validation-error").addClass('ui-state-error ui-corner-all');
+
+            if(!is_chrome)
             $(".input-validation-error").addClass('ui-state-error');
 
             $(".dinner:odd").addClass("ui-state-highlight");
             $(".dinner:even").addClass("ui-widget-content");
+
+           
+           
         }
 
         function applyjqcolors() {
