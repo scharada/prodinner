@@ -27,7 +27,7 @@
 <%} %>
 <div id='lp<%=o %>'>
 </div>
-<div id="<%=o %>" style='display:none;'>
+<div id="<%=o %>" style='display:none;' class='ae-array'>
     <% if (Model.Value != null && Model.Value is IEnumerable) foreach (var oo in Model.Value as IEnumerable){%>
     <input type="hidden" name="<%=Model.Prop %>" value="<%=oo %>" />
     <%} %>
