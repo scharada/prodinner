@@ -213,4 +213,7 @@
   <data name="not_selected" xml:space="preserve">
     <value>pas sélectionné</value>
   </data>
+  <data name="strlen" xml:space="preserve">
+    <value>{0} ne peut pas être plus long que {1} caractères</value>
+  </data>
 </root>

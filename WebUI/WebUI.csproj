@@ -39,7 +39,7 @@
     <Reference Include="Castle.Windsor">
       <HintPath>..\packages\Castle.Windsor.2.5.2\lib\NET40\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="Elmah">
+    <Reference Include="Elmah, Version=1.1.11517.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\elmah.1.1\lib\Elmah.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -96,9 +96,9 @@
     <Compile Include="Controllers\ChangeThemeController.cs" />
     <Compile Include="Controllers\ChefAjaxDropdownController.cs" />
     <Compile Include="Controllers\ChefController.cs" />
-    <Compile Include="Controllers\CountryAjaxDropdownController.cs" />
+    <Compile Include="Controllers\CountryIdAjaxDropdownController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
-    <Compile Include="Controllers\CountryLookupController.cs" />
+    <Compile Include="Controllers\CountryIdLookupController.cs" />
     <Compile Include="Controllers\Cruder.cs" />
     <Compile Include="Controllers\Crudere.cs" />
     <Compile Include="Controllers\DinnerController.cs" />
@@ -118,12 +118,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Awesome.css" />
+    <Content Include="Content\broccoli-recipe.png" />
+    <Content Include="Content\broccoli.png" />
     <Content Include="Content\browsersx.png" />
     <Content Include="Content\error-lolcat-problemz.jpg" />
     <Content Include="Content\FaceBook-icon.png" />
     <Content Include="Content\Google-icon.png" />
     <Content Include="Content\Jcrop.gif" />
     <Content Include="Content\jquery.Jcrop.css" />
+    <Content Include="Content\pros.png" />
     <Content Include="Content\strawberry.png" />
     <Content Include="Content\Twitter-icon.png" />
     <Content Include="favicon2.ico" />
@@ -139,7 +142,7 @@
     <Content Include="Scripts\jquery.form.js" />
     <None Include="Views\ChangeTheme\index.cshtml" />
     <Content Include="Views\Dinner\Index.cshtml" />
-    <Content Include="Views\CountryLookup\item.cshtml" />
+    <Content Include="Views\CountryIdLookup\item.cshtml" />
     <Content Include="Views\Dinner\About.cshtml" />
     <None Include="Views\Meal\crop.cshtml" />
     <Content Include="Views\Shared\Awesome\AjaxDropdown.ascx" />

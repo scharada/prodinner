@@ -32,8 +32,8 @@ isdeleted bit default(0) not null
 
 create table chefs(
 id int identity primary key,
-fname nvarchar(15) not null,
-lname nvarchar(15) not null,
+firstname nvarchar(15) not null,
+lastname nvarchar(15) not null,
 countryid int references countries(id),
 isdeleted bit default(0) not null
 )
@@ -106,10 +106,73 @@ insert meals(name,comments,haspic) values('strawberries', 'awesome',1)
 insert meals(name,comments,haspic) values('coconut water', 'great drink',1)
 
 
-insert chefs(fname,lname,countryid) values('athene', 'wins', 4)
-insert chefs(fname,lname,countryid) values('naked', 'chef', 3)
-insert chefs(fname,lname,countryid) values('chef', 'chef', 2)
+insert chefs(firstname,lastname,countryid) values('athene', 'wins', 4)
+insert chefs(firstname,lastname,countryid) values('naked', 'chef', 3)
+insert chefs(firstname,lastname,countryid) values('chef', 'chef', 2)
+
+insert dinners(name,countryid,chefid,address,date) values('Food Sensual',1,3,'Miorita 1 str.',CURRENT_TIMESTAMP)
+insert dinners(name,countryid,chefid,address,date) values('Romantic Mood',3,2,'Miorita 2 str.',CURRENT_TIMESTAMP)
+insert dinners(name,countryid,chefid,address,date) values('Latte Art',5,3,'Miorita 3 str.',CURRENT_TIMESTAMP)
+insert dinners(name,countryid,chefid,address,date) values('Beach Get-away',10,2,'Miorita 4 str.',CURRENT_TIMESTAMP)
+insert dinners(name,countryid,chefid,address,date) values('Memories of an Austrian Romance',13,1,'Miorita 5 str.',CURRENT_TIMESTAMP)
+insert dinners(name,countryid,chefid,address,date) values('Annie''s Spring Fever Lunch for 2',22,3,'Miorita 6 str.',CURRENT_TIMESTAMP)
+insert dinners(name,countryid,chefid,address,date) values('Blind Date.. with Your Sweetheart ',33,2,'Miorita 7 str.',CURRENT_TIMESTAMP)
+insert dinners(name,countryid,chefid,address,date) values('Italian Romantic Dinner for 2 ',4,1,'Miorita 8 str.',CURRENT_TIMESTAMP)
+insert dinners(name,countryid,chefid,address,date) values('Sloppy Joaquin',17,2,'Miorita 9 str.',CURRENT_TIMESTAMP)
+insert dinners(name,countryid,chefid,address,date) values('Rioja Stoup',19,3,'Miorita 10 str.',CURRENT_TIMESTAMP)
+
+insert dinnermeals(dinnerid,mealid) values(1,1)
+insert dinnermeals(dinnerid,mealid) values(1,2)
+insert dinnermeals(dinnerid,mealid) values(1,3)
+insert dinnermeals(dinnerid,mealid) values(1,4)
+insert dinnermeals(dinnerid,mealid) values(2,13)
+insert dinnermeals(dinnerid,mealid) values(2,11)
+insert dinnermeals(dinnerid,mealid) values(2,14)
+insert dinnermeals(dinnerid,mealid) values(3,4)
+insert dinnermeals(dinnerid,mealid) values(3,5)
+insert dinnermeals(dinnerid,mealid) values(3,8)
+insert dinnermeals(dinnerid,mealid) values(4,1)
+insert dinnermeals(dinnerid,mealid) values(4,11)
+insert dinnermeals(dinnerid,mealid) values(4,13)
+insert dinnermeals(dinnerid,mealid) values(4,3)
+insert dinnermeals(dinnerid,mealid) values(5,9)
+insert dinnermeals(dinnerid,mealid) values(5,10)
+insert dinnermeals(dinnerid,mealid) values(5,7)
+insert dinnermeals(dinnerid,mealid) values(5,12)
+insert dinnermeals(dinnerid,mealid) values(5,6)
+insert dinnermeals(dinnerid,mealid) values(6,1)
+insert dinnermeals(dinnerid,mealid) values(6,7)
+insert dinnermeals(dinnerid,mealid) values(6,3)
+insert dinnermeals(dinnerid,mealid) values(6,4)
+insert dinnermeals(dinnerid,mealid) values(6,5)
+insert dinnermeals(dinnerid,mealid) values(6,8)
+insert dinnermeals(dinnerid,mealid) values(7,14)
+insert dinnermeals(dinnerid,mealid) values(7,3)
+insert dinnermeals(dinnerid,mealid) values(7,2)
+insert dinnermeals(dinnerid,mealid) values(7,12)
+insert dinnermeals(dinnerid,mealid) values(10,8)
+insert dinnermeals(dinnerid,mealid) values(10,7)
+insert dinnermeals(dinnerid,mealid) values(10,10)
+insert dinnermeals(dinnerid,mealid) values(10,9)
+insert dinnermeals(dinnerid,mealid) values(8,9)
+insert dinnermeals(dinnerid,mealid) values(8,2)
+insert dinnermeals(dinnerid,mealid) values(8,1)
+insert dinnermeals(dinnerid,mealid) values(8,13)
+insert dinnermeals(dinnerid,mealid) values(8,15)
+insert dinnermeals(dinnerid,mealid) values(9,15)
+insert dinnermeals(dinnerid,mealid) values(9,13)
+insert dinnermeals(dinnerid,mealid) values(9,11)
+insert dinnermeals(dinnerid,mealid) values(9,4)
+insert dinnermeals(dinnerid,mealid) values(9,7)
 
 select * from chefs
+select * from dinners
 
+select * from (dinners
+left join dinnermeals on  dinners.id = dinnermeals.dinnerid) 
+left join meals on meals.id = dinnermeals.mealid 
+
+select * from dinners, meals, dinnermeals
+where meals.id = dinnermeals.mealid and dinners.id = dinnermeals.dinnerid 
+or (dinnermeals.dinnerid = null and dinnermeals.mealid = null)
 

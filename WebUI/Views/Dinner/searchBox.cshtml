@@ -2,7 +2,7 @@
 <legend>@Mui.search_for_a_dinner</legend>
 <div class="si"><div>@Mui.Name:</div>
 <input type='text' name='search' /></div>
-<div class="si"> <div>@Mui.Chef:</div> @Html.AjaxDropdown("Chef", prefix: "search") </div>
+<div class="si"> <div>@Mui.Chef:</div> @Html.AjaxDropdown("ChefId", prefix: "search") </div>
 <div class="si"><div>@Mui.Meals:</div><span class="cbt"/> @Html.Lookup("Meals", prefix: "search", multiselect: true, fullscreen: true, clearButton: true)</div>
 <br class="cbt" />
 </fieldset>

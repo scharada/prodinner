@@ -7,11 +7,11 @@ using Omu.ProDinner.Resources;
 
 namespace Omu.ProDinner.WebUI.Controllers
 {
-    public class CountryAjaxDropdownController : Controller
+    public class CountryIdAjaxDropdownController : Controller
     {
         private IRepo<Country> r;
 
-        public CountryAjaxDropdownController(IRepo<Country> r)
+        public CountryIdAjaxDropdownController(IRepo<Country> r)
         {
             this.r = r;
         }

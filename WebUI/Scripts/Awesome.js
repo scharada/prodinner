@@ -21,13 +21,24 @@ function mybutton(sel) {
         .bind('mouseleave', function () { $(this).removeClass('ui-state-active') });
 }
 
+function ae_interactive(o) {
+    $(o + ' input:text').keyup(function (e) {
+        var w = e.which;
+        if (w < 9 || w > 45 && w < 91 || w > 93 && w < 112 || w > 185)
+            $(o).submit();
+    });
+    $(o + ' input:hidden, ' + o + ' .ae-array').change(function () {
+            $(o).submit();
+    });
+}
+
 function ae_fullscreen(o) {
     $(window).bind("resize", function (e) { $(o).dialog("option", { height: $(window).height() - 50, width: $(window).width() - 50 }).trigger('dialogresize'); });
 }
 
 function ae_ajaxDropdown(o, p, url, keys, values) {
     ae_loadAjaxDropdown(o, p, url, false, keys, values);
-    $("#" + o + "dropdown").change(function () { $('#' + o).val($('#' + o + 'dropdown').val()).trigger('change'); });
+    $("#" + o + "dropdown").change(function () { $('#' + o).val($('#' + o + 'dropdown').val()).trigger('change'); }).keyup(function () { $(this).change(); });
     if (p) $('#' + p).change(function () { ae_loadAjaxDropdown(o, p, url, true, keys, values); });
 
 }
@@ -165,7 +176,7 @@ function ae_confirm(o, f, h, w, yes, no) {
     {
         text: yes,
         click: function () { $(this).dialog("close"); f.submit(); }
-    }, 
+    },
     {
         text: no,
         click: function () { $(this).dialog("close"); }

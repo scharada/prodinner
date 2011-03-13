@@ -5,11 +5,11 @@ using Omu.ProDinner.Core.Repository;
 
 namespace Omu.ProDinner.WebUI.Controllers
 {
-    public class CountryLookupController : LookupController
+    public class CountryIdLookupController : LookupController
     {
         private readonly IRepo<Country> r;
 
-        public CountryLookupController(IRepo<Country> r)
+        public CountryIdLookupController(IRepo<Country> r)
         {
             this.r = r;
         }

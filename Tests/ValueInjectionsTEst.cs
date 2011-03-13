@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Transactions;
 using NUnit.Framework;
@@ -55,44 +56,29 @@ namespace Omu.ProDinner.Tests
         }
 
         [Test]
-        public void EntityToNullInt()
+        public void NormalToNullables()
         {
+            var d = new Dinner {ChefId = 3};
+            var di = new DinnerInput();
 
-            var s = new Dinner { Country = new Country { Id = 43 }, Chef = new Chef { Id = 7 } };
-            var t = new DinnerInput();
-            t.InjectFrom<EntityToNullInt>(s);
+            di.InjectFrom<NormalToNullables>(d);
 
-            Assert.AreEqual(s.Country.Id, t.Country);
-            Assert.AreEqual(s.Chef.Id, t.Chef);
+            Assert.AreEqual(3, di.ChefId);
+            Assert.AreEqual(null, di.Date);
+            Assert.AreEqual(null, di.CountryId);
         }
 
         [Test]
-        public void NullIntToEntity()
+        public void NullablesToNormal()
         {
-            WindsorRegistrar.RegisterSingleton(typeof(IRepo<>), typeof(Repo<>));
-            WindsorRegistrar.RegisterSingleton(typeof(IDbContextFactory), typeof(DbContextFactory));
-            using (var scope = new TransactionScope())
-            {
-                var rChef = new Repo<Chef>(new DbContextFactory());
-                var chef = new Chef {Id = 33, FName = "a", LName = "b"};
-                rChef.Insert(chef);
-                rChef.Save();
+            var di = new DinnerInput {ChefId = 3};
+            var d = new Dinner();
 
-                var rCountry = new Repo<Country>(new DbContextFactory());
-                var country = new Country {Id = 44, Name = "Ua"};
-                rCountry.Insert(country);
-                rCountry.Save();
+            d.InjectFrom<NullablesToNormal>(di);
 
-                
-                var s = new DinnerInput {Chef = chef.Id, Country = country.Id};
-                var t = new Dinner();
-
-                t.InjectFrom<NullIntToEntity>(s);
-
-                Assert.AreEqual(s.Chef, t.Chef.Id);
-                Assert.AreEqual(s.Country, t.Country.Id);
-            }
-
+            Assert.AreEqual(3, d.ChefId);
+            Assert.AreEqual(0, d.CountryId);
+            Assert.AreEqual(default(DateTime), d.Date);
         }
     }
 }

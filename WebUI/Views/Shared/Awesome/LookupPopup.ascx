@@ -29,6 +29,9 @@ function lay<%=o %>() {
 } 
 $("#lp<%=o %>").bind( "dialogresize", lay<%=o %>);
 $('#lsf<%=o %> input').keypress(function(e){ if(e.which == 13){ e.preventDefault(); $('#lsf<%=o %>').submit(); } });
+<%if(Settings.Lookup.Interactive) {%>
+ae_interactive('#lsf<%=o %>');
+    <%}%>
 
 $('#lsf<%=o %>').submit(function(e){
     e.preventDefault();    

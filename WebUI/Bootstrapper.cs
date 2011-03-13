@@ -15,7 +15,7 @@ namespace Omu.ProDinner.WebUI
             ModelMetadataProviders.Current = new AwesomeModelMetadataProvider();
             
             Settings.PopupForm.ClientSideValidation = false;
-            Settings.Lookup.CancelText = "X";
+            Settings.Lookup.Interactive = true;
         }
     }
 }

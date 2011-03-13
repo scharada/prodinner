@@ -62,7 +62,6 @@ namespace Omu.ProDinner.WebUI.Controllers
         }
 
         [HttpPost]
-        [OutputCache(Location = OutputCacheLocation.None)]
         public ActionResult Crop(int x, int y, int w, int h, int id)
         {
             using (var image = Image.FromFile(@ConfigurationManager.AppSettings["storagePath"] + @"\Meals\Temp\" + id + ".jpg"))
