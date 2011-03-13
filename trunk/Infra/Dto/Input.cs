@@ -14,6 +14,7 @@ namespace Omu.ProDinner.Infra.Dto
     public class CountryInput : Input
     {
         [Req]
+        [StrLen(20)]
         [Display(ResourceType = typeof(Mui), Name = "Name")]
         public string Name { get; set; }
     }
@@ -21,22 +22,25 @@ namespace Omu.ProDinner.Infra.Dto
     public class ChefInput : Input
     {
         [Req]
+        [StrLen(15)]
         [Display(ResourceType = typeof(Mui), Name = "First_Name")]
-        public string FName { get; set; }
+        public string FirstName { get; set; }
 
         [Req]
+        [StrLen(15)]
         [Display(ResourceType = typeof(Mui), Name = "Last_Name")]
-        public string LName { get; set; }
+        public string LastName { get; set; }
 
         [Req]
         [UIHint("AjaxDropdown")]
         [Display(ResourceType = typeof(Mui), Name = "Country")]
-        public int? Country { get; set; }
+        public int? CountryId { get; set; }
     }
 
     public class MealInput : Input
     {
         [Req]
+        [StrLen(50)]
         [Display(ResourceType = typeof(Mui), Name = "Name")]
         public string Name { get; set; }
 
@@ -47,20 +51,22 @@ namespace Omu.ProDinner.Infra.Dto
     public class DinnerInput : Input
     {
         [Req]
+        [StrLen(50)]
         [Display(ResourceType = typeof(Mui), Name="Name")]
         public string Name { get; set; }
 
         [Req]
         [UIHint("Lookup")]
         [Display(ResourceType = typeof(Mui), Name="Country")]
-        public int? Country { get; set; }
+        public int? CountryId { get; set; }
 
         [Req]
         [UIHint("AjaxDropdown")]
         [Display(ResourceType = typeof(Mui), Name="Chef")]
-        public int? Chef { get; set; }
+        public int? ChefId { get; set; }
 
         [Req]
+        [StrLen(20)]
         [Display(ResourceType = typeof(Mui), Name="Address")]
         public string Address { get; set; }
 
@@ -88,6 +94,15 @@ namespace Omu.ProDinner.Infra.Dto
         {
             ErrorMessageResourceName = "required";
             ErrorMessageResourceType = typeof(Mui);
+        }
+    }
+
+    public class StrLenAttribute : StringLengthAttribute
+    {
+        public StrLenAttribute(int maximumLength) : base(maximumLength)
+        {
+            ErrorMessageResourceName = "strlen";
+            ErrorMessageResourceType = typeof (Mui);
         }
     }
 }

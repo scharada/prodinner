@@ -20,7 +20,7 @@ namespace Omu.ProDinner.Infra.Builder
         {
             var input = new TInput();
             input.InjectFrom(entity)
-                .InjectFrom<EntityToNullInt>(entity)
+                .InjectFrom<NormalToNullables>(entity)
                 .InjectFrom<EntitiesToInts>(entity);
             MakeInput(entity, ref input);
             return input;
@@ -37,7 +37,6 @@ namespace Omu.ProDinner.Infra.Builder
                 throw new ProDinnerException("this entity doesn't exist anymore");
 
             e.InjectFrom(input)
-               .InjectFrom<NullIntToEntity>(input)
                .InjectFrom<IntsToEntities>(input)
                .InjectFrom<NullablesToNormal>(input);
             MakeEntity(ref e, input);
@@ -62,5 +61,20 @@ namespace Omu.ProDinner.Infra.Builder
                    Nullable.GetUnderlyingType(c.SourceProp.Type) == c.TargetProp.Type;
         }
     }
+
+    public class NormalToNullables : ConventionInjection
+    {
+        protected override bool Match(ConventionInfo c)
+        {
+            //ignore int = 0 and DateTime = to 1/01/0001
+            if (c.SourceProp.Type == typeof(DateTime) && (DateTime)c.SourceProp.Value == default(DateTime) ||
+            (c.SourceProp.Type == typeof(int) && (int)c.SourceProp.Value == default(int)))
+                return false;
+
+            return (c.SourceProp.Name == c.TargetProp.Name &&
+                    c.SourceProp.Type == Nullable.GetUnderlyingType(c.TargetProp.Type));
+        }
+    }
+
 
 }

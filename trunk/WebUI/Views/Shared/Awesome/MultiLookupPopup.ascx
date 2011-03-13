@@ -6,24 +6,25 @@
   var values = ViewData["values"] as string[];
   const string ai = "ui-icon-circle-plus";
   const string ri = "ui-icon-circle-arrow-n";
-  %>
+%>
 <form id="lsf<%=o %>" action="<%=Url.Action("Search") %>" method="post">
 <% Html.RenderAction("SearchForm"); %>
-<%if(null != keys) {%>
-<div id='lsfv<%=o %>' style="display:none;">
+<%if (null != keys)
+  {%>
+<div id='lsfv<%=o %>' style="display: none;">
 </div>
 <%}%>
 </form>
 <div id='<%=o %>lsh'>
-<% Html.RenderAction("header"); %>
+    <% Html.RenderAction("header"); %>
 </div>
 <ul id="<%=o%>ls" class="ae-lookup-list ae-lookup-searchlist">
 </ul>
-
 <div id='<%=o %>seh'>
-<% Html.RenderAction("header"); %>
+    <% Html.RenderAction("header"); %>
 </div>
-<ul id="<%=o %>se" class="ae-lookup-list ae-lookup-selectedlist"></ul>
+<ul id="<%=o %>se" class="ae-lookup-list ae-lookup-selectedlist">
+</ul>
 <script type="text/javascript">
 <%if(null != keys) {%>
 ae_takevals([<%=AwesomeTools.MakeIdJsArray(keys) %>],[<%=AwesomeTools.MakeJsArray(values) %>], 'lsfv<%=o %>');
@@ -127,4 +128,7 @@ ae_takevals([<%=AwesomeTools.MakeIdJsArray(keys) %>],[<%=AwesomeTools.MakeJsArra
     $("#lp<%=o %>").bind( "dialogresize", lay<%=o %>);
 
     $('#lsf<%=o %> input').keypress(function (e) { if (e.which == 13) { e.preventDefault();$('#lsf<%=o %>').submit(); }});
+    <%if(Settings.Lookup.Interactive) {%>
+       ae_interactive('#lsf<%=o %>');
+    <%}%>
 </script>

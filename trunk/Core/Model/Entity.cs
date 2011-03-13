@@ -26,8 +26,9 @@ namespace Omu.ProDinner.Core.Model
 
     public class Chef : Entity
     {
-        public string FName { get; set; }
-        public string LName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int CountryId { get; set; }
         public virtual Country Country { get; set; }
         public virtual ICollection<Dinner> Dinners { get; set; }
     }
@@ -35,7 +36,9 @@ namespace Omu.ProDinner.Core.Model
     public class Dinner : Entity
     {
         public string Name { get; set; }
+        public int CountryId { get; set; }
         public virtual Country Country { get; set; }
+        public int ChefId { get; set; }
         public virtual Chef Chef { get; set; }
         public string Address { get; set; }
         public DateTime Date { get; set; }

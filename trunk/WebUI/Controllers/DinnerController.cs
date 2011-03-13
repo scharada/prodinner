@@ -20,10 +20,10 @@ namespace Omu.ProDinner.WebUI.Controllers
             return View();
         }
 
-        public virtual ActionResult Search(string search, int? chef, IEnumerable<int> meals, int page = 1, int ps = 5)
+        public virtual ActionResult Search(string search, int? chefId, IEnumerable<int> meals, int page = 1, int ps = 5)
         {
             var src = s.Where(o => o.Name.Contains(search));
-            if (chef.HasValue) src = src.Where(o => o.Chef.Id == chef.Value);
+            if (chefId.HasValue) src = src.Where(o => o.ChefId == chefId.Value);
             if (meals != null) src = src.Where(o => meals.All(m => o.Meals.Select(g => g.Id).Contains(m)));
 
             var rows = this.RenderView("rows", src.OrderByDescending(u => u.Id).Skip((page - 1) * ps).Take(ps));

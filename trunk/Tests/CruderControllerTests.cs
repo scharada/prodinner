@@ -1,32 +1,28 @@
-﻿using System;
-using FakeItEasy;
+﻿using FakeItEasy;
 using NUnit.Framework;
-using Omu.AwesomeDemo.Core;
-using Omu.AwesomeDemo.Core.Model;
-using Omu.AwesomeDemo.Core.Service;
-using Omu.AwesomeDemo.Infra.Builder;
-using Omu.AwesomeDemo.Infra.Dto;
-using Omu.AwesomeDemo.WebUI.Controllers;
-using System.Linq;
+using Omu.ProDinner.Core;
+using Omu.ProDinner.Core.Model;
+using Omu.ProDinner.Core.Service;
+using Omu.ProDinner.Infra.Builder;
+using Omu.ProDinner.Infra.Dto;
+using Omu.ProDinner.WebUI.Controllers;
 
-namespace Omu.AwesomeDemo.Tests
+namespace Omu.ProDinner.Tests
 {
-   public class CruderControllerTests
+    public class CruderControllerTests
     {
-        HobbyController c;
+        CountryController c;
 
         [Fake]
-#pragma warning disable 649
-        IBuilder<Hobby, HobbyInput> v;
+        IBuilder<Country, CountryInput> v;
         [Fake]
-        ICrudService<Hobby> s;
-#pragma warning restore 649
+        ICrudService<Country> s;
 
-       [SetUp]
+        [SetUp]
         public void SetUp()
         {
             Fake.InitializeFixture(this);
-            c = new HobbyController(s, v);
+            c = new CountryController(s, v);
         }
 
         [Test]
@@ -39,26 +35,26 @@ namespace Omu.AwesomeDemo.Tests
         public void CreateShouldBuildNewInput()
         {
             c.Create();
-            A.CallTo(() => v.BuildInput(A<Hobby>.Ignored)).MustHaveHappened();
+            A.CallTo(() => v.BuildInput(A<Country>.Ignored)).MustHaveHappened();
         }
 
         [Test]
         public void CreateShouldReturnViewForInvalidModelstate()
         {
             c.ModelState.AddModelError("", "");
-            c.Create(A.Fake<HobbyInput>()).ShouldBeViewResult();
+            c.Create(A.Fake<CountryInput>()).ShouldBeViewResult();
         }
 
         [Test]
         public void CreateShouldReturnJson()
         {
-            c.Create(A.Fake<HobbyInput>()).ShouldBeJson();
+            c.Create(A.Fake<CountryInput>()).ShouldBeJson();
         }
 
         [Test]
         public void EditShouldReturnCreateView()
         {
-            A.CallTo(() => s.Get(1)).Returns(A.Fake<Hobby>());
+            A.CallTo(() => s.Get(1)).Returns(A.Fake<Country>());
             c.Edit(1).ShouldBeViewResult().ShouldBeCreate();
             A.CallTo(() => s.Get(1)).MustHaveHappened();
         }
@@ -67,31 +63,31 @@ namespace Omu.AwesomeDemo.Tests
         public void EditShouldThrowException()
         {
             A.CallTo(() => s.Get(1)).Returns(null);
-            Assert.Throws<AwesomeDemoException>(() => c.Edit(1));
-            A.CallTo(() => v.BuildInput(A<Hobby>.Ignored)).MustNotHaveHappened();
+            Assert.Throws<ProDinnerException>(() => c.Edit(1));
+            A.CallTo(() => v.BuildInput(A<Country>.Ignored)).MustNotHaveHappened();
         }
 
         [Test]
         public void EditShouldReturnJson()
         {
-            c.Edit(A.Fake<HobbyInput>()).ShouldBeJson();
-            A.CallTo(() => v.BuildEntity(A<HobbyInput>.Ignored, A<int>.Ignored)).MustHaveHappened();
-            A.CallTo(() => s.Save(A<Hobby>.Ignored)).MustHaveHappened();
+            c.Edit(A.Fake<CountryInput>()).ShouldBeJson();
+            A.CallTo(() => v.BuildEntity(A<CountryInput>.Ignored, A<int>.Ignored)).MustHaveHappened();
+            A.CallTo(() => s.Save(A<Country>.Ignored)).MustHaveHappened();
         }
 
         [Test]
         public void EditShouldReturnViewForInvalidModelstate()
         {
             c.ModelState.AddModelError("", "");
-            c.Edit(A.Fake<HobbyInput>()).ShouldBeViewResult().ShouldBeCreate();
-            A.CallTo(() => v.RebuildInput(A<HobbyInput>.Ignored, A<int>.Ignored)).MustHaveHappened();
+            c.Edit(A.Fake<CountryInput>()).ShouldBeViewResult().ShouldBeCreate();
+            A.CallTo(() => v.RebuildInput(A<CountryInput>.Ignored, A<int>.Ignored)).MustHaveHappened();
         }
 
         [Test]
         public void EditShouldReturnContentOnError()
         {
-            A.CallTo(() => v.BuildEntity(A<HobbyInput>.Ignored, A<int>.Ignored)).Throws(new AwesomeDemoException("aa"));
-            c.Edit(A.Fake<HobbyInput>()).ShouldBeContent().Content.ShouldEqual("aa");
+            A.CallTo(() => v.BuildEntity(A<CountryInput>.Ignored, A<int>.Ignored)).Throws(new ProDinnerException("aa"));
+            c.Edit(A.Fake<CountryInput>()).ShouldBeContent().Content.ShouldEqual("aa");
         }
 
         [Test]

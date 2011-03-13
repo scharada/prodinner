@@ -7,6 +7,7 @@ namespace Omu.ProDinner.WebUI
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            routes.IgnoreRoute("elmah.axd");
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
                 "Default", // Route name

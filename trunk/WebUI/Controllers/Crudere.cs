@@ -1,8 +1,4 @@
-﻿using System;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.UI;
-using Omu.Awesome.Mvc;
+﻿using System.Web.Mvc;
 using Omu.ProDinner.Core;
 using Omu.ProDinner.Core.Model;
 using Omu.ProDinner.Core.Service;
@@ -11,20 +7,6 @@ using Omu.ProDinner.Infra.Dto;
 
 namespace Omu.ProDinner.WebUI.Controllers
 {
-    public class NoCacheAttribute : ActionFilterAttribute
-    {
-        public override void OnResultExecuting(ResultExecutingContext filterContext)
-        {
-            filterContext.HttpContext.Response.Cache.SetExpires(DateTime.UtcNow.AddDays(-1));
-            filterContext.HttpContext.Response.Cache.SetValidUntilExpires(false);
-            filterContext.HttpContext.Response.Cache.SetRevalidation(HttpCacheRevalidation.AllCaches);
-            filterContext.HttpContext.Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            filterContext.HttpContext.Response.Cache.SetNoStore();
-
-            base.OnResultExecuting(filterContext);
-        }
-    }
-
     /// <summary>
     /// generic crud controller for entities where there is difference between the edit and create view
     /// </summary>

@@ -213,4 +213,7 @@
   <data name="not_selected" xml:space="preserve">
     <value>не выбрано</value>
   </data>
+  <data name="strlen" xml:space="preserve">
+    <value>{0} не может быть больше, чем {1} символов</value>
+  </data>
 </root>

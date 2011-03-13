@@ -7,11 +7,11 @@ using Omu.ProDinner.Resources;
 
 namespace Omu.ProDinner.WebUI.Controllers
 {
-    public class ChefAjaxDropdownController : Controller
+    public class ChefIdAjaxDropdownController : Controller
     {
         private IRepo<Chef> r;
 
-        public ChefAjaxDropdownController(IRepo<Chef> r)
+        public ChefIdAjaxDropdownController(IRepo<Chef> r)
         {
             this.r = r;
         }
@@ -23,7 +23,7 @@ namespace Omu.ProDinner.WebUI.Controllers
 
             list.AddRange(r.GetAll().Select(o => new SelectListItem
                                                      {
-                                                         Text = string.Format("{0} {1}",o.FName,o.LName),
+                                                         Text = string.Format("{0} {1}",o.FirstName,o.LastName),
                                                          Value = o.Id.ToString(),
                                                          Selected = o.Id == key
                                                      }));

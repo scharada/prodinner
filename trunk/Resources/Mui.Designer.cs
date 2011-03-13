@@ -322,6 +322,15 @@ namespace Omu.ProDinner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} may not be longer than {1} characters.
+        /// </summary>
+        public static string strlen {
+            get {
+                return ResourceManager.GetString("strlen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Stuff.
         /// </summary>
         public static string Stuff {

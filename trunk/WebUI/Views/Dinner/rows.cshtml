@@ -3,7 +3,7 @@
    {
     <li class="dinner">
     <div class="fl">@o.Name</div>
-    <div class="fr">@o.Chef.FName @o.Chef.LName @Mui.from @o.Chef.Country.Name @Mui.is_cooking</div>
+    <div class="fr">@o.Chef.FirstName @o.Chef.LastName @Mui.from @o.Chef.Country.Name @Mui.is_cooking</div>
     <br class="cbt" />
     @foreach(var m in o.Meals.Where(v => v.HasPic))
     {

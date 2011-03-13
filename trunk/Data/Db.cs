@@ -14,5 +14,6 @@ namespace Omu.ProDinner.Data
             modelBuilder.Entity<Dinner>().HasMany(r => r.Meals);
             base.OnModelCreating(modelBuilder);
         }
+
     }
 }
