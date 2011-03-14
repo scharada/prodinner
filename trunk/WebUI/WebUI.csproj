@@ -142,8 +142,8 @@
     <Content Include="Scripts\jquery.form.js" />
     <None Include="Views\ChangeTheme\index.cshtml" />
     <Content Include="Views\Dinner\Index.cshtml" />
-    <Content Include="Views\CountryIdLookup\item.cshtml" />
     <Content Include="Views\Dinner\About.cshtml" />
+    <Content Include="Views\CountryIdLookup\item.cshtml" />
     <None Include="Views\Meal\crop.cshtml" />
     <Content Include="Views\Shared\Awesome\AjaxDropdown.ascx" />
     <Content Include="Views\Shared\Awesome\header.ascx" />
