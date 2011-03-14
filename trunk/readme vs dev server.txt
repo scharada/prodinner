@@ -1,4 +1,4 @@
-prodinner 
+prodinner on vs dev server (on IIS works much faster, but there are additional configuration steps)
 
 http://prodinner.codeplex.com
 
@@ -15,19 +15,10 @@ the script tries to kill all connections to prodinner, drop the db, and create i
 
 start the solution (ProDinner.sln)
 
-if it asks you to create a virtual directory on you IIS, click yes (if you don't have IIS, or you got problems with it you can edit the WebUI\WebUI.csproj with notepad and change the line <UseIIS>True</UseIIS> to <UseIIS>False</UseIIS> save, close vs open sln file again)
-
 edit the connection string from WebUI\web.config 
 (if it's needed, probably you will need to change the Data Source, now it's .\sqlexpress, also username and password, now they are UID=sa;pwd=1)
 
-you can also edit the connection string in Tests\app.config if you want to run the unit tests
-
 in WebUI\web.config edit the line :  <add key="storagePath" value="D:\ProDinner\WebUI\pictures\"/> change the D:\ProDinner to where you have your prodinner folder
-
-go to properties of \WebUI\pictures folder and in security tab add full control rights for the IIS_IUSRS
-(on Win7 and 2008 server it's properties-> security tab -> Edit button -> Add button -> Advanced button -> Find Now button -> select IIS_IUSRS from the search results -> OK button -> OK button -> Full Control checkbox -> OK -> OK )
-
-(last 2 steps are for saving images, and the last one sometimes is not needed)
 
 --------------
 
