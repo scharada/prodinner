@@ -1,7 +1,9 @@
+use master
+go
+--kill all connections to db prodinner
+--you might get "Only user processes can be killed." it's ok
 DECLARE @dbname sysname
-
 SET @dbname = 'prodinner'
-
 DECLARE @spid int
 SELECT @spid = min(spid) from master.dbo.sysprocesses where dbid = db_id(@dbname)
 WHILE @spid IS NOT NULL
@@ -9,6 +11,8 @@ BEGIN
 EXECUTE ('KILL ' + @spid)
 SELECT @spid = min(spid) from master.dbo.sysprocesses where dbid = db_id(@dbname) AND spid > @spid
 END
+go
+--recreate the database
 drop database prodinner
 go
 create database prodinner
@@ -110,27 +114,30 @@ insert chefs(firstname,lastname,countryid) values('athene', 'wins', 4)
 insert chefs(firstname,lastname,countryid) values('naked', 'chef', 3)
 insert chefs(firstname,lastname,countryid) values('chef', 'chef', 2)
 
-insert dinners(name,countryid,chefid,address,date) values('Food Sensual',1,3,'Miorita 1 str.',CURRENT_TIMESTAMP)
-insert dinners(name,countryid,chefid,address,date) values('Romantic Mood',3,2,'Miorita 2 str.',CURRENT_TIMESTAMP)
-insert dinners(name,countryid,chefid,address,date) values('Latte Art',5,3,'Miorita 3 str.',CURRENT_TIMESTAMP)
-insert dinners(name,countryid,chefid,address,date) values('Beach Get-away',10,2,'Miorita 4 str.',CURRENT_TIMESTAMP)
-insert dinners(name,countryid,chefid,address,date) values('Memories of an Austrian Romance',13,1,'Miorita 5 str.',CURRENT_TIMESTAMP)
-insert dinners(name,countryid,chefid,address,date) values('Annie''s Spring Fever Lunch for 2',22,3,'Miorita 6 str.',CURRENT_TIMESTAMP)
-insert dinners(name,countryid,chefid,address,date) values('Blind Date.. with Your Sweetheart ',33,2,'Miorita 7 str.',CURRENT_TIMESTAMP)
-insert dinners(name,countryid,chefid,address,date) values('Italian Romantic Dinner for 2 ',4,1,'Miorita 8 str.',CURRENT_TIMESTAMP)
-insert dinners(name,countryid,chefid,address,date) values('Sloppy Joaquin',17,2,'Miorita 9 str.',CURRENT_TIMESTAMP)
-insert dinners(name,countryid,chefid,address,date) values('Rioja Stoup',19,3,'Miorita 10 str.',CURRENT_TIMESTAMP)
+insert dinners(name,countryid,chefid,address,date) values('Food Festival',1,3,'Pro 1337 str.',CURRENT_TIMESTAMP)
+insert dinners(name,countryid,chefid,address,date) values('Romantic Mood',3,2,'doesn''t matter',CURRENT_TIMESTAMP)
+insert dinners(name,countryid,chefid,address,date) values('Latte Art',5,3,'31337 str.',CURRENT_TIMESTAMP)
+insert dinners(name,countryid,chefid,address,date) values('Beach Get-away',10,2,'Beach',CURRENT_TIMESTAMP)
+insert dinners(name,countryid,chefid,address,date) values('Memories of an Austrian Romance',13,1,'at home',CURRENT_TIMESTAMP)
+insert dinners(name,countryid,chefid,address,date) values('Annie''s Spring Fever Lunch for 2',22,3,'picnic',CURRENT_TIMESTAMP)
+insert dinners(name,countryid,chefid,address,date) values('Blind Date.. ',27,2,'Location unknown',CURRENT_TIMESTAMP)
+insert dinners(name,countryid,chefid,address,date) values('Italian Romantic Dinner for 2 ',4,1,'Antwerpen',CURRENT_TIMESTAMP)
+insert dinners(name,countryid,chefid,address,date) values('Uber dinner',17,2,'in the Forest',CURRENT_TIMESTAMP)
+insert dinners(name,countryid,chefid,address,date) values('L337 Dinner',19,1,'internetz',CURRENT_TIMESTAMP)
 
 insert dinnermeals(dinnerid,mealid) values(1,1)
 insert dinnermeals(dinnerid,mealid) values(1,2)
 insert dinnermeals(dinnerid,mealid) values(1,3)
 insert dinnermeals(dinnerid,mealid) values(1,4)
+insert dinnermeals(dinnerid,mealid) values(1,12)
 insert dinnermeals(dinnerid,mealid) values(2,13)
 insert dinnermeals(dinnerid,mealid) values(2,11)
 insert dinnermeals(dinnerid,mealid) values(2,14)
+insert dinnermeals(dinnerid,mealid) values(2,17)
 insert dinnermeals(dinnerid,mealid) values(3,4)
 insert dinnermeals(dinnerid,mealid) values(3,5)
 insert dinnermeals(dinnerid,mealid) values(3,8)
+insert dinnermeals(dinnerid,mealid) values(3,16)
 insert dinnermeals(dinnerid,mealid) values(4,1)
 insert dinnermeals(dinnerid,mealid) values(4,11)
 insert dinnermeals(dinnerid,mealid) values(4,13)
@@ -147,26 +154,30 @@ insert dinnermeals(dinnerid,mealid) values(6,4)
 insert dinnermeals(dinnerid,mealid) values(6,5)
 insert dinnermeals(dinnerid,mealid) values(6,8)
 insert dinnermeals(dinnerid,mealid) values(7,14)
-insert dinnermeals(dinnerid,mealid) values(7,3)
+insert dinnermeals(dinnerid,mealid) values(7,10)
 insert dinnermeals(dinnerid,mealid) values(7,2)
 insert dinnermeals(dinnerid,mealid) values(7,12)
-insert dinnermeals(dinnerid,mealid) values(10,8)
-insert dinnermeals(dinnerid,mealid) values(10,7)
-insert dinnermeals(dinnerid,mealid) values(10,10)
-insert dinnermeals(dinnerid,mealid) values(10,9)
 insert dinnermeals(dinnerid,mealid) values(8,9)
 insert dinnermeals(dinnerid,mealid) values(8,2)
-insert dinnermeals(dinnerid,mealid) values(8,1)
+insert dinnermeals(dinnerid,mealid) values(8,10)
 insert dinnermeals(dinnerid,mealid) values(8,13)
-insert dinnermeals(dinnerid,mealid) values(8,15)
-insert dinnermeals(dinnerid,mealid) values(9,15)
-insert dinnermeals(dinnerid,mealid) values(9,13)
+insert dinnermeals(dinnerid,mealid) values(8,3)
+insert dinnermeals(dinnerid,mealid) values(9,17)
+insert dinnermeals(dinnerid,mealid) values(7,15)
+insert dinnermeals(dinnerid,mealid) values(9,12)
 insert dinnermeals(dinnerid,mealid) values(9,11)
-insert dinnermeals(dinnerid,mealid) values(9,4)
 insert dinnermeals(dinnerid,mealid) values(9,7)
+insert dinnermeals(dinnerid,mealid) values(9,1)
+insert dinnermeals(dinnerid,mealid) values(9,14)
+insert dinnermeals(dinnerid,mealid) values(10,1)
+insert dinnermeals(dinnerid,mealid) values(10,2)
+insert dinnermeals(dinnerid,mealid) values(10,3)
+insert dinnermeals(dinnerid,mealid) values(10,4)
+insert dinnermeals(dinnerid,mealid) values(10,5)
 
 select * from chefs
 select * from dinners
+select * from meals
 
 select * from (dinners
 left join dinnermeals on  dinners.id = dinnermeals.dinnerid) 

@@ -13,8 +13,8 @@ namespace Omu.ProDinner.Tests
             var c = new Country {Name = "Asaaa"};
             r.Insert(c);
             r.Save();
-            var cFromDb = r.Get(c.Id);
-            Assert.AreEqual(c.Name, cFromDb.Name);
+            var o = r.Get(c.Id);
+            Assert.AreEqual(c.Name, o.Name);
         }
 
         [Test]
@@ -28,8 +28,8 @@ namespace Omu.ProDinner.Tests
             r.Delete(c);
             r.Save();
 
-            var cDb = r.Get(c.Id);
-            Assert.IsNull(cDb);
+            var o = r.Get(c.Id);
+            Assert.IsTrue(o.IsDeleted);
         }
 
         [Test]
@@ -43,8 +43,8 @@ namespace Omu.ProDinner.Tests
             c.Name = "Lulu";
             r.Save();
 
-            var cFromDb = r.Get(c.Id);
-            Assert.AreEqual(c.Name, cFromDb.Name);
+            var o = r.Get(c.Id);
+            Assert.AreEqual(c.Name, o.Name);
         }
     }
 }
