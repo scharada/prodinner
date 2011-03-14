@@ -43,7 +43,7 @@ namespace Omu.ProDinner.WebUI.Controllers
             var id = Convert.ToInt32(Request.Form["id"]);
             if (file.ContentLength > 0)
             {
-                var filePath = @ConfigurationManager.AppSettings["storagePath"] + @"Meals\Temp\" + id + ".jpg";
+                var filePath = @ConfigurationManager.AppSettings["storagePath"] + @"\Meals\Temp\" + id + ".jpg";
                 using (var image = Image.FromStream(file.InputStream))
                 {
                     var resized = Imager.Resize(image, 640, 480, true);
