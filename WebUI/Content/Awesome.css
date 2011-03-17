@@ -50,4 +50,8 @@
     padding: 1em;
     cursor: pointer;
     text-align: center;
+    clear: both;
+}
+.ae-fixed {
+    position: fixed !important;
 }

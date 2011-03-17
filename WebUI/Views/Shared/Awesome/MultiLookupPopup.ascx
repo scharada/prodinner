@@ -4,6 +4,7 @@
   var pageable = (bool)ViewData["paging"];
   var keys = ViewData["keys"] as string[];
   var values = ViewData["values"] as string[];
+  var moreText = ViewData["moreText"].ToString();
   const string ai = "ui-icon-circle-plus";
   const string ri = "ui-icon-circle-arrow-n";
 %>
@@ -48,7 +49,7 @@ ae_takevals([<%=AwesomeTools.MakeIdJsArray(keys) %>],[<%=AwesomeTools.MakeJsArra
         if (d.more) {        
         var page = 1;
         
-        $('<a class="ae-lookup-morebtn">more</a>').click(function() {
+        $('<a class="ae-lookup-morebtn"><%=moreText %></a>').click(function() {
         page++;
         var clfm = lfm.slice(0);
         clfm.push({ name: "page", value: page });

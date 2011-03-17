@@ -90,6 +90,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AwesomeMui.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="CastleWindsorControllerFactory.cs" />
     <Compile Include="Controllers\BaseController.cs" />

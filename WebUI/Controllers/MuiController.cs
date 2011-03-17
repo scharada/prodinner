@@ -16,12 +16,14 @@ namespace Omu.ProDinner.WebUI.Controllers
                                                         {"ro","română"},
                                                         {"de","deutsch"},
                                                         {"ru","русский"},
-                                                        {"it","italiano"}
+                                                        {"it","italiano"},
+                                                        {"auto","default"},//browser default
                                                     };
         public ActionResult Index()
         {
             var c = Request.Cookies["lang"];
-            var k = c == null ? "en" : c.Value;
+
+            var k = c == null ? "auto" : c.Value;
             ViewBag.lang = langs[k];
             return View();
         }
@@ -39,6 +41,5 @@ namespace Omu.ProDinner.WebUI.Controllers
 
             return Content("");
         }
-        
     }
 }
