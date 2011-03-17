@@ -15,12 +15,17 @@ namespace Omu.ProDinner.WebUI.Controllers
         {
             this.r = r;
         }
-        [HttpPost]
-        public ActionResult Search(string search, IEnumerable<int> selected)
-        {
-            var result = r.GetAll().Where(o => o.Name.Contains(search));
 
-            return View(@"Awesome\LookupList", result.Where(o => selected == null || !selected.Contains(o.Id)).ToList());
+        [HttpPost]
+        public ActionResult Search(string search, IEnumerable<int> selected, int page)
+        {
+            const int pageSize = 5;
+            var result = r.Where(o => o.Name.Contains(search))
+                .Where(o => selected == null || !selected.Contains(o.Id));
+
+            var rows = this.RenderView(@"Awesome\LookupList", result.Skip((page - 1) * pageSize).Take(pageSize));
+
+            return Json(new { rows, more = result.Count() > page * pageSize });
         }
 
         public ActionResult Selected(IEnumerable<int> selected)
@@ -32,9 +37,9 @@ namespace Omu.ProDinner.WebUI.Controllers
         {
             return Json(r.GetAll().Where(o => selected.Contains(o.Id)).Select(v => new
             {
-                Text = @"<img  src='" + 
-                Url.Content("~/pictures/Meals/" + (v.HasPic ? v.Id : 0) + "m.jpg") + 
-                "' class='mthumb' />" + 
+                Text = @"<img  src='" +
+                Url.Content("~/pictures/Meals/" + (v.HasPic ? v.Id : 0) + "m.jpg") +
+                "' class='mthumb' />" +
                 v.Name
             }));
         }

@@ -13,9 +13,10 @@ namespace Omu.ProDinner.WebUI
             ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(IoC.Container));
             WindsorConfigurator.Configure();
             ModelMetadataProviders.Current = new AwesomeModelMetadataProvider();
-            
+
             Settings.PopupForm.ClientSideValidation = false;
             Settings.Lookup.Interactive = true;
+            Settings.GetText = AwesomeMui.GetTranslate;
         }
     }
 }

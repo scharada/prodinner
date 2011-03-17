@@ -76,7 +76,7 @@ namespace Omu.ProDinner.Infra.Dto
 
         [Req]
         [UIHint("Lookup")]
-        [Lookup(Multiselect = true, Fullscreen = true)]
+        [Lookup(Multiselect = true, Fullscreen = true, Paging = true)]
         [Display(ResourceType = typeof(Mui), Name="Meals")]
         public IEnumerable<int> Meals { get; set; }
     }

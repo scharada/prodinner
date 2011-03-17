@@ -5,6 +5,7 @@
     var pageable = (bool)ViewData["paging"];
     var keys = ViewData["keys"] as string[];
     var values = ViewData["values"] as string[];
+    var moreText = ViewData["moreText"].ToString();
 %>
 
 <form id="lsf<%=o %>" action="<%=Url.Action("search") %>" method="post">
@@ -49,7 +50,7 @@ $('#lsf<%=o %>').submit(function(e){
         lfm.pop();
         var page =1;
 
-        $('<a class="ae-lookup-morebtn">more</a>').click(function() {
+        $('<a class="ae-lookup-morebtn"><%=moreText %></a>').click(function() {
         page++;
         lfm.push({ name: "page", value: page });
 

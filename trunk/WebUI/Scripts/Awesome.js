@@ -101,6 +101,7 @@ function ae_autocomplete(o, k, p, u, mr, delay, minLen) {
 }
 
 function ae_popup(o, w, h, title, modal, pos, res, btns, fulls) {
+    if (fulls) { res = false; modal = true; }
     $("#" + o).dialog({
         show: "fade",
         width: fulls ? $(window).width() - 50 : w,
@@ -113,6 +114,7 @@ function ae_popup(o, w, h, title, modal, pos, res, btns, fulls) {
         autoOpen: false,
         close: function (e, ui) { $("#" + o).find('*').remove(); }
     });
+    if (modal || fulls) $("#" + o).dialog("option", { dialogClass: 'ae-fixed' });
     if (fulls) ae_fullscreen("#" + o);
 }
 
@@ -164,13 +166,14 @@ function ae_multiLookupClear(o) {
 
 function ae_confirm(o, f, h, w, yes, no) {
     $("#dialog-confirm-" + o).dialog({
-        show: "drop",
+        show: "fade",
         hide: "fade",
         resizable: false,
         height: h,
         width: w,
         modal: true,
-        autoOpen: false
+        autoOpen: false,
+        dialogClass: 'ae-fixed'
     })
     .dialog("option", "buttons", [
     {
