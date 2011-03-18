@@ -18,12 +18,11 @@ namespace Omu.ProDinner.WebUI.Controllers
 
         public ActionResult GetItems(int? key)
         {
-            var list = new List<SelectListItem> {new SelectListItem {Text = Mui.not_selected, Value = ""}};
-
+            var list = new List<SelectListItem> { new SelectListItem { Text = Mui.not_selected, Value = "" } };
 
             list.AddRange(r.GetAll().Select(o => new SelectListItem
                                                  {
-                                                     Text = o.Name ,
+                                                     Text = o.Name,
                                                      Value = o.Id.ToString(),
                                                      Selected = o.Id == key
                                                  }));

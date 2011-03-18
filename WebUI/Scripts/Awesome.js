@@ -22,13 +22,12 @@ function mybutton(sel) {
 }
 
 function ae_interactive(o) {
-    $(o + ' input:text').keyup(function (e) {
-        var w = e.which;
-        if (w < 9 || w > 45 && w < 91 || w > 93 && w < 112 || w > 185)
+    $(o + ' input:text').keyup(function (e) {        
+        if(ae_isKeyEdit(e.keyCode))
             $(o).submit();
     });
     $(o + ' input:hidden, ' + o + ' .ae-array').change(function () {
-            $(o).submit();
+        $(o).submit();
     });
 }
 
@@ -38,21 +37,27 @@ function ae_fullscreen(o) {
 
 function ae_ajaxDropdown(o, p, url, keys, values) {
     ae_loadAjaxDropdown(o, p, url, false, keys, values);
-    $("#" + o + "dropdown").change(function () { $('#' + o).val($('#' + o + 'dropdown').val()).trigger('change'); }).keyup(function () { $(this).change(); });
-    if (p) $('#' + p).change(function () { ae_loadAjaxDropdown(o, p, url, true, keys, values); });
 
+    $("#" + o + "dropdown").keyup(function () { $(this).change(); })
+    .change(function () {
+        $('#' + o).val($('#' + o + 'dropdown').val()).trigger('change');
+    });
+
+    if (p) $('#' + p).change(function () { ae_loadAjaxDropdown(o, p, url, true, keys, values); });
+    $.each(keys, function (i, k) {
+        $('#' + k).change(function () { ae_loadAjaxDropdown(o, p, url, true, keys, values); });
+    });
+    //if keys foreach key change same 
 }
 
 function ae_loadAjaxDropdown(o, p, url, c, keys, values) {
     if (c) $('#' + o).val(null);
+
     var data = new Array();
     data.push({ name: "key", value: $('#' + o).val() });
     if (p) data.push({ name: "parent", value: $('#' + p).val() });
 
     $.each(keys, function (i, k) {
-
-
-        $('#' + k).change(function () { ae_loadAjaxDropdown(o, p, url, c, keys, values); });
         if ($('#' + k).attr('name')) {
             data.push({ name: values[i], value: $('#' + k).val() });
         } else {
@@ -65,6 +70,7 @@ function ae_loadAjaxDropdown(o, p, url, c, keys, values) {
     $.post(url, data,
         function (d) {
             $("#" + o + "dropdown").empty();
+            if(typeof(d) == 'object')
             $.each(d, function (i, j) {
                 var sel = "";
                 if (j.Selected == true) sel = "selected = 'selected'";
@@ -74,7 +80,7 @@ function ae_loadAjaxDropdown(o, p, url, c, keys, values) {
         });
 }
 
-function ae_autocomplete(o, k, p, u, mr, delay, minLen) {
+function ae_autocomplete(o, k, p, u, mr, delay, minLen, keys, values) {
     $('#' + o).autocomplete({
         delay: delay,
         minLength: minLen,
@@ -82,7 +88,18 @@ function ae_autocomplete(o, k, p, u, mr, delay, minLen) {
             var data = new Array();
             data.push({ name: 'searchText', value: request.term });
             data.push({ name: 'maxResults', value: mr });
+
             if (p) data.push({ name: 'parent', value: $('#' + p).val() });
+
+            $.each(keys, function (i, k) {
+                if ($('#' + k).attr('name')) {
+                    data.push({ name: values[i], value: $('#' + k).val() });
+                } else {
+                    $('#' + k).find('input').each(function (index) {
+                        data.push({ name: values[i], value: $(this).val() });
+                    });
+                }
+            });
 
             $.ajax({
                 url: u, type: "POST", dataType: "json",
@@ -97,7 +114,16 @@ function ae_autocomplete(o, k, p, u, mr, delay, minLen) {
         $('#' + o).trigger('change');
     });
 
-    $('#' + o).keyup(function (e) { if (e.keyCode != '13') $("#" + k).val(null).trigger('change'); });
+    $('#' + o).keyup(function (e) {
+        if(ae_isKeyEdit(e.keyCode))
+            $("#" + k).val(null).change();
+            $("#" + o).change();
+    });
+}
+
+function ae_isKeyEdit(w) {
+    if (w < 9 || w > 45 && w < 91 || w > 93 && w < 112 || w > 185 || w == 32) return true;
+    return false;
 }
 
 function ae_popup(o, w, h, title, modal, pos, res, btns, fulls) {

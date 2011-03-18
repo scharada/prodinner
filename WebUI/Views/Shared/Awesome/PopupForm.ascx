@@ -3,7 +3,9 @@
     var o = "pf" + (Model.Action + Model.Controller).ToLower();
 %>
 <script type="text/javascript">
-        $(function() {ae_popup('<%=o %>',<%=Model.Width %>, <%=Model.Height %>, '<%=Model.Title %>', true, <%=Model.Position %>, true, {"<%=Model.CancelText %>": function () { $(this).dialog('close'); },"<%=Model.OkText %>": function () { $("#<%=o %> form").submit(); } }, <%=Model.FullScreen.ToString().ToLower() %>);});
+        $(function() {ae_popup('<%=o %>',<%=Model.Width %>, <%=Model.Height %>, '<%=Model.Title %>', true, <%=Model.Position %>, true, 
+        {"<%=Model.OkText %>": function () { $("#<%=o %> form").submit(); }, "<%=Model.CancelText %>": function () { $(this).dialog('close'); } }, 
+        <%=Model.FullScreen.ToString().ToLower() %>);});
 
         var l<%=o %> = null;
         function call<%=o %>(<%=JsTools.MakeParameters(Model.Parameters) %>) { 

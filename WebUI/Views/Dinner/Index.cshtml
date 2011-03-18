@@ -17,8 +17,10 @@
     var lfm;
     $(function () {
         $('#more').click(more);
-        $('#sform input:text').keyup(function () { $('#sform').submit(); });
-        $('#sform input:hidden, .ae-array').change(function () { $('#sform').submit(); });
+        ae_interactive('#sform');
+
+//        $('#sform input:text').keyup(function () { $('#sform').submit(); });
+//        $('#sform input:hidden, .ae-array').change(function () { $('#sform').submit(); });
 
         $('#sform').ajaxForm({ success: function (d) {
             $("#list").html(d.rows);
