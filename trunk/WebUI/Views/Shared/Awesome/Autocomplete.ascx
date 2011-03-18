@@ -10,5 +10,6 @@
   { %><input type="hidden" id="<%=k %>" name="<%=Model.PropId %>"
     value="<%=Model.PropIdValue %>" /><%} %>
 <script type="text/javascript">
-    ae_autocomplete('<%=o %>','<%=k %>','<%=p %>','<%=Url.Action("Search", Model.Controller) %>',<%=Model.MaxResults %>,<%=Model.Delay %>,<%=Model.MinLength %>);
+    ae_autocomplete('<%=o %>','<%=k %>','<%=p %>','<%=Url.Action("Search", Model.Controller) %>',<%=Model.MaxResults %>,<%=Model.Delay %>,<%=Model.MinLength %>,
+    [<%=Model.Data  != null ? AwesomeTools.MakeJsArray(Model.Data.Keys) :""%>], [<%=Model.Data != null ? AwesomeTools.MakeIdJsArray(Model.Data.Values) :""%>]);
 </script>

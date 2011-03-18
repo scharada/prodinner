@@ -36,8 +36,7 @@ ae_interactive('#lsf<%=o %>');
 
 $('#lsf<%=o %>').submit(function(e){
     e.preventDefault();    
-    var lfm = $('#lsf<%=o %>').serializeArray();
-
+    var lfm = $('#lsf<%=o %>').serializeArray();    
     <% if(pageable){%>
         lfm.push({ name: "page", value: "1" });
 

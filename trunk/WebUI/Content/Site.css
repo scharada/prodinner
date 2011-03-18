@@ -29,7 +29,7 @@ body
 
 .elabel
 {
-    width: 150px;
+    width: 120px;
     text-align: right;
     float: left;
     margin-right: 5px;
@@ -161,14 +161,17 @@ select
 .fr
 {
     float: right;
-    }
+}
 
 h2
 {
     margin: 20px 0;
 }
 
-h3{ font-size: 3em;}
+h3
+{
+    font-size: 3em;
+}
 
 .hidden
 {
@@ -338,6 +341,20 @@ fieldset
 
 .mealitem
 {
-   float:left;
-   margin:3px;    
+    float: left;
+    margin: 3px;
+}
+
+.inputarea
+{
+    float: left;
+    width: 600px;
+}
+
+.bro
+{
+    background-image: url('broccoli.png');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    height:100%;    
 }

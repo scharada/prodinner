@@ -108,6 +108,7 @@
     <Compile Include="Controllers\MealsLookupController.cs" />
     <Compile Include="Controllers\MuiController.cs" />
     <Compile Include="Controllers\NavController.cs" />
+    <Compile Include="Controllers\PersonAutocompleteController.cs" />
     <Compile Include="Controllers\StuffController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
