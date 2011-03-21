@@ -22,12 +22,12 @@ function mybutton(sel) {
 }
 
 function ae_interactive(o) {
-    $(o + " > input[type='text']").keyup(function (e) {  
+    $(o + ' input[type="text"]').keyup(function (e) {
         var w = e.which;
-        if (w < 9 || w > 45 && w < 91 || w > 93 && w < 112 || w > 185)
+        if (w < 9 || w > 45 && w < 91 || w > 93 && w < 112 || w > 185 || w == 32)
             $(o).submit();
     });
-    $(o + " > input[type='hidden']").change(function (e) {        
+    $(o + ' input[type="hidden"], ' + o + ' .ae-array').change(function () {
         $(o).submit();
     });
 }

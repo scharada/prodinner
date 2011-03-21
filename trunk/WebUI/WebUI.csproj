@@ -208,7 +208,6 @@
     <Content Include="Views\Meal\Create.cshtml" />
     <Content Include="Views\Meal\searchBox.cshtml" />
     <Content Include="Views\Meal\header.cshtml" />
-    <Content Include="Views\Meal\hrow.cshtml" />
     <Content Include="Views\Meal\rows.cshtml" />
     <Content Include="Views\MealsLookup\item.cshtml" />
     <Content Include="Views\Meal\Picture.cshtml" />
@@ -216,6 +215,7 @@
     <Content Include="Views\Mui\Langs.cshtml" />
     <Content Include="Views\Stuff\Index.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Template.Master" />
+    <Content Include="Views\Meal\cruds.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

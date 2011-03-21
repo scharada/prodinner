@@ -1,27 +1,21 @@
 @model IEnumerable<Meal>
 @foreach (var o in Model)
 {
-    <tr id='o@(o.Id)'>
-        <td>
-        <img  src='@Url.Content("~/pictures/Meals/" + (o.HasPic ? o.Id : 0) + ".jpg")' class="thumb"  alt='picture' />        
-        </td>
-        <td>
-            @o.Name
-        </td>
-        <td>
-            @o.Comments
-        </td>
-        <td>
-        @Html.ActionLink(@Mui.Picture, "Picture", new { o.Id }, new { @class="abtn"})
-        </td>
-        <td>
-            
-            @Html.PopupFormActionLink("Edit", @Mui.Edit, parameters: new object[] { o.Id }, htmlAttributes: new { @class = "abtn" })
-        </td>
-        <td>
-            <form class="fconfirm" method="post" action="@Url.Action("Delete", new { o.Id })">
-            <input type="submit" value="@Mui.Delete" class="confirm" />
-            </form>
-        </td>
-    </tr>
+    <li id='o@(o.Id)' class="meal">
+        <div>@o.Name
+            <div class="fr">
+                <form class="fconfirm" method="post" action="@Url.Action("Delete", new { o.Id })">
+                <input type="submit" value=" x " class="confirm" />
+                </form>
+            </div>
+        </div>
+        <div>
+            <div class="fl"><img  src='@Url.Content("~/pictures/Meals/" + (o.HasPic ? o.Id : 0) + ".jpg")' class="thumb"  alt='picture' /></div>
+            <div class="comments">@o.Comments</div>
+        </div>        
+        <div class="cbt">
+            @Html.ActionLink(@Mui.Picture, "Picture", new { o.Id })
+            <div class="fr">@Html.PopupFormActionLink("Edit", @Mui.Edit, parameters: new object[] { o.Id })</div>
+        </div>        
+    </li>
 }
