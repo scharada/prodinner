@@ -1,15 +1,10 @@
-
-@{
-    Layout = "_Layout.cshtml";
-
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 
     var c = ViewContext.RouteData.Values["Controller"].ToString();
      
     var h = 300;
     var he = h;
-    if(c=="Dinner"){
-        h = he = 500;
-    }
 }
 @Html.Partial("header")
 @Html.Confirm(@Mui.confirm_delete)
@@ -60,12 +55,7 @@
 @Html.PopupFormActionLink("create", Mui.Create, htmlAttributes: new { @class = "abtn" })
 <br />
 <br />
-<table class="atbl">
-    <thead>
-        @Html.Partial("hrow")
-    </thead>
-    <tbody id="list">
-    </tbody>
-</table>
-<br />
+    <ul id="list">
+    </ul>
+<br class="cbt"/>
 <a id="more" class="abtn" style="display:none;">@Mui.more</a> 

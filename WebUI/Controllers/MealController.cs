@@ -22,7 +22,7 @@ namespace Omu.ProDinner.WebUI.Controllers
             this.s = s;
         }
 
-        public virtual ActionResult Search(string search, int? sCountry, int page = 1, int ps = 5)
+        public virtual ActionResult Search(string search, int? sCountry, int page = 1, int ps = 6)
         {
             var src = s.Where(o => o.Name.StartsWith(search));
             var rows = this.RenderView("rows", src.OrderByDescending(u => u.Id).Skip((page - 1) * ps).Take(ps));

@@ -344,6 +344,23 @@ fieldset
     float: left;
     margin: 3px;
 }
+.meal
+{
+   float:left;
+   width: 450px;
+   height: 200px;
+   display: block;
+   border: 1px solid gray;
+   margin: 0 1em 1em 0;
+   padding: 1em;
+}
+
+.comments
+{
+  padding: 5px;
+  float:right;
+  width:200px;    
+}
 
 .inputarea
 {
