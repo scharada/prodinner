@@ -22,11 +22,12 @@ function mybutton(sel) {
 }
 
 function ae_interactive(o) {
-    $(o + ' input:text').keyup(function (e) {        
-        if(ae_isKeyEdit(e.keyCode))
+    $(o + " > input[type='text']").keyup(function (e) {  
+        var w = e.which;
+        if (w < 9 || w > 45 && w < 91 || w > 93 && w < 112 || w > 185)
             $(o).submit();
     });
-    $(o + ' input:hidden, ' + o + ' .ae-array').change(function () {
+    $(o + " > input[type='hidden']").change(function (e) {        
         $(o).submit();
     });
 }
@@ -114,16 +115,7 @@ function ae_autocomplete(o, k, p, u, mr, delay, minLen, keys, values) {
         $('#' + o).trigger('change');
     });
 
-    $('#' + o).keyup(function (e) {
-        if(ae_isKeyEdit(e.keyCode))
-            $("#" + k).val(null).change();
-            $("#" + o).change();
-    });
-}
-
-function ae_isKeyEdit(w) {
-    if (w < 9 || w > 45 && w < 91 || w > 93 && w < 112 || w > 185 || w == 32) return true;
-    return false;
+    $('#' + o).keyup(function (e) { if (e.which != '13') $("#" + k).val(null).trigger('change'); });
 }
 
 function ae_popup(o, w, h, title, modal, pos, res, btns, fulls) {

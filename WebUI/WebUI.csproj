@@ -131,7 +131,7 @@
     <Content Include="Content\pros.png" />
     <Content Include="Content\strawberry.png" />
     <Content Include="Content\Twitter-icon.png" />
-    <Content Include="favicon2.ico" />
+    <Content Include="f.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Awesome.js" />
     <Content Include="Scripts\jquery.form.min.js" />
