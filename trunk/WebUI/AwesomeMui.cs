@@ -6,9 +6,9 @@ namespace Omu.ProDinner.WebUI
     {
         public static string GetTranslate(string type, string key)
         {
-            //if (type == "Confirm" && key == "Title") return "please confirm";
-            //if (type == "PopupForm" && key == "Title") return "fill the form, hit ok";
-            //if (type == "Lookup" && key == "Title") return "select something";
+            if (type == "Confirm" && key == "Title") return "";
+            if (type == "PopupForm" && key == "Title") return "";
+            if (type == "Lookup" && key == "Title") return "";
             switch (key)
             {
                 case "Cancel": return Mui.Cancel;
