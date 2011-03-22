@@ -24,6 +24,8 @@ you can also edit the connection string in Tests\app.config if you want to run t
 
 in WebUI\web.config edit the line :  <add key="storagePath" value="D:\ProDinner\WebUI\pictures\"/> change the D:\ProDinner to where you have your prodinner folder
 
+****************
+at this moment everything should work but you might get generic GDI+ error when trying to upload image, to get rid of this error do this:
 go to properties of \WebUI\pictures folder and in security tab add full control rights for the IIS_IUSRS
 (on Win7 and 2008 server it's properties-> security tab -> Edit button -> Add button -> Advanced button -> Find Now button -> select IIS_IUSRS from the search results -> OK button -> OK button -> Full Control checkbox -> OK -> OK )
 
@@ -31,9 +33,9 @@ go to properties of \WebUI\pictures folder and in security tab add full control 
 
 --------------
 
-I am also going to make a video tutorial for this project set up instructions, look on the http://prodinner.codeplex.com
+there is also a video tutorial for this project set up instructions, look on the http://prodinner.codeplex.com
 
-If you want to support the project follow it (little star button above the green Download button), rate it, post discussions if any problems
+To support the project follow it (little star button above the green Download button), rate it, post discussions if any problems
 
 
 
