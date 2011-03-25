@@ -10,7 +10,6 @@
 @Html.Confirm(@Mui.confirm_delete)
 @Html.MakePopupForm("create", successFunction: "create", height: h)
 @Html.MakePopupForm("Edit", new[] { "id" }, title: "edit " + c, successFunction: "edit", height: he)
-
 <script type="text/javascript">
     var page = 1;
     function addStart(d) { $(d).css('opacity', 0).prependTo("#list").animate({ opacity: 1 }, 600, 'easeInCubic'); }
@@ -38,6 +37,7 @@
 
     function regForm() {
         $(".fconfirm").ajaxForm({ success: function (d) { $('#o' + d.Id).fadeOut('slow', function () { $(this).remove(); styleup(); }); } });
+        $(".frestore").ajaxForm({ success: edit });
     }
 
     function more() {
@@ -55,7 +55,7 @@
 @Html.PopupFormActionLink("create", Mui.Create, htmlAttributes: new { @class = "abtn" })
 <br />
 <br />
-    <ul id="list">
-    </ul>
-<br class="cbt"/>
-<a id="more" class="abtn" style="display:none;">@Mui.more</a> 
+<ul id="list">
+</ul>
+<br class="cbt" />
+<a id="more" class="abtn" style="display: none;">@Mui.more</a> 

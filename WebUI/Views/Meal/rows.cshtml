@@ -4,9 +4,18 @@
     <li id='o@(o.Id)' class="meal">
         <div>@o.Name
             <div class="fr">
+            @if (o.IsDeleted)
+            {
+                <form class="frestore" method="post" action="@Url.Action("Restore", new { o.Id })">
+                <input type="submit" value="restore" />
+                </form>
+            }
+            else
+            {
                 <form class="fconfirm" method="post" action="@Url.Action("Delete", new { o.Id })">
                 <input type="submit" value=" x " class="confirm" />
                 </form>
+            }
             </div>
         </div>
         <div>

@@ -13,11 +13,14 @@ namespace Omu.ProDinner.Core.Service
         T Get(int id);
         IEnumerable<T> GetAll();
         int Count();
-        IEnumerable<T> Where(Expression<Func<T, bool>> func);
+        IEnumerable<T> Where(Expression<Func<T, bool>> func, bool showDeleted = false);
+        void Restore(int id);
     }
 
     public interface IMealService : ICrudService<Meal>
     {
         void HasPic(int id);
+
+        
     }
 }

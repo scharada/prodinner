@@ -9,6 +9,7 @@ namespace Omu.ProDinner.Data
         public DbSet<Chef> Chefs { get; set;}
         public DbSet<Meal> Meals { get; set; }
         public DbSet<Dinner> Dinners { get; set; }
+
         protected override void OnModelCreating(System.Data.Entity.ModelConfiguration.ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Dinner>().HasMany(r => r.Meals);

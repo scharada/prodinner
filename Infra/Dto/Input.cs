@@ -19,6 +19,18 @@ namespace Omu.ProDinner.Infra.Dto
         public string Name { get; set; }
     }
 
+    public class SignInInput
+    {
+        [Req]
+       // [Display(ResourceType = typeof(Mui), Name = "Login")]
+        public string Login { get; set; }
+
+        [Req]
+        [UIHint("Password")]
+     //   [Display(ResourceType = typeof(Mui), Name = "Password")]
+        public string Password { get; set; }
+    }
+
     public class ChefInput : Input
     {
         [Req]

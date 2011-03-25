@@ -1,9 +1,6 @@
-﻿using Omu.ProDinner.Core.Model;
-using Omu.ProDinner.Core.Service;
-using Omu.ProDinner.Infra.Builder;
-using Omu.ProDinner.Infra.Dto;
-using Omu.ProDinner.Service;
+﻿using Omu.ProDinner.Core.Security;
 using Omu.ProDinner.Infra;
+using Omu.ProDinner.WebUI.Controllers;
 
 namespace Omu.ProDinner.WebUI
 {
@@ -11,6 +8,7 @@ namespace Omu.ProDinner.WebUI
     {
         public static void Configure()
         {
+            WindsorRegistrar.Register(typeof(IFormsAuthentication), typeof(FormAuthService));
             WindsorRegistrar.RegisterAllFromAssemblies("Omu.ProDinner.Data");
             WindsorRegistrar.RegisterAllFromAssemblies("Omu.ProDinner.Service");
             WindsorRegistrar.RegisterAllFromAssemblies("Omu.ProDinner.Infra");

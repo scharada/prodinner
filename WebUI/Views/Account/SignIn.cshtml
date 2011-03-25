@@ -1,0 +1,17 @@
+﻿@model SignInInput
+@{
+    ViewBag.Title = "SignIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sign In</h2>
+<div style="margin:auto;width:600px;">
+@using (Html.BeginForm()) { 
+    @Html.EditorFor(o => o.Login)
+    @Html.EditorFor(o => o.Password)
+    <div class="efield"><div class="elabel">&nbsp;</div>
+    <input type='submit' value='log in' />
+    </div>
+    
+}
+</div>

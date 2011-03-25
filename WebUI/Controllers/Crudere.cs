@@ -86,5 +86,13 @@ namespace Omu.ProDinner.WebUI.Controllers
             s.Delete(id);
             return Json(new{Id = id});
         }
+        
+        [HttpPost]
+        [Authorize(Roles = "admin")]
+        public ActionResult Restore(int id)
+        {
+            s.Restore(id);
+            return Json(new{Id = id});
+        }
     }
 }

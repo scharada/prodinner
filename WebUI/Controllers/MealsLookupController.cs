@@ -20,7 +20,7 @@ namespace Omu.ProDinner.WebUI.Controllers
         public ActionResult Search(string search, IEnumerable<int> selected, int page)
         {
             const int pageSize = 5;
-            var result = r.Where(o => o.Name.Contains(search))
+            var result = r.Where(o => o.Name.Contains(search)).OrderByDescending(o => o.Id)
                 .Where(o => selected == null || !selected.Contains(o.Id));
 
             var rows = this.RenderView(@"Awesome\LookupList", result.Skip((page - 1) * pageSize).Take(pageSize));
