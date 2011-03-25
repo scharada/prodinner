@@ -93,6 +93,7 @@
     <Compile Include="AwesomeMui.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="CastleWindsorControllerFactory.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ChangeThemeController.cs" />
     <Compile Include="Controllers\ChefAjaxDropdownController.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Controllers\Crudere.cs" />
     <Compile Include="Controllers\DinnerController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\FormAuthService.cs" />
     <Compile Include="Controllers\MealController.cs" />
     <Compile Include="Controllers\MealsLookupController.cs" />
     <Compile Include="Controllers\MuiController.cs" />
@@ -142,6 +144,7 @@
     <Content Include="Scripts\MicrosoftMvcJQueryValidation.js" />
     <Content Include="Scripts\style.js" />
     <Content Include="Scripts\jquery.form.js" />
+    <Content Include="Views\Account\SignIn.cshtml" />
     <None Include="Views\ChangeTheme\index.cshtml" />
     <Content Include="Views\Dinner\Index.cshtml" />
     <Content Include="Views\Dinner\About.cshtml" />

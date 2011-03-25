@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Web.Security;
 using System.Web.UI;
 using Omu.ProDinner.WebUI.Controllers;
 
@@ -12,6 +14,20 @@ namespace Omu.ProDinner.WebUI
         protected void Application_Start()
         {
             Bootstrapper.Bootstrap();
+        }
+
+        protected void Application_AuthenticateRequest(Object sender, EventArgs e)
+        {
+            if (HttpContext.Current.User == null) return;
+            if (!HttpContext.Current.User.Identity.IsAuthenticated) return;
+            if (!(HttpContext.Current.User.Identity is FormsIdentity)) return;
+
+            var id = HttpContext.Current.User.Identity as FormsIdentity;
+            var ticket = id.Ticket;
+            var userData = ticket.UserData;
+            var roles = userData.Split(new[] { ',' });
+
+            HttpContext.Current.User = new GenericPrincipal(id, roles);
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

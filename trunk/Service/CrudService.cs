@@ -9,22 +9,7 @@ using Omu.ProDinner.Core;
 
 namespace Omu.ProDinner.Service
 {
-    public class MealService : CrudService<Meal>, IMealService
-    {
-        public MealService(IRepo<Meal> repo) : base(repo)
-        {
-        }
-
-        public void HasPic(int id)
-        {
-            repo.Get(id).HasPic = true;
-            repo.Save();
-        }
-    }
-
-    
-
-    public class CrudService<T> : ICrudService<T> where T : Entity, new()
+    public class  CrudService<T> : ICrudService<T> where T : Entity, new()
     {
         protected IRepo<T> repo;
 
@@ -68,9 +53,15 @@ namespace Omu.ProDinner.Service
             repo.Save();
         }
 
-        public IEnumerable<T> Where(Expression<Func<T, bool>> predicate)
+        public void Restore(int id)
         {
-            return repo.Where(predicate);
+            repo.Restore(repo.Get(id));
+            repo.Save();
+        }
+
+        public IEnumerable<T> Where(Expression<Func<T, bool>> predicate, bool showDeleted = false)
+        {
+            return repo.Where(predicate, showDeleted);
         }
     }
 }

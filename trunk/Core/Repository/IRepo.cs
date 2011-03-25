@@ -7,13 +7,14 @@ namespace Omu.ProDinner.Core.Repository
 {
     public interface IRepo<T>
     {
-        T Get(long id);
+        T Get(int id);
         IEnumerable<T> GetAll();
         int Count();
-        IEnumerable<T> Where(Expression<Func<T, bool>> predicate);
+        IEnumerable<T> Where(Expression<Func<T, bool>> predicate, bool showDeleted = false);
         void Insert(T o);
         void Save();
         void Delete(T o);
+        void Restore(T o);
     }
 
     public interface IUniRepo

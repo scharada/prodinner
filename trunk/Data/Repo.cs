@@ -31,10 +31,17 @@ namespace Omu.ProDinner.Data
         {
             o.IsDeleted = true;
         }
-
-        public IEnumerable<T> Where(Expression<Func<T, bool>> predicate)
+        
+        public void Restore(T o)
         {
-            return c.Set<T>().Where(predicate).Where(o => o.IsDeleted == false);
+            o.IsDeleted = false;
+        }
+
+        public IEnumerable<T> Where(Expression<Func<T, bool>> predicate, bool showDeleted = false)
+        {
+            var res = c.Set<T>().Where(predicate);
+            if(!showDeleted) res = res.Where(o => o.IsDeleted == false);
+            return res;
         }
 
         public IEnumerable<T> GetAll()
@@ -42,7 +49,7 @@ namespace Omu.ProDinner.Data
             return c.Set<T>().Where(o => o.IsDeleted == false);
         }
 
-        public T Get(long id)
+        public T Get(int id)
         {
             return c.Set<T>().Find(id);
         }
