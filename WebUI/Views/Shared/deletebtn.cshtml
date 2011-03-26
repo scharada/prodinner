@@ -1,0 +1,13 @@
+﻿@model dynamic
+@if (Model.IsDeleted)
+{
+    <form class="frestore" method="post" action="@Url.Action("Restore", new { Model.Id })">
+    <input type="submit" value="restore" />
+    </form>
+}
+else
+{
+    <form class="fconfirm" method="post" action="@Url.Action("Delete", new { Model.Id })">
+    <input type="submit" value=" x " class="confirm" />
+    </form>
+}

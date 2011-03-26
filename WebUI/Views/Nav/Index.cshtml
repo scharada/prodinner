@@ -1,6 +1,10 @@
 <ul id="menu">
     <li>@Html.ActionLink(Mui.Home, "Index", "Dinner")</li>           
     <li>@Html.ActionLink(Mui.Meals, "Index", "Meal")</li>
+    @if (User.IsInRole("admin"))
+    {
+    <li>@Html.ActionLink("Users", "Index", "User")</li>
+    }
     <li>@Html.ActionLink(Mui.Stuff, "Index", "Stuff")</li>
     <li>@Html.PopupActionLink("About", Mui.About, controller: "Dinner")</li>
 </ul>
