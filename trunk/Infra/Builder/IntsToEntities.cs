@@ -8,18 +8,6 @@ namespace Omu.ProDinner.Infra.Builder
 {
     public class IntsToEntities : ConventionInjection
     {
-        protected override object SetValue(ConventionInfo c)
-        {
-            if (c.SourceProp.Value == null) return null;
-
-            dynamic repo = IoC.Resolve(typeof(IRepo<>).MakeGenericType(c.TargetProp.Type.GetGenericArguments()[0]));
-            dynamic list = Activator.CreateInstance(typeof(List<>).MakeGenericType(c.TargetProp.Type.GetGenericArguments()[0]));
-
-            foreach (var i in ((IEnumerable<int>)c.SourceProp.Value))
-                list.Add(repo.Get(i));
-            return list;
-        }
-
         protected override bool Match(ConventionInfo c)
         {
             if (c.SourceProp.Name != c.TargetProp.Name) return false;
@@ -34,5 +22,15 @@ namespace Omu.ProDinner.Infra.Builder
                    && (t.GetGenericArguments()[0].IsSubclassOf(typeof(Entity)));
         }
 
+        protected override object SetValue(ConventionInfo c)
+        {
+            if (c.SourceProp.Value == null) return null;
+            dynamic repo = IoC.Resolve(typeof(IReadRepo<>).MakeGenericType(c.TargetProp.Type.GetGenericArguments()[0]));
+            dynamic list = Activator.CreateInstance(typeof(List<>).MakeGenericType(c.TargetProp.Type.GetGenericArguments()[0]));
+
+            foreach (var i in ((IEnumerable<int>)c.SourceProp.Value))
+                list.Add(repo.Get(i));
+            return list;
+        }
     }
 }

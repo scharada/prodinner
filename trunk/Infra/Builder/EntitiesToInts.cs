@@ -7,11 +7,6 @@ namespace Omu.ProDinner.Infra.Builder
 {
     public class EntitiesToInts : ConventionInjection
     {
-        protected override object SetValue(ConventionInfo v)
-        {
-            return v.SourceProp.Value == null ? null : (v.SourceProp.Value as IEnumerable<Entity>).Select(o => o.Id);
-        }
-
         protected override bool Match(ConventionInfo c)
         {
             if (c.SourceProp.Name != c.TargetProp.Name) return false;
@@ -24,6 +19,11 @@ namespace Omu.ProDinner.Infra.Builder
 
             return t.GetGenericArguments()[0] == (typeof(int))
                    && (s.GetGenericArguments()[0].IsSubclassOf(typeof(Entity)));
+        }
+
+        protected override object SetValue(ConventionInfo v)
+        {
+            return v.SourceProp.Value == null ? null : (v.SourceProp.Value as IEnumerable<Entity>).Select(o => o.Id);
         }
     }
 }

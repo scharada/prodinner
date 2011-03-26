@@ -5,11 +5,10 @@ using Omu.ProDinner.Core.Model;
 using Omu.ProDinner.Core.Repository;
 using Omu.ProDinner.Core.Service;
 using Omu.ValueInjecter;
-using Omu.ProDinner.Core;
 
 namespace Omu.ProDinner.Service
 {
-    public class  CrudService<T> : ICrudService<T> where T : Entity, new()
+    public class  CrudService<T> : ICrudService<T> where T : DelEntity, new()
     {
         protected IRepo<T> repo;
 

@@ -27,6 +27,8 @@ namespace Omu.ProDinner.Tests
                                 typeof (Meal), 
                                 typeof (Chef), 
                                 typeof (Country), 
+                                typeof (User), 
+                                typeof (Role), 
                             };
 
             foreach (var type in types)
@@ -64,7 +66,7 @@ namespace Omu.ProDinner.Tests
                 if (p.PropertyType == typeof(string)) p.SetValue(target, "a" + ++s);
                 else if (p.PropertyType == typeof(int) && !p.Name.EndsWith("Id")) p.SetValue(target, ++i);
                 else if (p.PropertyType == typeof(DateTime)) p.SetValue(target, DateTime.Now);
-                else if (p.PropertyType.IsSubclassOf(typeof(Entity)))
+                else if (p.PropertyType.IsSubclassOf(typeof(DelEntity)))
                 {
                     dynamic o = Activator.CreateInstance(p.PropertyType).InjectFrom(new Fill(u, true));
                     u.Insert(o);
@@ -74,7 +76,7 @@ namespace Omu.ProDinner.Tests
                 else if (p.PropertyType.IsGenericType && p.PropertyType.GetGenericTypeDefinition() == typeof(ICollection<>) && !isChild)
                 {
                     var t = p.PropertyType.GetGenericArguments()[0];
-                    if (!t.IsSubclassOf(typeof(Entity))) continue;
+                    if (!t.IsSubclassOf(typeof(DelEntity))) continue;
 
                     var tlist = typeof(List<>).MakeGenericType(t);
                     dynamic list = Activator.CreateInstance(tlist);

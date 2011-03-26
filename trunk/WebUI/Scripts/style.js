@@ -5,7 +5,7 @@
 
         function styleup() {
             var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
-            $("select,fieldset,input:text,.ae-lookup-multidisplay, .dinner, .thumb, .mealitem, .sthumb, .meal").addClass("ui-corner-all");
+            $("select,fieldset,input:text,input:password,.ae-lookup-multidisplay, .dinner, .thumb, .mealitem, .sthumb, .meal").addClass("ui-corner-all");
             $("input:text,.ae-lookup-multidisplay").addClass('ui-widget-content');
             $("input[type=submit]").addClass("abtn");
             $(".atbl thead").addClass("ui-state-default");
@@ -28,8 +28,7 @@
             if(!is_chrome)
             $(".input-validation-error").addClass('ui-state-error');
 
-            $(".dinner:odd").addClass("ui-state-highlight");
-            $(".dinner:even").addClass("ui-widget-content");
+            $(".dinner").addClass("ui-widget-content");
 
            
            

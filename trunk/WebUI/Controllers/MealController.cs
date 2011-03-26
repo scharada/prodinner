@@ -22,6 +22,12 @@ namespace Omu.ProDinner.WebUI.Controllers
             this.s = s;
         }
 
+        public override ActionResult Index()
+        {
+            ViewBag.UseList = true;
+            return base.Index();
+        }
+
         public virtual ActionResult Search(string search, int? sCountry, int page = 1, int ps = 6)
         {
             var src = s.Where(o => o.Name.StartsWith(search), User.IsInRole("admin"));

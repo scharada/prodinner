@@ -58,6 +58,42 @@ mealid int references meals(id),
 unique(dinnerid, mealid)
 )
 
+create table users(
+id int identity primary key,
+login nvarchar(15) not null unique,
+password nvarchar(20) not null,
+isdeleted bit default(0) not null
+)
+
+create table roles(
+id int identity primary key,
+name nvarchar(10)
+)
+
+create table userroles(
+userid int references users(id) not null,
+roleid int references roles(id) not null,
+unique(userid, roleid)
+)
+
+insert roles values('admin')
+insert roles values('role1')
+insert roles values('role2')
+insert roles values('role3')
+insert roles values('role4')
+
+insert users values('admin','1',0)
+insert users values('super','1',0)
+insert users values('pro','1',0)
+
+insert userroles values(1,1)
+insert userroles values(1,2)
+insert userroles values(1,3)
+insert userroles values(2,1)
+insert userroles values(3,1)
+insert userroles values(3,2)
+
+
 insert countries(name) values('Moldova')
 insert countries(name) values('USA')
 insert countries(name) values('United Kingdom')
@@ -186,4 +222,5 @@ left join meals on meals.id = dinnermeals.mealid
 select * from dinners, meals, dinnermeals
 where meals.id = dinnermeals.mealid and dinners.id = dinnermeals.dinnerid 
 or (dinnermeals.dinnerid = null and dinnermeals.mealid = null)
+
 

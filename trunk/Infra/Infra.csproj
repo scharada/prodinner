@@ -66,6 +66,9 @@
     <Compile Include="Builder\NullIntToEntity.cs" />
     <Compile Include="Dto\Input.cs" />
     <Compile Include="Dto\ErrorDisplay.cs" />
+    <Compile Include="Dto\LoginUniqueAttribute.cs" />
+    <Compile Include="Dto\ReqAttribute.cs" />
+    <Compile Include="Dto\StrLenAttribute.cs" />
     <Compile Include="WindsorRegistrar.cs" />
     <Compile Include="IoC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

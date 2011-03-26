@@ -9,8 +9,10 @@ namespace Omu.ProDinner.WebUI.Controllers
     {
         public ActionResult Index(Exception error)
         {
-            ViewBag.Message = error.Message;
-            if(Request.IsAjaxRequest())
+             var m = error.Message;
+             if (error.InnerException != null) m += " | " + error.InnerException.Message;
+                ViewBag.Message = m;
+                if(Request.IsAjaxRequest())
             {
                 if (error is ProDinnerException)
                     return View("Expectedp");
