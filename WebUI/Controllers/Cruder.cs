@@ -12,7 +12,7 @@ namespace Omu.ProDinner.WebUI.Controllers
     /// <typeparam name="TInput"> viewmodel </typeparam>
     public class Cruder<TEntity, TInput> : Crudere<TEntity,TInput,TInput>
         where TInput : Input, new()
-        where TEntity : Entity, new()
+        where TEntity : DelEntity, new()
     {
         public Cruder(ICrudService<TEntity> s, IBuilder<TEntity, TInput> v) : base(s, v, v)
         {

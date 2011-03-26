@@ -11,6 +11,40 @@ namespace Omu.ProDinner.Infra.Dto
         public int Id { get; set; }
     }
 
+    public class UserCreateInput : Input
+    {
+        [Req]
+        [StrLen(15)]
+        [LoginUnique]
+        public string Login { get; set; }
+        
+        [Req]
+        [StrLen(20)]
+        [UIHint("password")]
+        public string Password { get; set; }
+
+        [Req]
+        [UIHint("Lookup")]
+        [Lookup(Multiselect = true)]
+        public IEnumerable<int> Roles { get; set;}
+    }
+
+    public class UserEditInput : Input
+    {
+        [Req]
+        [UIHint("Lookup")]
+        [Lookup(Multiselect = true)]
+        public IEnumerable<int> Roles { get; set; }
+    }
+
+    public class ChangePasswordInput : Input
+    {
+        [Req]
+        [StrLen(20)]
+        [UIHint("password")]
+        public string Password { get; set; }
+    }
+
     public class CountryInput : Input
     {
         [Req]
@@ -98,23 +132,5 @@ namespace Omu.ProDinner.Infra.Dto
         public int ImageHeight { get; set; }
         public int ImageWidth { get; set; }
         public int Id { get; set; }
-    }
-
-    public class ReqAttribute : RequiredAttribute
-    {
-        public ReqAttribute()
-        {
-            ErrorMessageResourceName = "required";
-            ErrorMessageResourceType = typeof(Mui);
-        }
-    }
-
-    public class StrLenAttribute : StringLengthAttribute
-    {
-        public StrLenAttribute(int maximumLength) : base(maximumLength)
-        {
-            ErrorMessageResourceName = "strlen";
-            ErrorMessageResourceType = typeof (Mui);
-        }
     }
 }

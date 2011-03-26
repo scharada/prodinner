@@ -22,5 +22,12 @@ namespace Omu.ProDinner.Core.Repository
         void Insert<T>(T o) where T : Entity;
         void Save();
         T Get<T>(int id) where T : Entity;
+        IEnumerable<T> GetAll<T>() where T : Entity;
+    }
+
+    public interface IReadRepo<T> where T : Entity
+    {
+        IEnumerable<T> GetAll();
+        T Get(int id);
     }
 }

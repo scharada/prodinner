@@ -17,7 +17,8 @@ namespace Omu.ProDinner.WebUI.Controllers
 
         public override ActionResult Index()
         {
-            return View();
+            ViewBag.UseList = true;
+            return base.Index();
         }
 
         public virtual ActionResult Search(string search, int? chefId, IEnumerable<int> meals, int page = 1, int ps = 5)

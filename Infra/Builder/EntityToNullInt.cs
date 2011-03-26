@@ -8,13 +8,13 @@ namespace Omu.ProDinner.Infra.Builder
     {
         protected override bool TypesMatch(Type sourceType, Type targetType)
         {
-            return sourceType.IsSubclassOf(typeof (Entity)) && targetType == typeof (int?);
+            return sourceType.IsSubclassOf(typeof (DelEntity)) && targetType == typeof (int?);
         }
 
         protected override object SetValue(object o)
         {
             if (o == null) return null;
-            return (o as Entity).Id;
+            return (o as DelEntity).Id;
         }
     }
 }

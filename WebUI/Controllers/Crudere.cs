@@ -16,7 +16,7 @@ namespace Omu.ProDinner.WebUI.Controllers
     public class Crudere<TEntity, TCreateInput, TEditInput> : BaseController
         where TCreateInput : new()
         where TEditInput : Input, new()
-        where TEntity : Entity, new()
+        where TEntity : DelEntity, new()
     {
         protected readonly ICrudService<TEntity> s;
         private readonly IBuilder<TEntity, TCreateInput> v;

@@ -44,7 +44,7 @@
     <Compile Include="ProDinnerException.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Model\Entity.cs" />
+    <Compile Include="Model\DelEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IRepo.cs" />
     <Compile Include="Security\IFormsAuthentication.cs" />

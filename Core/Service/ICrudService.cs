@@ -5,7 +5,7 @@ using Omu.ProDinner.Core.Model;
 
 namespace Omu.ProDinner.Core.Service
 {
-    public interface ICrudService<T> where T: Entity, new()
+    public interface ICrudService<T> where T: DelEntity, new()
     {
         int Create(T e);
         void Save(T e);
@@ -20,7 +20,11 @@ namespace Omu.ProDinner.Core.Service
     public interface IMealService : ICrudService<Meal>
     {
         void HasPic(int id);
+    }
 
-        
+    public interface IUserService : ICrudService<User>
+    {
+        bool IsUnique(string login);
+        void ChangePassword(int id, string password);
     }
 }

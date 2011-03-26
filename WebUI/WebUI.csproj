@@ -111,7 +111,9 @@
     <Compile Include="Controllers\MuiController.cs" />
     <Compile Include="Controllers\NavController.cs" />
     <Compile Include="Controllers\PersonAutocompleteController.cs" />
+    <Compile Include="Controllers\RolesLookupController.cs" />
     <Compile Include="Controllers\StuffController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -146,9 +148,17 @@
     <Content Include="Scripts\jquery.form.js" />
     <Content Include="Views\Account\SignIn.cshtml" />
     <None Include="Views\ChangeTheme\index.cshtml" />
-    <Content Include="Views\Dinner\Index.cshtml" />
     <Content Include="Views\Dinner\About.cshtml" />
     <Content Include="Views\CountryIdLookup\item.cshtml" />
+    <Content Include="Views\Shared\hrow_.ascx" />
+    <Content Include="Views\Shared\login.ascx" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\header.cshtml" />
+    <Content Include="Views\User\hrow.cshtml" />
+    <Content Include="Views\User\rows.cshtml" />
+    <Content Include="Views\User\searchBox.cshtml" />
+    <Content Include="Views\Country\hrow.cshtml" />
+    <Content Include="Views\Dinner\header.cshtml" />
     <None Include="Views\Meal\crop.cshtml" />
     <Content Include="Views\Shared\Awesome\AjaxDropdown.ascx" />
     <Content Include="Views\Shared\Awesome\header.ascx" />
@@ -191,7 +201,6 @@
     <Content Include="Views\Error\HttpError505.cshtml" />
     <Content Include="Views\Country\Create.cshtml" />
     <Content Include="Views\Country\header.cshtml" />
-    <Content Include="Views\Country\hrow.cshtml" />
     <Content Include="Views\Country\rows.cshtml" />
     <Content Include="Views\Country\searchBox.cshtml" />
     <Content Include="Views\Chef\Create.cshtml" />
@@ -218,7 +227,12 @@
     <Content Include="Views\Mui\Langs.cshtml" />
     <Content Include="Views\Stuff\Index.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Template.Master" />
-    <Content Include="Views\Meal\cruds.cshtml" />
+    <Content Include="Views\Meal\cruds_.cshtml" />
+    <Content Include="Views\User\ChangePassword.cshtml" />
+    <Content Include="Views\RolesLookup\item.cshtml" />
+    <Content Include="Views\Shared\cruds_.ascx" />
+    <Content Include="Views\Shared\deletebtn.cshtml" />
+    <Content Include="Views\User\edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

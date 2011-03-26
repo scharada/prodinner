@@ -9,7 +9,7 @@ namespace Omu.ProDinner.Infra.Builder
     {
         protected override bool TypesMatch(Type sourceType, Type targetType)
         {
-            return sourceType == typeof(int?) && targetType.IsSubclassOf(typeof(Entity));
+            return sourceType == typeof(int?) && targetType.IsSubclassOf(typeof(DelEntity));
         }
 
         protected override object SetValue(object sourcePropertyValue)

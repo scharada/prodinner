@@ -8,7 +8,7 @@ using Omu.ProDinner.Core.Repository;
 
 namespace Omu.ProDinner.Data
 {
-    public class Repo<T> : IRepo<T> where T : Entity, new()
+    public class Repo<T> : IRepo<T> where T : DelEntity, new()
     {
         protected readonly DbContext c;
 
