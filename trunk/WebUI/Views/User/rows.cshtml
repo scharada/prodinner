@@ -1,0 +1,17 @@
+@model IEnumerable<User>
+@foreach (var o in Model)
+{
+    <tr id='o@(o.Id)'>
+        <td>
+            @o.Login
+        </td>
+        <td>
+        </td>
+        <td>
+            @(Html.PopupFormActionLink<UserController>(a => a.ChangePassword(o.Id), "password", new { @class = "abtn" }))
+        </td>
+        <td>
+            @Html.Partial("deletebtn", o)
+        </td>
+    </tr>
+}
