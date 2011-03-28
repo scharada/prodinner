@@ -43,6 +43,9 @@
     <Reference Include="Omu.Awesome.Mvc">
       <HintPath>..\libs\Omu.Awesome.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="Omu.Encrypto">
+      <HintPath>..\libs\Omu.Encrypto.dll</HintPath>
+    </Reference>
     <Reference Include="Omu.ValueInjecter, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="pnunit.framework">
       <HintPath>..\packages\NUnit.2.5.7.10213\lib\pnunit.framework.dll</HintPath>

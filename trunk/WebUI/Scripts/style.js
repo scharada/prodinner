@@ -6,7 +6,7 @@
         function styleup() {
             var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
             $("select,fieldset,input:text,input:password,.ae-lookup-multidisplay, .dinner, .thumb, .mealitem, .sthumb, .meal").addClass("ui-corner-all");
-            $("input:text,.ae-lookup-multidisplay").addClass('ui-widget-content');
+            $("input:text, input:password,.ae-lookup-multidisplay").addClass('ui-widget-content');
             $("input[type=submit]").addClass("abtn");
             $(".atbl thead").addClass("ui-state-default");
             
@@ -23,7 +23,7 @@
             mybutton(".abtn");
             mybutton(".ae-lookup-morebtn");
 
-            $(".field-validation-error").addClass('ui-state-error ui-corner-all');
+            $(".field-validation-error, .validation-summary-errors li").addClass('ui-state-error ui-corner-all');
 
             if(!is_chrome)
             $(".input-validation-error").addClass('ui-state-error');

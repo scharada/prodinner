@@ -19,7 +19,7 @@ namespace Omu.ProDinner.WebUI.Controllers
         [HttpPost]
         public ActionResult Search(string search, IEnumerable<int> selected, int page)
         {
-            const int pageSize = 5;
+            const int pageSize = 9;
             var result = r.Where(o => o.Name.Contains(search)).OrderByDescending(o => o.Id)
                 .Where(o => selected == null || !selected.Contains(o.Id));
 

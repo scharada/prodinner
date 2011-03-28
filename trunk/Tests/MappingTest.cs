@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using Omu.Encrypto;
 using Omu.ProDinner.Core.Model;
 using Omu.ProDinner.Core.Repository;
 using Omu.ProDinner.Data;

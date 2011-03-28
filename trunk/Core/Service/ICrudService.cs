@@ -26,5 +26,6 @@ namespace Omu.ProDinner.Core.Service
     {
         bool IsUnique(string login);
         void ChangePassword(int id, string password);
+        User Get(string Login, string password);
     }
 }

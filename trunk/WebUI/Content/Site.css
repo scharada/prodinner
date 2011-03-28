@@ -22,7 +22,7 @@ body
 .efield
 {
     clear: both;
-    width: 95%;
+    width: 100%;
     float: left;
     padding: 1.4em 0 0 0;
 }
@@ -46,7 +46,6 @@ body
 }
 #top-wrapper
 {
-    overflow: hidden;
 }
 
 #hlogo
@@ -128,7 +127,7 @@ body
 {
     margin: auto;
     text-align: left;
-    width: 77%;
+    width: 85%;
 }
 
 input, select
@@ -222,10 +221,9 @@ a.abtn
     text-decoration: none;
 }
 
-.changetheme
+.explain p
 {
-    padding-top: 15px;
-    float: right;
+    margin:0;    
 }
 
 #more
@@ -308,11 +306,17 @@ fieldset
     height: 34px;
 }
 
-.langs
+.trmi
 {
-    position: absolute;
-    right: 100px;
+    float:right;
+    margin: 1em 0 0 1em;
     cursor: pointer !important;
+}
+
+#langs
+{
+    position:absolute;
+    width:9.5em;   
 }
 
 .langs a
@@ -320,7 +324,7 @@ fieldset
     text-decoration: underline !important;
 }
 
-.langs li
+#langs li
 {
     display: block;
     text-align: right;
@@ -351,7 +355,7 @@ fieldset
    height: 200px;
    display: block;
    border: 1px solid gray;
-   margin: 0 1em 1em 0;
+   margin: 5px;
    padding: 1em;
 }
 
@@ -365,7 +369,7 @@ fieldset
 .inputarea
 {
     float: left;
-    width: 600px;
+    width: 620px;
 }
 
 .bro
@@ -385,4 +389,14 @@ fieldset
     padding: 7px;
     line-height: 160px;    
     clear:none !important;
+}
+
+.validation-summary-errors li
+{
+    display:block;
+}
+
+#themes
+{
+    padding:0;
 }

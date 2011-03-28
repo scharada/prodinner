@@ -63,6 +63,8 @@ namespace Omu.ProDinner.Infra.Dto
         [UIHint("Password")]
      //   [Display(ResourceType = typeof(Mui), Name = "Password")]
         public string Password { get; set; }
+
+        public bool Remember { get; set; }
     }
 
     public class ChefInput : Input

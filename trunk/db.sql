@@ -61,7 +61,7 @@ unique(dinnerid, mealid)
 create table users(
 id int identity primary key,
 login nvarchar(15) not null unique,
-password nvarchar(20) not null,
+password nvarchar(40) not null,
 isdeleted bit default(0) not null
 )
 
@@ -82,9 +82,9 @@ insert roles values('role2')
 insert roles values('role3')
 insert roles values('role4')
 
-insert users values('admin','1',0)
-insert users values('super','1',0)
-insert users values('pro','1',0)
+insert users values('admin','rwVPB7HX8AjAoCNVXS+U3WtbY+kuN/cOmAZ042aG',0)
+insert users values('super','Ylfui9ZMb18enpkNT3m/LRBJPlT1zePU7BdBlck7',0)
+insert users values('pro','yjRolRur0SVrA0iACQaw0pRpfhNeW+qkQp0WhCUE',0)
 
 insert userroles values(1,1)
 insert userroles values(1,2)
