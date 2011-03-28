@@ -2,3 +2,23 @@
 @Mui.Search: <input type='text' name='search' />
  
 <br class="cbt"/>
+
+<script type="text/javascript">
+    $(function () {
+        $(document).ajaxComplete(adjustMeals);
+        $(window).resize(adjustMeals);
+    });
+
+    function adjustMeals() {
+        var w = $('#main').width();
+        var rest = w % 470;
+        var cat = (w - rest) / 470;
+        var u = (rest / cat) / 2;
+        $('.meal').css('width', (470 + u * 1.25) + "px");
+        //$('.meal').css('margin', (u * 0.1) + "px");
+        //alert($('.comments:first').parent().width());
+        //alert( $('.comments:first').prev().width() );
+
+        $('.comments').css('width', $('.comments:first').parent().width() - $('.comments:first').prev().width() - 20);
+    }
+</script>

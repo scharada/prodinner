@@ -25,6 +25,11 @@ namespace Omu.ProDinner.WebUI.Controllers
                 "/");
 
             var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(authTicket));
+            
+            if (authTicket.IsPersistent)
+            {
+                cookie.Expires = authTicket.Expiration;
+            }
 
             HttpContext.Current.Response.Cookies.Add(cookie);
         }

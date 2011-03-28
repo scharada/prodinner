@@ -49,6 +49,7 @@
     <Reference Include="Omu.Drawing">
       <HintPath>..\libs\Omu.Drawing.dll</HintPath>
     </Reference>
+    <Reference Include="Omu.Encrypto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
@@ -150,6 +151,7 @@
     <None Include="Views\ChangeTheme\index.cshtml" />
     <Content Include="Views\Dinner\About.cshtml" />
     <Content Include="Views\CountryIdLookup\item.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Boolean.aspx" />
     <Content Include="Views\Shared\hrow_.ascx" />
     <Content Include="Views\Shared\login.ascx" />
     <Content Include="Views\User\Create.cshtml" />
@@ -227,7 +229,6 @@
     <Content Include="Views\Mui\Langs.cshtml" />
     <Content Include="Views\Stuff\Index.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Template.Master" />
-    <Content Include="Views\Meal\cruds_.cshtml" />
     <Content Include="Views\User\ChangePassword.cshtml" />
     <Content Include="Views\RolesLookup\item.cshtml" />
     <Content Include="Views\Shared\cruds_.ascx" />

@@ -1,19 +1,21 @@
 <%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl" %>
 <%
-  var c = ViewContext.RouteData.Values["Controller"].ToString();
-     
+    var c = ViewContext.RouteData.Values["Controller"].ToString();
+    var create = Mui.Create;
     var h = 300;
     if (c == "country") h = 200;
     var he = h;
     var f = false;
-    if (c == "Dinner") f = true;
- %>
-  
+    if (c == "Dinner")
+    {
+        f = true;
+        create = Mui.host_a_dinner;
+    }
+%>
 <%=Html.Partial("header")%>
 <%=Html.Confirm(Mui.confirm_delete)%>
 <%=Html.MakePopupForm("create", successFunction: "create", height: h, fullScreen:f)%>
 <%=Html.MakePopupForm("Edit", new[] { "id" }, title: "edit " + c, successFunction: "edit", height: he)%>
-
 <script type="text/javascript">
     var page = 1;
     function addStart(d) { $(d).css('opacity', 0).prependTo("#list").animate({ opacity: 1 }, 600, 'easeInCubic'); }
@@ -61,21 +63,24 @@
 <%=Html.Partial("searchbox")%>
 </form>
 <br />
-<%=Html.PopupFormActionLink("create", Mui.Create, htmlAttributes: new { @class = "abtn" })%>
+<%=Html.PopupFormActionLink("create", create, htmlAttributes: new { @class = "abtn" })%>
 <br />
 <br />
-
-<%if(ViewBag.UseList != null){%>
-<ul id="list" >    
+<%if (ViewBag.UseList != null)
+  {%>
+<ul id="list">
 </ul>
-<%}else{%>
+<%}
+  else
+  {%>
 <table class="atbl">
-<thead>
-<%=Html.Partial("hrow")%>
-</thead>
-<tbody id="list">
-</tbody>
+    <thead>
+        <%=Html.Partial("hrow")%>
+    </thead>
+    <tbody id="list">
+    </tbody>
 </table>
 <%} %>
 <br class="cbt" />
-<a id="more" class="abtn" style="display:none;"><%=Mui.more%></a> 
+<a id="more" class="abtn" style="display: none;">
+    <%=Mui.more%></a> 

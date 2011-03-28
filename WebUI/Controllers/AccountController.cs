@@ -1,5 +1,8 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
+using Omu.ProDinner.Core.Model;
 using Omu.ProDinner.Core.Security;
+using Omu.ProDinner.Core.Service;
 using Omu.ProDinner.Infra.Dto;
 
 namespace Omu.ProDinner.WebUI.Controllers
@@ -7,10 +10,12 @@ namespace Omu.ProDinner.WebUI.Controllers
     public class AccountController : BaseController
     {
         private readonly IFormsAuthentication formsAuth;
+        private readonly IUserService us;
 
-        public AccountController(IFormsAuthentication formsAuth)
+        public AccountController(IFormsAuthentication formsAuth, IUserService us)
         {
             this.formsAuth = formsAuth;
+            this.us = us;
         }
 
         public ActionResult SignIn()
@@ -27,17 +32,21 @@ namespace Omu.ProDinner.WebUI.Controllers
                 input.Login = null;
                 return View(input);
             }
+
+            var user = us.Get(input.Login, input.Password);
             
-            if (input.Login != "o" || input.Password != "1" )
+            //ACHTUNG: remove this line in a real app
+            if (user == null && input.Login == "o" && input.Password == "1") user = new User {Login = "o", Roles = new[]{new Role{Name = "admin"}}};
+
+            if (user == null)
             {
-                ModelState.AddModelError("", "Numele sau parola nu sunt introduse corect, va rugam sa mai incercati o data");
+                ModelState.AddModelError("", "Try Login: o and Password: 1");
                 return View();
             }
 
-            formsAuth.SignIn("o", false, new[]{"admin"});
+            formsAuth.SignIn(user.Login, input.Remember, user.Roles.Select(o => o.Name));
 
             return RedirectToAction("index", "dinner");
-
         }
 
         public ActionResult SignOff()
