@@ -44,9 +44,6 @@ body
 {
     float: left;
 }
-#top-wrapper
-{
-}
 
 #hlogo
 {
@@ -68,8 +65,7 @@ body
 }
 
 #main
-{
-    padding: 15px 30px 15px 30px;
+{    
     overflow: hidden;
 }
 
@@ -356,7 +352,7 @@ fieldset
    display: block;
    border: 1px solid gray;
    margin: 5px;
-   padding: 1em;
+   padding: 15px;
 }
 
 .comments
