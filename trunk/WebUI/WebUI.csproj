@@ -91,7 +91,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AwesomeMui.cs" />
+    <Compile Include="AwesomeConfigurator.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="CastleWindsorControllerFactory.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -141,12 +141,7 @@
     <Content Include="Scripts\Awesome.js" />
     <Content Include="Scripts\jquery.form.min.js" />
     <Content Include="Scripts\jquery.Jcrop.min.js" />
-    <Content Include="Scripts\mvcvalidationfix.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\MicrosoftMvcJQueryValidation.js" />
     <Content Include="Scripts\style.js" />
-    <Content Include="Scripts\jquery.form.js" />
     <Content Include="Views\Account\SignIn.cshtml" />
     <None Include="Views\ChangeTheme\index.cshtml" />
     <Content Include="Views\Dinner\About.cshtml" />

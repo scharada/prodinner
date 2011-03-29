@@ -37,8 +37,7 @@
         }).submit();
 
         $('#sform input[type="text"]').keyup(function () { $('#sform').submit(); });
-        $('#sform input[type="hidden"]').change(function () { $('#sform').submit(); });
-
+        $('#sform input[type="hidden"], .ae-array').change(function () { $('#sform').submit(); });
     });
 
     function regForm() {
