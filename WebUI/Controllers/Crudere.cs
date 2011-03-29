@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using System.Web.UI;
 using Omu.ProDinner.Core;
 using Omu.ProDinner.Core.Model;
 using Omu.ProDinner.Core.Service;
@@ -57,6 +58,7 @@ namespace Omu.ProDinner.WebUI.Controllers
             return Json(new {Id = s.Create(v.BuildEntity(o))});
         }
 
+        [OutputCache(Location = OutputCacheLocation.None)]//for ie8
         public ActionResult Edit(int id)
         {
             var o = s.Get(id);
