@@ -32,7 +32,7 @@ namespace Omu.ProDinner.Tests
         [Test]
         public void IntsToEntities()
         {
-            WindsorRegistrar.RegisterSingleton(typeof(IRepo<>), typeof(Repo<>));
+            WindsorRegistrar.RegisterSingleton(typeof(IReadRepo<>), typeof(ReadRepo<>));
             WindsorRegistrar.RegisterSingleton(typeof(IDbContextFactory), typeof(DbContextFactory));
             using (var scope = new TransactionScope())
             {

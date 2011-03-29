@@ -1,6 +1,5 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
-using Omu.Awesome.Mvc;
 using Omu.ProDinner.Infra;
 
 namespace Omu.ProDinner.WebUI
@@ -12,11 +11,7 @@ namespace Omu.ProDinner.WebUI
             RouteConfigurator.RegisterRoutes(RouteTable.Routes);
             ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(IoC.Container));
             WindsorConfigurator.Configure();
-            ModelMetadataProviders.Current = new AwesomeModelMetadataProvider();
-
-            Settings.PopupForm.ClientSideValidation = false;
-            Settings.Lookup.Interactive = true;
-            Settings.GetText = AwesomeMui.GetTranslate;
+            AwesomeConfigurator.Configure();
         }
     }
 }
