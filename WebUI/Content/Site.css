@@ -302,7 +302,10 @@ fieldset
     width: 45px;
     height: 34px;
 }
-
+.trmi a
+{
+    text-decoration: underline !important;
+}
 .trmi
 {
     float:right;
