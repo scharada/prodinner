@@ -14,6 +14,7 @@
     <AssemblyName>Omu.ProDinner.WebUI</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -146,6 +147,7 @@
     <None Include="Views\ChangeTheme\index.cshtml" />
     <Content Include="Views\Dinner\About.cshtml" />
     <Content Include="Views\CountryIdLookup\item.cshtml" />
+    <Content Include="Views\Meal\ViewUserControl1.ascx" />
     <Content Include="Views\Shared\EditorTemplates\Boolean.aspx" />
     <Content Include="Views\Shared\hrow_.ascx" />
     <Content Include="Views\Shared\login.ascx" />
@@ -215,9 +217,9 @@
     <Content Include="Views\Nav\Index.cshtml" />
     <Content Include="Views\Shared\cruds.cshtml" />
     <Content Include="Views\Meal\Create.cshtml" />
-    <Content Include="Views\Meal\searchBox.cshtml" />
+    <Content Include="Views\Meal\searchBox.ascx" />
     <Content Include="Views\Meal\header.cshtml" />
-    <Content Include="Views\Meal\rows.cshtml" />
+    <Content Include="Views\Meal\rows.ascx" />
     <Content Include="Views\MealsLookup\item.cshtml" />
     <Content Include="Views\Meal\Picture.cshtml" />
     <Content Include="Views\Mui\Index.cshtml" />

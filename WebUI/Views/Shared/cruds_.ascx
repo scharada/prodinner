@@ -13,7 +13,9 @@
     }
 %>
 <%=Html.Partial("header")%>
+<% if(!HttpContext.Current.User.IsInRole("admin")){%>
 <%=Html.Confirm(Mui.confirm_delete)%>
+<%} %>
 <%=Html.MakePopupForm("create", successFunction: "create", height: h, fullScreen:f)%>
 <%=Html.MakePopupForm("Edit", new[] { "id" }, title: "edit " + c, successFunction: "edit", height: he)%>
 <script type="text/javascript">
