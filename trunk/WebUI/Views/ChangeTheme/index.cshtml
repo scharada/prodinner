@@ -6,7 +6,7 @@
     $(function () {
         $('#themes').change(function () {
             $(this.form).ajaxSubmit();
-            $("#siteThemeLink").attr("href", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/themes/" + $("#themes").val() + "/jquery-ui.css");
+            $("#siteThemeLink").attr("href", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/" + $("#themes").val() + "/jquery-ui.css");
             setTimeout('colorfix()', 100);            
             setTimeout('colorfix()', 400);            
         });

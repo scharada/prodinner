@@ -38,7 +38,7 @@ namespace Omu.ProDinner.Service
 
         public User Get(string Login, string password)
         {
-            var user = repo.Where(o => o.Login == Login).SingleOrDefault();
+            var user = repo.Where(o => o.Login == Login && o.IsDeleted == false).SingleOrDefault();
             if (user == null || !hasher.CompareStringToHash(password, user.Password)) return null;
             return user;
         }

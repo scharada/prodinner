@@ -7,15 +7,15 @@ namespace Omu.ProDinner.WebUI.Controllers
 {
     public class ChangeThemeController : Controller
     {
-        private const string d = "excite-bike";
-        private const string cookie = "aejqtheme";
+        private const string d = "blitzer";
+        private const string cookie = "projqtheme";
         public ActionResult Index()
         {
             var theme = d;
             if (Request.Cookies[cookie] != null)
                 theme = Request.Cookies[cookie].Value;
 
-            var themes = new[] {"black-tie","blitzer","cupertino","dark-hive","dot-luv","eggplant", "excite-bike", "flick","hot-sneaks","humanity", "le-frog", "mint-choc", "overcast", "pepper-grinder", "redmond", "smoothness","south-street", "start", "sunny", "swanky-purse", "trontastic", "ui-darkness", "ui-lightness", "vader"};
+            var themes = new[] {"base","black-tie","blitzer","cupertino","dark-hive","dot-luv","eggplant", "excite-bike", "flick","hot-sneaks","humanity", "le-frog", "mint-choc", "overcast", "pepper-grinder", "redmond", "smoothness","south-street", "start", "sunny", "swanky-purse", "trontastic", "ui-darkness", "ui-lightness", "vader"};
 
             var items = themes.Select(o => new SelectListItem {Text = o, Value = o, Selected = o == theme});
 
