@@ -17,7 +17,7 @@
 <%=Html.Confirm(Mui.confirm_delete)%>
 <%} %>
 <%=Html.MakePopupForm("create", successFunction: "create", height: h, fullScreen:f)%>
-<%=Html.MakePopupForm("Edit", new[] { "id" }, title: "edit " + c, successFunction: "edit", height: he)%>
+<%=Html.MakePopupForm("Edit", new[] { "id" }, successFunction: "edit", height: he)%>
 <script type="text/javascript">
     var page = 1;
     function addStart(d) { $(d).css('opacity', 0).prependTo("#list").animate({ opacity: 1 }, 600, 'easeInCubic'); }
