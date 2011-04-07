@@ -106,6 +106,7 @@
     <Compile Include="Controllers\Cruder.cs" />
     <Compile Include="Controllers\Crudere.cs" />
     <Compile Include="Controllers\DinnerController.cs" />
+    <Compile Include="Controllers\DoggyController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\FormAuthService.cs" />
     <Compile Include="Controllers\MealController.cs" />
@@ -148,6 +149,7 @@
     <Content Include="Views\Dinner\About.cshtml" />
     <Content Include="Views\CountryIdLookup\item.cshtml" />
     <Content Include="Views\Meal\ViewUserControl1.ascx" />
+    <Content Include="Views\Shared\doggy.ascx" />
     <Content Include="Views\Shared\EditorTemplates\Boolean.aspx" />
     <Content Include="Views\Shared\hrow_.ascx" />
     <Content Include="Views\Shared\login.ascx" />
