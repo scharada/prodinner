@@ -19,7 +19,7 @@ namespace Omu.ProDinner.WebUI.Controllers
                 1,
                 userName,  //user id
                 DateTime.Now,
-                DateTime.Now.AddMinutes(20),  // expiry
+                DateTime.Now.AddDays(30),  // expiry
                 createPersistentCookie,
                 str,
                 "/");

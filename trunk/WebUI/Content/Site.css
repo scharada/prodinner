@@ -400,42 +400,37 @@ fieldset
 {
     padding:0;
 }
-#assistent
+
+#doggy
 {
+    width:100px;
+    height:100px;
+    background-image: url('dogs.gif');    
     z-index:9000;
     position: fixed;
     right: 3em;
     bottom: 10em;
-    width:213px;
-    height: 200px;    
-}
-.doggy
-{
-    width:100px;
-    height:100px;
-    position: absolute;
-    right:0px;
-    bottom: 0px;
-    background-image: url('dogs.gif');
-    background-repeat: no-repeat;
-    background-position: right bottom; 
 }
 
-.doggy:hover
+#doggy:hover
 {
     background-image: url('dog.gif');
 }
 
-.tip
+#tip
 {
     width:130px;
     height:133px;       
     opacity: 0.90;
     background-image: url('tip.png');
-    display:none;
+    
+    z-index:9000;
+    position: fixed;
+    right: 10em;
+    bottom: 15em;
 }
 
-.tipcontent
+#tipcontent
 {
     padding:1.3em;
     font-size: 80%;    
