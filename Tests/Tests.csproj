@@ -84,6 +84,10 @@
       <Project>{4889C84C-9CDF-4928-BFE1-6801EB3E6380}</Project>
       <Name>Infra</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Service\Service.csproj">
+      <Project>{046EF484-2278-4760-B7DD-FADF08ACE1F8}</Project>
+      <Name>Service</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebUI\WebUI.csproj">
       <Project>{92603C80-C30F-4E9F-884B-EBBCFAE5A5F1}</Project>
       <Name>WebUI</Name>

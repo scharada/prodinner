@@ -5,9 +5,9 @@
     <div class="fl">@o.Name</div>
     <div class="fr">@o.Chef.FirstName @o.Chef.LastName @Mui.from @o.Chef.Country.Name @Mui.is_cooking</div>
     <br class="cbt" />
-    @foreach(var m in o.Meals.Where(v => v.HasPic))
+    @foreach(var m in o.Meals.Where(v => !string.IsNullOrEmpty(v.Picture))
     {
-        <img  src='@Url.Content("~/pictures/Meals/" +  @m.Id + "s.jpg")' class="sthumb"  alt='@m.Name' />     
+        <img  src='@Url.Content("~/pictures/Meals/" +  @m.Picture + "s.jpg")' class="sthumb"  alt='@m.Name' />     
     }    
      <br class="cbt"/>
      <div class="fl">@o.Country.Name, @o.Address</div>

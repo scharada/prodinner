@@ -1,6 +1,5 @@
 ﻿using System;
 using NUnit.Framework;
-using Omu.Encrypto;
 using Omu.ProDinner.Core.Model;
 using Omu.ProDinner.Core.Repository;
 using Omu.ProDinner.Data;
@@ -40,6 +39,7 @@ namespace Omu.ProDinner.Tests
                 u.Save();
                 Assert.IsTrue(o.Id != 0);
                 Console.WriteLine(type.Name + " ok");
+                Console.WriteLine();
             }
         }
     }
@@ -69,6 +69,7 @@ namespace Omu.ProDinner.Tests
                 else if (p.PropertyType == typeof(DateTime)) p.SetValue(target, DateTime.Now);
                 else if (p.PropertyType.IsSubclassOf(typeof(DelEntity)))
                 {
+                    Console.WriteLine("   create a " + p.PropertyType.Name);
                     dynamic o = Activator.CreateInstance(p.PropertyType).InjectFrom(new Fill(u, true));
                     u.Insert(o);
                     u.Save();
@@ -81,11 +82,14 @@ namespace Omu.ProDinner.Tests
 
                     var tlist = typeof(List<>).MakeGenericType(t);
                     dynamic list = Activator.CreateInstance(tlist);
+                    Console.WriteLine("   creating a list of " + t.Name);
                     for (var k = 0; k < 3; k++)
                     {
+                        Console.WriteLine("      create a " + t.Name);
                         dynamic o = Activator.CreateInstance(t).InjectFrom(new Fill(u, true));
                         u.Insert(o);
                         u.Save();
+                        Console.WriteLine("      add " + t.Name  + " to list");
                         list.Add(o);
                     }
                     p.SetValue(target, list);

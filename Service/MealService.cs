@@ -10,9 +10,9 @@ namespace Omu.ProDinner.Service
         {
         }
 
-        public void HasPic(int id)
+        public void SetPicture(int id, string name)
         {
-            repo.Get(id).HasPic = true;
+            repo.Get(id).Picture = name;
             repo.Save();
         }
     }

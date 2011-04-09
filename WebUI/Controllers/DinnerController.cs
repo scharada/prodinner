@@ -4,8 +4,8 @@ using System.Web.Mvc;
 using Omu.Awesome.Mvc;
 using Omu.ProDinner.Core.Model;
 using Omu.ProDinner.Core.Service;
-using Omu.ProDinner.Infra.Builder;
-using Omu.ProDinner.Infra.Dto;
+using Omu.ProDinner.WebUI.Dto;
+using Omu.ProDinner.WebUI.Builder;
 
 namespace Omu.ProDinner.WebUI.Controllers
 {

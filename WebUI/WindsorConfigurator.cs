@@ -13,7 +13,7 @@ namespace Omu.ProDinner.WebUI
             WindsorRegistrar.Register(typeof(IHasher), typeof(Hasher));
             WindsorRegistrar.RegisterAllFromAssemblies("Omu.ProDinner.Data");
             WindsorRegistrar.RegisterAllFromAssemblies("Omu.ProDinner.Service");
-            WindsorRegistrar.RegisterAllFromAssemblies("Omu.ProDinner.Infra");
+            WindsorRegistrar.RegisterAllFromAssemblies("Omu.ProDinner.WebUI");
         }
     }
 }

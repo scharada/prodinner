@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using Omu.ProDinner.Core.Model;
 using Omu.ProDinner.Core.Security;
 using Omu.ProDinner.Core.Service;
-using Omu.ProDinner.Infra.Dto;
+using Omu.ProDinner.WebUI.Dto;
 
 namespace Omu.ProDinner.WebUI.Controllers
 {

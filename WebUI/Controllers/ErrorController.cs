@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Web.Mvc;
 using Omu.ProDinner.Core;
-using Omu.ProDinner.Infra.Dto;
+using Omu.ProDinner.WebUI.Dto;
+using Omu.ProDinner.WebUI.Dto;
 
 namespace Omu.ProDinner.WebUI.Controllers
 {

@@ -1,10 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq.Expressions;
 using Omu.ProDinner.Core.Model;
 
 namespace Omu.ProDinner.Core.Service
 {
+    public interface IFileManagerService
+    {
+        string SaveJpeg(Stream inputStream, out int w, out int h);
+        void MakeImages(string filename, int x, int y, int w, int h);
+    }
     public interface ICrudService<T> where T: DelEntity, new()
     {
         int Create(T e);
@@ -19,7 +25,7 @@ namespace Omu.ProDinner.Core.Service
 
     public interface IMealService : ICrudService<Meal>
     {
-        void HasPic(int id);
+        void SetPicture(int id, string name);
     }
 
     public interface IUserService : ICrudService<User>

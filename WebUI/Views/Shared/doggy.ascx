@@ -2,31 +2,36 @@
 <div id="doggy">
 </div>
 <div id="tip">
-<div id="tipcontent">
-</div>
+    <div id="tipcontent">
+    </div>
 </div>
 <%
     var c = ViewContext.RouteData.Values["Controller"].ToString().ToLower();
     var a = ViewContext.RouteData.Values["Action"].ToString().ToLower();
-       %>
+%>
 <script type="text/javascript">
     var ascl = false;
     $(function () {
-
+        
+        var x = Math.random() * 5000
+        setTimeout("showTip()", x);
+        setTimeout("doSomething()", x+5000);
         $('#doggy').draggable({
             drag: function (event, ui) {
-
-                var p = $('#doggy').position();
-                $('#tip').css('left', p.left - 120);
-                $('#tip').css('top', p.top - 100);
+                $("#tip").position({
+                    my: "right bottom",
+                    at: "left top",
+                    offset: "0 30",
+                    of: $('#doggy'),
+                    collision: "fit"
+                });
             }
         });
 
         $('#tip').click(showTip);
 
         $('#doggy').click(function (e) {
-            ascl = !ascl;
-            if (ascl) {
+            if (!$('#tip').is(':visible')) {
                 showTip();
             }
             else {
@@ -34,6 +39,11 @@
             }
         });
     });
+
+    function doSomething() {
+        if($('#tip').is(':visible')) showTip();
+        setTimeout('doSomething()', Math.random() * 5000 + 5000);    
+    }
 
     function showTip() {
         $.post('<%=Url.Action("tell","doggy") %>',
@@ -45,4 +55,3 @@
         });
     }
 </script>
-
