@@ -9,9 +9,9 @@ namespace Omu.ProDinner.WebUI.Controllers
 {
     public class RolesLookupController : LookupController
     {
-        private readonly IReadRepo<Role> r;
+        private readonly IRepo<Role> r;
 
-        public RolesLookupController(IReadRepo<Role> r)
+        public RolesLookupController(IRepo<Role> r)
         {
             this.r = r;
         }

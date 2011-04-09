@@ -7,8 +7,9 @@ using Omu.ProDinner.Core.Model;
 using Omu.ProDinner.Core.Repository;
 using Omu.ProDinner.Data;
 using Omu.ProDinner.Infra;
-using Omu.ProDinner.Infra.Builder;
-using Omu.ProDinner.Infra.Dto;
+using Omu.ProDinner.Service;
+using Omu.ProDinner.WebUI.Builder;
+using Omu.ProDinner.WebUI.Dto;
 using Omu.ValueInjecter;
 
 namespace Omu.ProDinner.Tests
@@ -32,7 +33,7 @@ namespace Omu.ProDinner.Tests
         [Test]
         public void IntsToEntities()
         {
-            WindsorRegistrar.RegisterSingleton(typeof(IReadRepo<>), typeof(ReadRepo<>));
+            WindsorRegistrar.RegisterSingleton(typeof(IRepo<>), typeof(Repo<>));
             WindsorRegistrar.RegisterSingleton(typeof(IDbContextFactory), typeof(DbContextFactory));
             using (var scope = new TransactionScope())
             {
@@ -79,6 +80,17 @@ namespace Omu.ProDinner.Tests
             Assert.AreEqual(3, d.ChefId);
             Assert.AreEqual(0, d.CountryId);
             Assert.AreEqual(default(DateTime), d.Date);
+        }
+
+        [Test]
+        public void SameTest()
+        {
+            var c = new Chef {FirstName = "hey", LastName = "yo", Id = 3};
+            c.InjectFrom(new Same("FirstName","Id"), new {FirstName = "a", LastName = "b", Id = 9});
+            
+            Assert.AreEqual("hey", c.FirstName);
+            Assert.AreEqual("b", c.LastName);
+            Assert.AreEqual(3, c.Id);
         }
     }
 }

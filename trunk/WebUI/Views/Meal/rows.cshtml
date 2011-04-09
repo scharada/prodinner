@@ -8,11 +8,12 @@
             </div>
         </div>
         <div>
-            <div class="fl"><img  src='@Url.Content("~/pictures/Meals/" + (o.HasPic ? o.Id : 0) + ".jpg")' class="thumb"  alt='picture' /></div>
+            <div class="fl"><img  src='@Url.Content("~/pictures/Meals/" + (string.IsNullOrEmpty(o.Picture) ? "0.jpg" : o.Picture))' class="thumb"  alt='picture' /></div>
             <div class="comments">@o.Comments</div>
             <br class="cbt"/>
         </div>        
         <div class="cbt">
+            @Html.PopupActionLink("Cp","change pic", new object[]{o.Id})
             @Html.ActionLink(@Mui.Picture, "Picture", new { o.Id })
             <div class="fr">@Html.PopupFormActionLink("Edit", @Mui.Edit, parameters: new object[] { o.Id })</div>
         </div>        

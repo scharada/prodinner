@@ -5,10 +5,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using Omu.ProDinner.Core.Model;
 using Omu.ProDinner.Core.Repository;
+using Omu.ProDinner.Infra;
 
 namespace Omu.ProDinner.Data
 {
-    public class Repo<T> : IRepo<T> where T : DelEntity, new()
+    public class Repo<T> : IRepo<T> where T : Entity, new()
     {
         protected readonly DbContext c;
 
@@ -27,31 +28,43 @@ namespace Omu.ProDinner.Data
             c.Set<T>().Add(o);
         }
 
-        public void Delete(T o)
+        public void Insert(IEnumerable<T> oo)
         {
-            o.IsDeleted = true;
-        }
-        
-        public void Restore(T o)
-        {
-            o.IsDeleted = false;
+            foreach (var o in oo)
+                Insert(o);
         }
 
-        public IEnumerable<T> Where(Expression<Func<T, bool>> predicate, bool showDeleted = false)
+        public virtual void Delete(T o)
         {
-            var res = c.Set<T>().Where(predicate);
-            if(!showDeleted) res = res.Where(o => o.IsDeleted == false);
-            return res;
-        }
-
-        public IEnumerable<T> GetAll()
-        {
-            return c.Set<T>().Where(o => o.IsDeleted == false);
+            if (o is IDel)
+                (o as IDel).IsDeleted = true;
+            else
+                c.Set<T>().Remove(o);
         }
 
         public T Get(int id)
         {
             return c.Set<T>().Find(id);
+        }
+
+        public void Restore(T o)
+        {
+            if (o is IDel)
+                IoC.Resolve<IDelRepo<T>>().Restore(o);
+        }
+
+        public virtual IEnumerable<T> Where(Expression<Func<T, bool>> predicate, bool showDeleted = false)
+        {
+            if (typeof(T) is IDel)
+                return IoC.Resolve<IDelRepo<T>>().Where(predicate, showDeleted);
+            return c.Set<T>().Where(predicate);
+        }
+
+        public virtual IEnumerable<T> GetAll()
+        {
+            if (typeof(T) is IDel)
+                return IoC.Resolve<IDelRepo<T>>().GetAll();
+            return c.Set<T>();
         }
 
         public int Count()

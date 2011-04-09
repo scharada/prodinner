@@ -23,7 +23,16 @@
             mybutton(".abtn");
             mybutton(".ae-lookup-morebtn");
 
-            $(".field-validation-error, .validation-summary-errors li").addClass('ui-state-error ui-corner-all');
+            $(".validation-summary-errors li").addClass('ui-state-error ui-corner-all');
+
+            $('.field-validation-error').each(function () {
+                $(this).after('<div class="err" data-msg="' + $(this).html() + '"></div>').remove();
+            });
+
+            $(".err").each(function () {
+                $(this).tooltip({ bodyHandler: function () { return $(this).data('msg'); } });
+            });
+
 
             if(!is_chrome)
             $(".input-validation-error").addClass('ui-state-error');

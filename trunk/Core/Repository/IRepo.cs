@@ -17,17 +17,18 @@ namespace Omu.ProDinner.Core.Repository
         void Restore(T o);
     }
 
+    public interface IDelRepo<T>
+    {
+        IEnumerable<T> Where(Expression<Func<T, bool>> predicate, bool showDeleted = false);
+        IEnumerable<T> GetAll();
+        void Restore(T o);
+    }
+
     public interface IUniRepo
     {
         void Insert<T>(T o) where T : Entity;
         void Save();
         T Get<T>(int id) where T : Entity;
         IEnumerable<T> GetAll<T>() where T : Entity;
-    }
-
-    public interface IReadRepo<T> where T : Entity
-    {
-        IEnumerable<T> GetAll();
-        T Get(int id);
     }
 }

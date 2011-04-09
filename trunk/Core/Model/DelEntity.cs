@@ -8,7 +8,12 @@ namespace Omu.ProDinner.Core.Model
         public int Id { get; set; }
     }
 
-    public class DelEntity : Entity
+    public interface IDel
+    {
+        bool IsDeleted { get; set; }
+    }
+
+    public class DelEntity : Entity, IDel
     {
         public bool IsDeleted { get; set; }
     }
@@ -25,7 +30,7 @@ namespace Omu.ProDinner.Core.Model
         public string Name { get; set; }
         public string Comments { get; set; }
         public virtual ICollection<Dinner> Dinners { get; set; }
-        public bool HasPic { get; set; }
+        public string Picture { get; set; }
     }
 
     public class Chef : DelEntity

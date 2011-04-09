@@ -51,6 +51,7 @@
       <HintPath>..\libs\Omu.Drawing.dll</HintPath>
     </Reference>
     <Reference Include="Omu.Encrypto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Omu.ValueInjecter, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
@@ -94,6 +95,13 @@
   <ItemGroup>
     <Compile Include="AwesomeConfigurator.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Builder\Builder.cs" />
+    <Compile Include="Builder\EntitiesToInts.cs" />
+    <Compile Include="Builder\EntityToNullInt.cs" />
+    <Compile Include="Builder\IBuilder.cs" />
+    <Compile Include="Builder\IntsToEntities.cs" />
+    <Compile Include="Builder\NormalToNullables.cs" />
+    <Compile Include="Builder\NullablesToNormal.cs" />
     <Compile Include="CastleWindsorControllerFactory.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -117,6 +125,11 @@
     <Compile Include="Controllers\RolesLookupController.cs" />
     <Compile Include="Controllers\StuffController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Dto\ErrorDisplay.cs" />
+    <Compile Include="Dto\Input.cs" />
+    <Compile Include="Dto\LoginUniqueAttribute.cs" />
+    <Compile Include="Dto\ReqAttribute.cs" />
+    <Compile Include="Dto\StrLenAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -148,7 +161,7 @@
     <None Include="Views\ChangeTheme\index.cshtml" />
     <Content Include="Views\Dinner\About.cshtml" />
     <Content Include="Views\CountryIdLookup\item.cshtml" />
-    <Content Include="Views\Meal\ViewUserControl1.ascx" />
+    <Content Include="Views\Meal\Cp.ascx" />
     <Content Include="Views\Shared\doggy.ascx" />
     <Content Include="Views\Shared\EditorTemplates\Boolean.aspx" />
     <Content Include="Views\Shared\hrow_.ascx" />
@@ -219,9 +232,7 @@
     <Content Include="Views\Nav\Index.cshtml" />
     <Content Include="Views\Shared\cruds.cshtml" />
     <Content Include="Views\Meal\Create.cshtml" />
-    <Content Include="Views\Meal\searchBox.ascx" />
     <Content Include="Views\Meal\header.cshtml" />
-    <Content Include="Views\Meal\rows.ascx" />
     <Content Include="Views\MealsLookup\item.cshtml" />
     <Content Include="Views\Meal\Picture.cshtml" />
     <Content Include="Views\Mui\Index.cshtml" />
@@ -233,6 +244,8 @@
     <Content Include="Views\Shared\cruds_.ascx" />
     <Content Include="Views\Shared\deletebtn.cshtml" />
     <Content Include="Views\User\edit.cshtml" />
+    <Content Include="Views\Meal\rows.cshtml" />
+    <Content Include="Views\Meal\searchBox.ascx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

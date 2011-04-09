@@ -37,51 +37,16 @@
     <Reference Include="Castle.Windsor">
       <HintPath>..\packages\Castle.Windsor.2.5.2\lib\NET40\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="FakeItEasy">
-      <HintPath>..\packages\FakeItEasy.1.5.3970.199\lib\FakeItEasy.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Omu.Awesome.Mvc">
-      <HintPath>..\libs\Omu.Awesome.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="Omu.ValueInjecter, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\libs\Omu.ValueInjecter.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\libs\System.Web.Mvc.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Builder\Builder.cs" />
-    <Compile Include="Builder\EntitiesToInts.cs" />
-    <Compile Include="Builder\EntityToNullInt.cs" />
-    <Compile Include="Builder\IBuilder.cs" />
-    <Compile Include="Builder\IntsToEntities.cs" />
-    <Compile Include="Builder\NullIntToEntity.cs" />
-    <Compile Include="Dto\Input.cs" />
-    <Compile Include="Dto\ErrorDisplay.cs" />
-    <Compile Include="Dto\LoginUniqueAttribute.cs" />
-    <Compile Include="Dto\ReqAttribute.cs" />
-    <Compile Include="Dto\StrLenAttribute.cs" />
     <Compile Include="WindsorRegistrar.cs" />
     <Compile Include="IoC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj">
-      <Project>{F668A08B-1888-468B-BA3F-9EE5513108CE}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{C5D7AF01-8760-4CEF-9442-DF307AF3C73A}</Project>
-      <Name>Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Resources\Resources.csproj">
       <Project>{B603F35A-0F5C-4F45-9A5F-633DED479F1F}</Project>
       <Name>Resources</Name>

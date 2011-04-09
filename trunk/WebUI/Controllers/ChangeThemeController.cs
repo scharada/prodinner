@@ -7,8 +7,8 @@ namespace Omu.ProDinner.WebUI.Controllers
 {
     public class ChangeThemeController : Controller
     {
-        private const string d = "blitzer";
-        private const string cookie = "projqtheme";
+        private const string d = "excite-bike";
+        private const string cookie = "projqthemez";
         public ActionResult Index()
         {
             var theme = d;

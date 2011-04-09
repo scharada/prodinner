@@ -29,7 +29,7 @@ body
 
 .elabel
 {
-    width: 120px;
+    width: 170px;
     text-align: right;
     float: left;
     margin-right: 5px;
@@ -65,7 +65,7 @@ body
 }
 
 #main
-{    
+{
     overflow: hidden;
 }
 
@@ -107,7 +107,7 @@ body
 {
     margin: auto;
     width: 85%;
-    padding-bottom: 2em;    
+    padding-bottom: 2em;
 }
 
 #nos
@@ -220,7 +220,7 @@ a.abtn
 
 .explain p
 {
-    margin:0;    
+    margin: 0;
 }
 
 #more
@@ -308,15 +308,15 @@ fieldset
 }
 .trmi
 {
-    float:right;
+    float: right;
     margin: 1em 0 0 1em;
     cursor: pointer !important;
 }
 
 #langs
 {
-    position:absolute;
-    width:9.5em;   
+    position: absolute;
+    width: 9.5em;
 }
 
 .langs a
@@ -350,26 +350,26 @@ fieldset
 }
 .meal
 {
-   float:left;
-   width: 450px;
-   height: 200px;
-   display: block;
-   border: 1px solid gray;
-   margin: 5px;
-   padding: 15px;
+    float: left;
+    width: 450px;
+    height: 200px;
+    display: block;
+    border: 1px solid gray;
+    margin: 5px;
+    padding: 15px;
 }
 
 .comments
 {
-  padding: 5px;
-  float:right;
-  width:200px;    
+    padding: 5px;
+    float: right;
+    width: 200px;
 }
 
 .inputarea
 {
     float: left;
-    width: 620px;
+    width: 470px;
 }
 
 .bro
@@ -377,36 +377,36 @@ fieldset
     background-image: url('broccoli.png');
     background-repeat: no-repeat;
     background-position: right top;
-    height:100%;    
+    height: 100%;
 }
 
- #searchMealsls .ae-lookup-morebtn, #Mealsls .ae-lookup-morebtn
+#searchMealsls .ae-lookup-morebtn, #Mealsls .ae-lookup-morebtn
 {
-    float:left;
+    float: left;
     width: 200px;
-    height: 173px;    
+    height: 173px;
     margin: 3px;
     padding: 7px;
-    line-height: 160px;    
-    clear:none !important;
+    line-height: 160px;
+    clear: none !important;
 }
 
 .validation-summary-errors li
 {
-    display:block;
+    display: block;
 }
 
 #themes
 {
-    padding:0;
+    padding: 0;
 }
 
 #doggy
 {
-    width:100px;
-    height:100px;
-    background-image: url('dogs.gif');    
-    z-index:9000;
+    width: 100px;
+    height: 100px;
+    background-image: url('dogs.gif');
+    z-index: 9000;
     position: fixed;
     right: 3em;
     bottom: 10em;
@@ -419,19 +419,35 @@ fieldset
 
 #tip
 {
-    width:130px;
-    height:133px;       
+    width: 130px;
+    height: 133px;
     opacity: 0.90;
     background-image: url('tip.png');
-    
-    z-index:9000;
+    z-index: 9000;
     position: fixed;
     right: 10em;
     bottom: 15em;
+    display: none;
 }
 
 #tipcontent
 {
-    padding:1.3em;
-    font-size: 80%;    
+    padding: 1.3em;
+    font-size: 95%;
+}
+
+.err
+{
+    background-image: url('error.png');
+    width: 19px;
+    height: 20px;
+    float: left;
+    padding-left: 0.5em;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.ae-lookup-textbox, .ae-lookup-multidisplay
+{
+    width: 165px !important;
 }
