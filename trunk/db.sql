@@ -30,7 +30,7 @@ create table meals(
 id int identity primary key,
 name nvarchar(50) not null,
 comments nvarchar(max),
-haspic bit default(0),
+picture nvarchar(40),
 isdeleted bit default(0) not null
 )
 
