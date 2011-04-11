@@ -5,9 +5,9 @@
 
         function styleup() {
             var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
-            $("select,fieldset,input:text,input:password,.ae-lookup-multidisplay, .dinner, .thumb, .mealitem, .sthumb, .meal").addClass("ui-corner-all");
+            $("select,fieldset,input:text,input:password,.ae-lookup-multidisplay, .dinner, .thumb, .mealitem, .sthumb, .meal, .thumbhead").addClass("ui-corner-all");
             $("input:text, input:password,.ae-lookup-multidisplay").addClass('ui-widget-content');
-            $("input[type=submit]").addClass("abtn");
+            $("input[type=submit], .file_upload").addClass("abtn");
             $(".atbl thead").addClass("ui-state-default");
             
             $(".ae-lookup-list > li:even, .ae-lookup-list li:odd").removeClass('ui-widget-content ui-state-highlight');
@@ -19,8 +19,10 @@
             $(".atbl tbody tr:odd").addClass("ui-state-highlight");            
            
             $('.ui-state-highlight a').css('color', $('.ui-state-default').css('color'));
-            
-            mybutton(".abtn");
+            $('.thumbhead').addClass('ui-widget-header');
+
+            //mybutton is from awesome.js, almost the same as jquery ui .button()
+            mybutton(".abtn");            
             mybutton(".ae-lookup-morebtn");
 
             $(".validation-summary-errors li").addClass('ui-state-error ui-corner-all');

@@ -289,6 +289,7 @@ fieldset
 {
     width: 200px;
     height: 150px;
+    background: White;
 }
 
 .sthumb
@@ -450,4 +451,21 @@ fieldset
 .ae-lookup-textbox, .ae-lookup-multidisplay
 {
     width: 165px !important;
+
+}
+
+.cropbox
+{
+    width:533px;
+    height:400px;
+    float:left;
+    background: white;
+}
+
+.thumbhead
+{
+    float:left;
+    margin-bottom: 3px;
+    text-align:center;
+    width: 200px;
 }

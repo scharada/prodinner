@@ -8,8 +8,9 @@ namespace Omu.ProDinner.Core.Service
 {
     public interface IFileManagerService
     {
-        string SaveJpeg(Stream inputStream, out int w, out int h);
+        string SaveTempJpeg(Stream inputStream, out int w, out int h);
         void MakeImages(string filename, int x, int y, int w, int h);
+        void DeleteImages(string filename);
     }
     public interface ICrudService<T> where T: DelEntity, new()
     {
@@ -25,7 +26,7 @@ namespace Omu.ProDinner.Core.Service
 
     public interface IMealService : ICrudService<Meal>
     {
-        void SetPicture(int id, string name);
+        void SetPicture(int id, string filename, int x, int y, int w, int h);
     }
 
     public interface IUserService : ICrudService<User>

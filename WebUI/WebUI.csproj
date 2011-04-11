@@ -147,15 +147,22 @@
     <Content Include="Content\FaceBook-icon.png" />
     <Content Include="Content\Google-icon.png" />
     <Content Include="Content\Jcrop.gif" />
+    <Content Include="Content\jquery.fileupload-ui.css" />
     <Content Include="Content\jquery.Jcrop.css" />
+    <Content Include="Content\jquery.tooltip.css" />
+    <Content Include="Content\pbar-ani.gif" />
     <Content Include="Content\pros.png" />
     <Content Include="Content\strawberry.png" />
+    <Content Include="Content\tip.png" />
     <Content Include="Content\Twitter-icon.png" />
     <Content Include="f.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Awesome.js" />
+    <Content Include="Scripts\jquery.fileupload-ui.js" />
+    <Content Include="Scripts\jquery.fileupload.js" />
     <Content Include="Scripts\jquery.form.min.js" />
     <Content Include="Scripts\jquery.Jcrop.min.js" />
+    <Content Include="Scripts\jquery.tooltip.min.js" />
     <Content Include="Scripts\style.js" />
     <Content Include="Views\Account\SignIn.cshtml" />
     <None Include="Views\ChangeTheme\index.cshtml" />
@@ -224,7 +231,7 @@
     <Content Include="Views\Chef\rows.cshtml" />
     <Content Include="Views\Dinner\create.cshtml" />
     <Content Include="Views\Dinner\searchBox.cshtml" />
-    <Content Include="Views\Dinner\rows.cshtml" />
+    <Content Include="Views\Dinner\rows.ascx" />
     <Content Include="Views\Shared\Site.Master" />
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
@@ -250,6 +257,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="pictures\Meals\" />
+    <Folder Include="pictures\temp\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj">
