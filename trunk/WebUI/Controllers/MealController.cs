@@ -39,7 +39,7 @@ namespace Omu.ProDinner.WebUI.Controllers
         public ActionResult Upload(HttpPostedFileBase file)
         {
             int w, h;
-            var name = fileManagerService.SaveJpeg(file.InputStream, out w, out h);
+            var name = fileManagerService.SaveTempJpeg(file.InputStream, out w, out h);
             return Json(new { name, type = file.ContentType, size = file.ContentLength, w, h });
         }
 
@@ -51,9 +51,8 @@ namespace Omu.ProDinner.WebUI.Controllers
         [HttpPost]
         public ActionResult Crop(int x, int y, int w, int h, string filename, int id)
         {
-            fileManagerService.MakeImages(filename, x, y, w, h);
-            s.SetPicture(id, filename);
-            return Json(new {name = filename});
+            s.SetPicture(id, filename, x, y, w, h);
+            return Json(new { name = filename });
         }
     }
 }

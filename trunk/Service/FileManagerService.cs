@@ -10,11 +10,13 @@ namespace Omu.ProDinner.Service
     public class FileManagerService : IFileManagerService
     {
         private readonly string mealsPath = @ConfigurationManager.AppSettings["storagePath"] + "/meals/";
-        private readonly string tempPath;
+        private readonly string tempPath = @ConfigurationManager.AppSettings["storagePath"] + "/temp/";
 
-        public FileManagerService()
+        public void DeleteImages(string filename)
         {
-            tempPath = mealsPath + "temp/";
+            File.Delete(mealsPath + filename);
+            File.Delete(mealsPath + "s" + filename);
+            File.Delete(mealsPath + "m" + filename);
         }
 
         public void MakeImages(string filename, int x, int y, int w, int h)
@@ -31,13 +33,13 @@ namespace Omu.ProDinner.Service
             }
         }
 
-        public string SaveJpeg(Stream inputStream, out int w, out int h)
+        public string SaveTempJpeg(Stream inputStream, out int w, out int h)
         {
             var g = Guid.NewGuid() + ".jpg";
             var filePath = tempPath + g;
             using (var image = Image.FromStream(inputStream))
             {
-                var resized = Imager.Resize(image, 640, 480, true);
+                var resized = Imager.Resize(image, 533, 400, true);
                 Imager.SaveJpeg(filePath, resized);
 
                 w = resized.Width;

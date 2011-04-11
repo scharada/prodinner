@@ -6,14 +6,24 @@ namespace Omu.ProDinner.Service
 {
     public class MealService : CrudService<Meal>, IMealService
     {
-        public MealService(IRepo<Meal> repo) : base(repo)
+        private readonly IFileManagerService fileManagerService;
+
+        public MealService(IRepo<Meal> repo, IFileManagerService fileManagerService) : base(repo)
         {
+            this.fileManagerService = fileManagerService;
         }
 
-        public void SetPicture(int id, string name)
+        public void SetPicture(int id, string filename, int x,int y, int w, int h)
         {
-            repo.Get(id).Picture = name;
+            fileManagerService.MakeImages(filename, x, y, w, h);
+            var o = repo.Get(id);
+            if (o.Picture == filename) return;
+            
+            var old = o.Picture;
+            o.Picture = filename;
             repo.Save();
+
+            if(!string.IsNullOrWhiteSpace(old)) fileManagerService.DeleteImages(old);
         }
     }
 }
