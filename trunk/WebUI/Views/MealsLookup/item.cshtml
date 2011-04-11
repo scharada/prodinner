@@ -5,5 +5,5 @@
 </span>
  @Model.Name
  </div>
- <img  src='@Url.Content("~/pictures/Meals/" + (Model.HasPic ? Model.Id : 0) + ".jpg")' class="thumb"  alt='picture' />  
+ <img  src='@Url.Content("~/pictures/Meals/" + (string.IsNullOrEmpty(Model.Picture) ? "0.jpg" : Model.Picture))' class="thumb"  alt='picture' />  
 </li>

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Omu.Awesome.Mvc;
@@ -43,7 +44,7 @@ namespace Omu.ProDinner.WebUI.Controllers
             return Json(new { name, type = file.ContentType, size = file.ContentLength, w, h });
         }
 
-        public ActionResult Cp(int id)
+        public ActionResult ChangePicture(int id)
         {
             return View(s.Get(id));
         }
@@ -54,5 +55,42 @@ namespace Omu.ProDinner.WebUI.Controllers
             s.SetPicture(id, filename, x, y, w, h);
             return Json(new { name = filename });
         }
+
+        #region used only by ie8 and lower (in header.ascx .cool and .notcool from rows are hidden/showed)
+        
+        public ActionResult OChangePicture(int id)
+        {
+            return View(s.Get(id));
+        }
+
+        [HttpPost]
+        public ActionResult OChangePicture()
+        {
+            var file = Request.Files["fileUpload"];
+            var id = Convert.ToInt32(Request.Form["id"]);
+
+            if (file.ContentLength > 0)
+            {
+                int w, h;
+                var name = fileManagerService.SaveTempJpeg(file.InputStream, out w, out h);
+                return RedirectToAction("ocrop", new CropInput { ImageWidth = w, ImageHeight = h, Id = id, FileName = name });
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult OCrop(CropInput cropDisplay)
+        {
+            return View(cropDisplay);
+        }
+
+        [HttpPost]
+        public ActionResult OCrop(int x, int y, int w, int h, int id, string filename)
+        {
+            s.SetPicture(id, filename, x, y, w, h);
+            return RedirectToAction("ochangepicture", new { id });
+        } 
+        #endregion
+
     }
 }

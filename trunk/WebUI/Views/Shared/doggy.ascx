@@ -3,6 +3,7 @@
 </div>
 <div id="tip">
     <div id="tipcontent">
+    hi
     </div>
 </div>
 <%
@@ -20,13 +21,9 @@
 
         $('#doggy').draggable({
             drag: function (event, ui) {
-                $("#tip").position({
-                    my: "right bottom",
-                    at: "left top",
-                    offset: "0 30",
-                    of: $('#doggy'),
-                    collision: "fit"
-                });
+                var dl = parseFloat($('#doggy').css('left'));
+                var dt = parseFloat($('#doggy').css('top'));
+                $('#tip').css('left', (dl-130) + "px").css('top', (dt-100) + 'px');                
             }
         });
 
@@ -35,7 +32,7 @@
         $('#doggy').click(function (e) {
             if (!$('#tip').is(':visible')) {
                 setCookie("showdoggy", true, 10);
-                showTip();
+                $('#tip').fadeIn();
             }
             else {
                 setCookie("showdoggy", false, 10);

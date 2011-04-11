@@ -168,7 +168,7 @@
     <None Include="Views\ChangeTheme\index.cshtml" />
     <Content Include="Views\Dinner\About.cshtml" />
     <Content Include="Views\CountryIdLookup\item.cshtml" />
-    <Content Include="Views\Meal\Cp.ascx" />
+    <Content Include="Views\Meal\ChangePicture.ascx" />
     <Content Include="Views\Shared\doggy.ascx" />
     <Content Include="Views\Shared\EditorTemplates\Boolean.aspx" />
     <Content Include="Views\Shared\hrow_.ascx" />
@@ -180,7 +180,7 @@
     <Content Include="Views\User\searchBox.cshtml" />
     <Content Include="Views\Country\hrow.cshtml" />
     <Content Include="Views\Dinner\header.cshtml" />
-    <None Include="Views\Meal\crop.cshtml" />
+    <None Include="Views\Meal\ocrop.cshtml" />
     <Content Include="Views\Shared\Awesome\AjaxDropdown.ascx" />
     <Content Include="Views\Shared\Awesome\header.ascx" />
     <Content Include="Views\Shared\Awesome\MultiLookupPopup.ascx" />
@@ -239,9 +239,9 @@
     <Content Include="Views\Nav\Index.cshtml" />
     <Content Include="Views\Shared\cruds.cshtml" />
     <Content Include="Views\Meal\Create.cshtml" />
-    <Content Include="Views\Meal\header.cshtml" />
+    <Content Include="Views\Meal\header.ascx" />
     <Content Include="Views\MealsLookup\item.cshtml" />
-    <Content Include="Views\Meal\Picture.cshtml" />
+    <Content Include="Views\Meal\ochangepicture.cshtml" />
     <Content Include="Views\Mui\Index.cshtml" />
     <Content Include="Views\Mui\Langs.cshtml" />
     <Content Include="Views\Stuff\Index.cshtml" />

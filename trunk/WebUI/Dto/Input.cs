@@ -134,5 +134,6 @@ namespace Omu.ProDinner.WebUI.Dto
         public int ImageHeight { get; set; }
         public int ImageWidth { get; set; }
         public int Id { get; set; }
+        public string FileName { get; set; }
     }
 }
