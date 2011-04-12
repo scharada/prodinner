@@ -22,11 +22,6 @@ namespace Omu.ProDinner.Service
             return repo.GetAll();
         }
 
-        public int Count()
-        {
-            return repo.Count();
-        }
-
         public T Get(int id)
         {
             return repo.Get(id);

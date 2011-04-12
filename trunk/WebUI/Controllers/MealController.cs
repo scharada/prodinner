@@ -56,7 +56,7 @@ namespace Omu.ProDinner.WebUI.Controllers
             return Json(new { name = filename });
         }
 
-        #region used only by ie8 and lower (in header.ascx .cool and .notcool from rows are hidden/showed)
+        #region used only by internet explorer and opera (in header.ascx .cool and .notcool from rows are hidden/showed)
         
         public ActionResult OChangePicture(int id)
         {

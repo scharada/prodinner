@@ -14,11 +14,11 @@
         </div>        
         <div class="cbt">
             <div class='cool'>
-            @Html.PopupActionLink("ChangePicture",Mui.Picture, new object[]{o.Id})
+            @Html.PopupActionLink("ChangePicture",Mui.change_picture, new object[]{o.Id})
             </div>
             
             <div class='notcool'>
-            <a href="@Url.Action("ochangepicture", new { o.Id })">@Mui.Picture</a>
+            <a href="@Url.Action("ochangepicture", new { o.Id })">@Mui.change_picture</a>
             </div>
 
             <div class="fr">@Html.PopupFormActionLink("Edit", @Mui.Edit, parameters: new object[] { o.Id })</div>

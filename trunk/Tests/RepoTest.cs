@@ -21,7 +21,7 @@ namespace Omu.ProDinner.Tests
         public static void TestRemove()
         {
             var r = new Repo<Country>(new DbContextFactory());
-            var c = new Country {Name = "AsaaaRemove"};
+            var c = new Country {Name = "a"};
             r.Insert(c);
             r.Save();
 

@@ -55,21 +55,16 @@ namespace Omu.ProDinner.Data
 
         public virtual IEnumerable<T> Where(Expression<Func<T, bool>> predicate, bool showDeleted = false)
         {
-            if (typeof(T) is IDel)
+            if (typeof(IDel).IsAssignableFrom(typeof(T)))
                 return IoC.Resolve<IDelRepo<T>>().Where(predicate, showDeleted);
             return c.Set<T>().Where(predicate);
         }
 
         public virtual IEnumerable<T> GetAll()
         {
-            if (typeof(T) is IDel)
+            if (typeof(IDel).IsAssignableFrom(typeof(T)))
                 return IoC.Resolve<IDelRepo<T>>().GetAll();
             return c.Set<T>();
-        }
-
-        public int Count()
-        {
-            return c.Set<T>().Count();
         }
     }
 }

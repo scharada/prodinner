@@ -19,7 +19,6 @@ namespace Omu.ProDinner.Core.Service
         void Delete(int id);
         T Get(int id);
         IEnumerable<T> GetAll();
-        int Count();
         IEnumerable<T> Where(Expression<Func<T, bool>> func, bool showDeleted = false);
         void Restore(int id);
     }
