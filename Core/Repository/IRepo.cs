@@ -9,7 +9,6 @@ namespace Omu.ProDinner.Core.Repository
     {
         T Get(int id);
         IEnumerable<T> GetAll();
-        int Count();
         IEnumerable<T> Where(Expression<Func<T, bool>> predicate, bool showDeleted = false);
         void Insert(T o);
         void Save();

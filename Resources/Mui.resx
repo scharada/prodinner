@@ -216,4 +216,7 @@
   <data name="strlen" xml:space="preserve">
     <value>{0} may not be longer than {1} characters</value>
   </data>
+  <data name="change_picture" xml:space="preserve">
+    <value>change picture</value>
+  </data>
 </root>

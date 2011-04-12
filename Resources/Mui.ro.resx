@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="change_picture" xml:space="preserve">
+    <value>Schimbă imaginea</value>
+  </data>
   <data name="No" xml:space="preserve">
     <value>Nu</value>
   </data>
@@ -148,7 +151,7 @@
     <value>Caută</value>
   </data>
   <data name="Country" xml:space="preserve">
-    <value>Tara</value>
+    <value>Țara</value>
   </data>
   <data name="First_Name" xml:space="preserve">
     <value>Prenume</value>
@@ -160,7 +163,7 @@
     <value>din</value>
   </data>
   <data name="is_cooking" xml:space="preserve">
-    <value>gateste</value>
+    <value>gătește</value>
   </data>
   <data name="required" xml:space="preserve">
     <value>câmpul {0} este obligatoriu</value>
@@ -178,7 +181,7 @@
     <value>Sunteți sigur că doriți să ștergeți acest item ?</value>
   </data>
   <data name="Create" xml:space="preserve">
-    <value>Creaza</value>
+    <value>Crează</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Șterge</value>

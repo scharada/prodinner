@@ -3,7 +3,7 @@
 </div>
 <div id="tip">
     <div id="tipcontent">
-    hi
+    hi, I'm going to tell you random stuff about this site
     </div>
 </div>
 <%

@@ -13,7 +13,7 @@
     <br class="cbt" />
     <% foreach (var m in o.Meals.Where(v => !string.IsNullOrEmpty(v.Picture)))
        {%>
-    <img src='<%=Url.Content("~/pictures/Meals/" +   m.Picture ) %>' class="sthumb" alt='<%=m.Name%>' />
+    <img src='<%=Url.Content("~/pictures/Meals/s" +   m.Picture ) %>' class="sthumb" alt='<%=m.Name%>' />
     <% } %>
     <br class="cbt" />
     <div class="fl">

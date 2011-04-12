@@ -88,6 +88,15 @@ namespace Omu.ProDinner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to change picture.
+        /// </summary>
+        public static string change_picture {
+            get {
+                return ResourceManager.GetString("change_picture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Chef.
         /// </summary>
         public static string Chef {
