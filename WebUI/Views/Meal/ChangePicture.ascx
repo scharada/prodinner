@@ -40,7 +40,18 @@
 <div class="cropbox">
     <img id="cropbox" src="" alt="" />
 </div>
+<div style="float:right; width:130px;" >
+<ol>
+<li>upload a picture <br />
+(drag and drop to this big button above <br />
+or just click it)</li>
+<li>select the box to crop</li>
+<li>click "save image"</li>
+<li>hit 'esc' or click on the 'x'</li>
+</ol>
 
+
+  </div>
 <script type="text/javascript">
     var picChanged = false;
     $(function () {
