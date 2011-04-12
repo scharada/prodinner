@@ -67,7 +67,7 @@ namespace Omu.ProDinner.Tests
                 if (p.PropertyType == typeof(string)) p.SetValue(target, "a" + ++s);
                 else if (p.PropertyType == typeof(int) && !p.Name.EndsWith("Id")) p.SetValue(target, ++i);
                 else if (p.PropertyType == typeof(DateTime)) p.SetValue(target, DateTime.Now);
-                else if (p.PropertyType.IsSubclassOf(typeof(DelEntity)))
+                else if (p.PropertyType.IsSubclassOf(typeof(Entity)))
                 {
                     Console.WriteLine("   create a " + p.PropertyType.Name);
                     dynamic o = Activator.CreateInstance(p.PropertyType).InjectFrom(new Fill(u, true));

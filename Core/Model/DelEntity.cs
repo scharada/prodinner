@@ -21,8 +21,6 @@ namespace Omu.ProDinner.Core.Model
     public class Country : DelEntity
     {
         public string Name { get; set; }
-        public virtual ICollection<Chef> Chefs { get; set; }
-        public virtual ICollection<Dinner> Dinners { get; set; }
     }
 
     public class Meal : DelEntity
@@ -39,7 +37,6 @@ namespace Omu.ProDinner.Core.Model
         public string LastName { get; set; }
         public int CountryId { get; set; }
         public virtual Country Country { get; set; }
-        public virtual ICollection<Dinner> Dinners { get; set; }
     }
 
     public class Dinner : DelEntity
