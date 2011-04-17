@@ -9,8 +9,8 @@ namespace Omu.ProDinner.Service
 {
     public class FileManagerService : IFileManagerService
     {
-        private readonly string mealsPath = @ConfigurationManager.AppSettings["storagePath"] + "/meals/";
-        private readonly string tempPath = @ConfigurationManager.AppSettings["storagePath"] + "/temp/";
+        private readonly string mealsPath = ConfigurationManager.AppSettings["storagePath"] + "/meals/";
+        private readonly string tempPath = ConfigurationManager.AppSettings["storagePath"] + "/temp/";
 
         public void DeleteImages(string filename)
         {

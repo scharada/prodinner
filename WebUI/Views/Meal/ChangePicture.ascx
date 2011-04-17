@@ -34,11 +34,11 @@
      preview
     </div>
     <div class="fl thumb" style="overflow: hidden;">
-        <img src='' id="preview" alt="" />
+        <img src="<%=Url.Content(@"~/pictures/meals/0.jpg")%>" id="preview" alt="" />
     </div>
 </div>
 <div class="cropbox">
-    <img id="cropbox" src="" alt="" />
+    <img id="cropbox" src="<%=Url.Content(@"~/pictures/meals/0.jpg")%>" alt="" />
 </div>
 <div style="float:right; width:130px;" >
 <ol>
