@@ -11,9 +11,9 @@ namespace Omu.ProDinner.WebUI.Controllers
     {
         public void SignIn(string userName, bool createPersistentCookie, IEnumerable<string> roles)
         {
-            var str = roles.Aggregate(string.Empty, (current, role) => current + (role + ","));
+            var str = string.Join(",", roles);//roles.Aggregate(string.Empty, (current, role) => current + (role + ",")));
 
-            str.Remove(str.Length - 1, 1);
+            //str.Remove(str.Length - 1, 1);
 
             var authTicket = new FormsAuthenticationTicket(
                 1,

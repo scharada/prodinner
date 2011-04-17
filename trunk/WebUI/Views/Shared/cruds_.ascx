@@ -23,7 +23,12 @@
     function addStart(d) { $(d).css('opacity', 0).prependTo("#list").animate({ opacity: 1 }, 600, 'easeInCubic'); }
     function addEnd(d) { $(d).css('opacity', 0).appendTo("#list").animate({ opacity: 1 }, 300, 'easeInCubic'); }
 
-    function create(o) { $.get('<%=Url.Action("row")%>', { id: o.Id }, function (d) { addStart(d); }); }
+    function create(o) { 
+        $.get('<%=Url.Action("row")%>', { id: o.Id }, 
+            function (d) { 
+                            addStart(d); 
+                            $('#list > *:last').remove();
+    }); }
     function edit(o) { $.get('<%=Url.Action("row")%>', { id: o.Id, ie8: Math.random() }, function (d) { $("#o" + o.Id).before(d).remove(); $("#o" + o.Id).hide().fadeIn('slow'); }); }
     var lfm;
     $(function () {
