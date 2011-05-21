@@ -8,7 +8,7 @@ using Omu.ProDinner.Core.Repository;
 using Omu.ProDinner.Data;
 using Omu.ProDinner.Infra;
 using Omu.ProDinner.Service;
-using Omu.ProDinner.WebUI.Builder;
+using Omu.ProDinner.WebUI.Mappers;
 using Omu.ProDinner.WebUI.Dto;
 using Omu.ValueInjecter;
 
@@ -65,7 +65,7 @@ namespace Omu.ProDinner.Tests
             di.InjectFrom<NormalToNullables>(d);
 
             Assert.AreEqual(3, di.ChefId);
-            Assert.AreEqual(null, di.Date);
+            Assert.AreEqual(null, di.Start);
             Assert.AreEqual(null, di.CountryId);
         }
 
@@ -79,14 +79,14 @@ namespace Omu.ProDinner.Tests
 
             Assert.AreEqual(3, d.ChefId);
             Assert.AreEqual(0, d.CountryId);
-            Assert.AreEqual(default(DateTime), d.Date);
+            Assert.AreEqual(default(DateTime), d.Start);
         }
 
         [Test]
         public void SameTest()
         {
             var c = new Chef {FirstName = "hey", LastName = "yo", Id = 3};
-            c.InjectFrom(new Same("FirstName","Id"), new {FirstName = "a", LastName = "b", Id = 9});
+            c.InjectFrom(new SameIgnoring("FirstName","Id"), new {FirstName = "a", LastName = "b", Id = 9});
             
             Assert.AreEqual("hey", c.FirstName);
             Assert.AreEqual("b", c.LastName);

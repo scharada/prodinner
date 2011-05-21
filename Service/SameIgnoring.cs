@@ -3,11 +3,11 @@ using Omu.ValueInjecter;
 
 namespace Omu.ProDinner.Service
 {
-    public class Same : ConventionInjection
+    public class SameIgnoring : ConventionInjection
     {
         private readonly string[] ignores;
 
-        public Same(params string[] ignores)
+        public SameIgnoring(params string[] ignores)
         {
             this.ignores = ignores;
         }

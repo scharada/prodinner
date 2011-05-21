@@ -4,7 +4,6 @@ using System.Linq.Expressions;
 using Omu.ProDinner.Core.Model;
 using Omu.ProDinner.Core.Repository;
 using Omu.ProDinner.Core.Service;
-using Omu.ValueInjecter;
 
 namespace Omu.ProDinner.Service
 {
@@ -36,8 +35,6 @@ namespace Omu.ProDinner.Service
 
         public virtual void Save(T e)
         {
-            var o = repo.Get(e.Id);
-            o.InjectFrom(e);
             repo.Save();
         }
 

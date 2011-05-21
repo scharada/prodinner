@@ -132,9 +132,6 @@
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
-  <data name="hi" xml:space="preserve">
-    <value>hi how are you</value>
-  </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
@@ -218,5 +215,20 @@
   </data>
   <data name="change_picture" xml:space="preserve">
     <value>change picture</value>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>End</value>
+  </data>
+  <data name="range" xml:space="preserve">
+    <value>the field {0} must be between {1} and {2}</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Duration (minutes)</value>
   </data>
 </root>

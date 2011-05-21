@@ -3,7 +3,6 @@ using Omu.Encrypto;
 using Omu.ProDinner.Core.Model;
 using Omu.ProDinner.Core.Repository;
 using Omu.ProDinner.Core.Service;
-using Omu.ValueInjecter;
 
 namespace Omu.ProDinner.Service
 {
@@ -24,21 +23,14 @@ namespace Omu.ProDinner.Service
             return base.Create(e);
         }
 
-        public override void Save(User e)
-        {
-            var o = repo.Get(e.Id);
-            o.InjectFrom(new Same("Password"), e);
-            repo.Save();
-        }
-
         public bool IsUnique(string login)
         {
             return repo.Where(o => o.Login == login).Count() == 0;
         }
 
-        public User Get(string Login, string password)
+        public User Get(string login, string password)
         {
-            var user = repo.Where(o => o.Login == Login && o.IsDeleted == false).SingleOrDefault();
+            var user = repo.Where(o => o.Login == login && o.IsDeleted == false).SingleOrDefault();
             if (user == null || !hasher.CompareStringToHash(password, user.Password)) return null;
             return user;
         }
