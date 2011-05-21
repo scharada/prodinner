@@ -47,7 +47,8 @@ namespace Omu.ProDinner.Core.Model
         public int ChefId { get; set; }
         public virtual Chef Chef { get; set; }
         public string Address { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
         public virtual ICollection<Meal> Meals { get; set; }
     }
 

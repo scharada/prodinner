@@ -47,8 +47,9 @@ id int identity primary key,
 name nvarchar(50) not null,
 countryid int references countries(id) not null,
 chefid int references chefs(id) not null,
-address nvarchar(50),
-date datetime,
+"address" nvarchar(50),
+start datetime,
+"end" datetime,
 isdeleted bit default(0) not null
 )
 
@@ -149,16 +150,18 @@ insert chefs(firstname,lastname,countryid) values('athene', 'wins', 4)
 insert chefs(firstname,lastname,countryid) values('naked', 'chef', 3)
 insert chefs(firstname,lastname,countryid) values('chef', 'chef', 2)
 
-insert dinners(name,countryid,chefid,address,date) values('Food Festival',1,3,'Pro 1337 str.',CURRENT_TIMESTAMP)
-insert dinners(name,countryid,chefid,address,date) values('Cool gathering',3,2,'doesn''t matter',CURRENT_TIMESTAMP)
-insert dinners(name,countryid,chefid,address,date) values('Latte Art',5,3,'31337 str.',CURRENT_TIMESTAMP)
-insert dinners(name,countryid,chefid,address,date) values('Beach Get-away',10,2,'Beach',CURRENT_TIMESTAMP)
-insert dinners(name,countryid,chefid,address,date) values('Dinner with The Man',13,1,'at home',CURRENT_TIMESTAMP)
-insert dinners(name,countryid,chefid,address,date) values('Annie''s Spring Fever Lunch',22,3,'picnic',CURRENT_TIMESTAMP)
-insert dinners(name,countryid,chefid,address,date) values('Blind Date..',27,2,'Location unknown',CURRENT_TIMESTAMP)
-insert dinners(name,countryid,chefid,address,date) values('Italian Romantic Dinner',4,1,'Antwerpen',CURRENT_TIMESTAMP)
-insert dinners(name,countryid,chefid,address,date) values('Uber dinner',17,2,'in the Forest',CURRENT_TIMESTAMP)
-insert dinners(name,countryid,chefid,address,date) values('L337 Dinner',19,1,'internetz',CURRENT_TIMESTAMP)
+set dateformat dmy;
+
+insert dinners(name,countryid,chefid,address, "start","end") values('Food Festival',1,3,'Pro 1337 str.','13/6/2011 10:30', '13/6/2011 11:30')
+insert dinners(name,countryid,chefid,address,"start","end") values('Cool gathering',3,2,'doesn''t matter','13/6/2011 10:30', '13/6/2011 11:30')
+insert dinners(name,countryid,chefid,address,"start","end") values('Latte Art',5,3,'31337 str.','13/6/2011 10:30', '13/6/2011 11:30')
+insert dinners(name,countryid,chefid,address,"start","end") values('Beach Get-away',10,2,'Beach','13/6/2011 10:30', '13/6/2011 11:30')
+insert dinners(name,countryid,chefid,address,"start","end") values('Dinner with The Man',13,1,'at home','13/6/2011 10:30', '13/6/2011 11:30')
+insert dinners(name,countryid,chefid,address,"start","end") values('Annie''s Spring Fever Lunch',22,3,'picnic','13/6/2011 10:30', '13/6/2011 11:30')
+insert dinners(name,countryid,chefid,address,"start","end") values('Blind "start","end"..',27,2,'Location unknown','13/6/2011 10:30', '13/6/2011 11:30')
+insert dinners(name,countryid,chefid,address,"start","end") values('Italian Romantic Dinner',4,1,'Antwerpen','13/6/2011 10:30', '13/6/2011 11:30')
+insert dinners(name,countryid,chefid,address,"start","end") values('Uber dinner',17,2,'in the Forest','13/6/2011 10:30', '13/6/2011 11:30')
+insert dinners(name,countryid,chefid,address,"start","end") values('L337 Dinner',19,1,'internetz','13/6/2011 10:30', '13/6/2011 11:30')
 
 insert dinnermeals(dinnerid,mealid) values(1,1)
 insert dinnermeals(dinnerid,mealid) values(1,2)

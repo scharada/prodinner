@@ -3,7 +3,7 @@ using NUnit.Framework;
 using Omu.ProDinner.Core;
 using Omu.ProDinner.Core.Model;
 using Omu.ProDinner.Core.Service;
-using Omu.ProDinner.WebUI.Builder;
+using Omu.ProDinner.WebUI.Mappers;
 using Omu.ProDinner.WebUI.Controllers;
 using Omu.ProDinner.WebUI.Dto;
 
@@ -14,7 +14,7 @@ namespace Omu.ProDinner.Tests
         CountryController c;
 
         [Fake]
-        IBuilder<Country, CountryInput> v;
+        IMapper<Country, CountryInput> v;
         [Fake]
         ICrudService<Country> s;
 
@@ -35,7 +35,7 @@ namespace Omu.ProDinner.Tests
         public void CreateShouldBuildNewInput()
         {
             c.Create();
-            A.CallTo(() => v.BuildInput(A<Country>.Ignored)).MustHaveHappened();
+            A.CallTo(() => v.ToInput(A<Country>.Ignored)).MustHaveHappened();
         }
 
         [Test]
@@ -64,14 +64,14 @@ namespace Omu.ProDinner.Tests
         {
             A.CallTo(() => s.Get(1)).Returns(null);
             Assert.Throws<ProDinnerException>(() => c.Edit(1));
-            A.CallTo(() => v.BuildInput(A<Country>.Ignored)).MustNotHaveHappened();
+            A.CallTo(() => v.ToInput(A<Country>.Ignored)).MustNotHaveHappened();
         }
 
         [Test]
         public void EditShouldReturnJson()
         {
             c.Edit(A.Fake<CountryInput>()).ShouldBeJson();
-            A.CallTo(() => v.BuildEntity(A<CountryInput>.Ignored, A<int>.Ignored)).MustHaveHappened();
+            A.CallTo(() => v.ToEntity(A<CountryInput>.Ignored, A<int>.Ignored)).MustHaveHappened();
             A.CallTo(() => s.Save(A<Country>.Ignored)).MustHaveHappened();
         }
 
@@ -80,13 +80,12 @@ namespace Omu.ProDinner.Tests
         {
             c.ModelState.AddModelError("", "");
             c.Edit(A.Fake<CountryInput>()).ShouldBeViewResult().ShouldBeCreate();
-            A.CallTo(() => v.RebuildInput(A<CountryInput>.Ignored, A<int>.Ignored)).MustHaveHappened();
         }
 
         [Test]
         public void EditShouldReturnContentOnError()
         {
-            A.CallTo(() => v.BuildEntity(A<CountryInput>.Ignored, A<int>.Ignored)).Throws(new ProDinnerException("aa"));
+            A.CallTo(() => v.ToEntity(A<CountryInput>.Ignored, A<int>.Ignored)).Throws(new ProDinnerException("aa"));
             c.Edit(A.Fake<CountryInput>()).ShouldBeContent().Content.ShouldEqual("aa");
         }
 

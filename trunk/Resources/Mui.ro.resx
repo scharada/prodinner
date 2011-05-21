@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="End" xml:space="preserve">
+    <value>Sfârșit</value>
+  </data>
+  <data name="range" xml:space="preserve">
+    <value>câmpul {0} trebuie să fie între {1} și {2}</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Început</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Timp</value>
+  </data>
   <data name="change_picture" xml:space="preserve">
     <value>Schimbă imaginea</value>
   </data>
@@ -204,9 +216,6 @@
   <data name="search_for_a_dinner" xml:space="preserve">
     <value>caută o cină</value>
   </data>
-  <data name="hi" xml:space="preserve">
-    <value>bonjour comment allez vous</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Anulare</value>
   </data>
@@ -218,5 +227,8 @@
   </data>
   <data name="strlen" xml:space="preserve">
     <value>{0} nu trebuie sa fie mai lung de {1} caractere</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Duata (minute)</value>
   </data>
 </root>

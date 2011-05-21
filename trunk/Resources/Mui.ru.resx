@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="End" xml:space="preserve">
+    <value>до</value>
+  </data>
+  <data name="range" xml:space="preserve">
+    <value>поле {0} должно быть между {1} и {2}</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Начало</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Время</value>
+  </data>
   <data name="change_picture" xml:space="preserve">
     <value>сменить фото</value>
   </data>
@@ -204,9 +216,6 @@
   <data name="search_for_a_dinner" xml:space="preserve">
     <value>Поиск ужина</value>
   </data>
-  <data name="hi" xml:space="preserve">
-    <value>bonjour comment allez vous</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Отмена</value>
   </data>
@@ -218,5 +227,8 @@
   </data>
   <data name="strlen" xml:space="preserve">
     <value>{0} не может быть больше, чем {1} символов</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Продолжительность (минуты)</value>
   </data>
 </root>
