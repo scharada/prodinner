@@ -6,7 +6,7 @@ using Omu.Awesome.Mvc;
 using Omu.ProDinner.Core.Model;
 using Omu.ProDinner.Core.Service;
 using Omu.ProDinner.WebUI.Dto;
-using Omu.ProDinner.WebUI.Builder;
+using Omu.ProDinner.WebUI.Mappers;
 
 namespace Omu.ProDinner.WebUI.Controllers
 {
@@ -15,7 +15,7 @@ namespace Omu.ProDinner.WebUI.Controllers
         private new readonly IMealService s;
         private readonly IFileManagerService fileManagerService;
 
-        public MealController(IMealService s, IBuilder<Meal, MealInput> v, IFileManagerService fileManagerService)
+        public MealController(IMealService s, IMapper<Meal, MealInput> v, IFileManagerService fileManagerService)
             : base(s, v)
         {
             this.s = s;

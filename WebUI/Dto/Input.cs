@@ -17,7 +17,7 @@ namespace Omu.ProDinner.WebUI.Dto
         [StrLen(15)]
         [LoginUnique]
         public string Login { get; set; }
-        
+
         [Req]
         [StrLen(20)]
         [UIHint("password")]
@@ -26,7 +26,7 @@ namespace Omu.ProDinner.WebUI.Dto
         [Req]
         [UIHint("Lookup")]
         [Lookup(Multiselect = true)]
-        public IEnumerable<int> Roles { get; set;}
+        public IEnumerable<int> Roles { get; set; }
     }
 
     public class UserEditInput : Input
@@ -56,12 +56,12 @@ namespace Omu.ProDinner.WebUI.Dto
     public class SignInInput
     {
         [Req]
-       // [Display(ResourceType = typeof(Mui), Name = "Login")]
+        // [Display(ResourceType = typeof(Mui), Name = "Login")]
         public string Login { get; set; }
 
         [Req]
         [UIHint("Password")]
-     //   [Display(ResourceType = typeof(Mui), Name = "Password")]
+        //   [Display(ResourceType = typeof(Mui), Name = "Password")]
         public string Password { get; set; }
 
         public bool Remember { get; set; }
@@ -100,33 +100,45 @@ namespace Omu.ProDinner.WebUI.Dto
     {
         [Req]
         [StrLen(50)]
-        [Display(ResourceType = typeof(Mui), Name="Name")]
+        [Display(ResourceType = typeof(Mui), Name = "Name")]
         public string Name { get; set; }
 
         [Req]
         [UIHint("Lookup")]
-        [Display(ResourceType = typeof(Mui), Name="Country")]
+        [Display(ResourceType = typeof(Mui), Name = "Country")]
         public int? CountryId { get; set; }
 
         [Req]
         [UIHint("AjaxDropdown")]
-        [Display(ResourceType = typeof(Mui), Name="Chef")]
+        [Display(ResourceType = typeof(Mui), Name = "Chef")]
         public int? ChefId { get; set; }
 
         [Req]
         [StrLen(20)]
-        [Display(ResourceType = typeof(Mui), Name="Address")]
+        [Display(ResourceType = typeof(Mui), Name = "Address")]
         public string Address { get; set; }
 
         [Req]
-        [Display(ResourceType = typeof(Mui), Name="Date")]
-        public DateTime? Date { get; set; }
+        [Display(ResourceType = typeof(Mui), Name = "Date")]
+        public DateTime? Start { get; set; }
 
         [Req]
         [UIHint("Lookup")]
         [Lookup(Multiselect = true, Fullscreen = true, Paging = true)]
-        [Display(ResourceType = typeof(Mui), Name="Meals")]
+        [Display(ResourceType = typeof(Mui), Name = "Meals")]
         public IEnumerable<int> Meals { get; set; }
+
+        [Req]
+        [Range(0, 23, ErrorMessageResourceName = "range", ErrorMessageResourceType = typeof(Mui))]
+        public int Hour { get; set; }
+
+        [Range(0, 59, ErrorMessageResourceName = "range", ErrorMessageResourceType = typeof(Mui))]  
+        public int Minute { get; set; }
+
+        [Req]
+        [Range(3, 9000, ErrorMessageResourceName = "range", ErrorMessageResourceType = typeof(Mui))]
+        [Display(ResourceType = typeof(Mui), Name = "Duration")]
+        public int Duration { get; set; }
     }
 
     public class CropInput

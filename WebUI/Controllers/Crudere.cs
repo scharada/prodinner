@@ -4,7 +4,7 @@ using Omu.ProDinner.Core;
 using Omu.ProDinner.Core.Model;
 using Omu.ProDinner.Core.Service;
 using Omu.ProDinner.WebUI.Dto;
-using Omu.ProDinner.WebUI.Builder;
+using Omu.ProDinner.WebUI.Mappers;
 
 namespace Omu.ProDinner.WebUI.Controllers
 {
@@ -20,15 +20,15 @@ namespace Omu.ProDinner.WebUI.Controllers
         where TEntity : DelEntity, new()
     {
         protected readonly ICrudService<TEntity> s;
-        private readonly IBuilder<TEntity, TCreateInput> v;
-        private readonly IBuilder<TEntity, TEditInput> ve;
+        private readonly IMapper<TEntity, TCreateInput> v;
+        private readonly IMapper<TEntity, TEditInput> ve;
 
         protected virtual string EditView
         {
             get { return "edit"; }
         }
 
-        public Crudere(ICrudService<TEntity> s, IBuilder<TEntity, TCreateInput> v, IBuilder<TEntity, TEditInput> ve)
+        public Crudere(ICrudService<TEntity> s, IMapper<TEntity, TCreateInput> v, IMapper<TEntity, TEditInput> ve)
         {
             this.s = s;
             this.v = v;
@@ -47,23 +47,23 @@ namespace Omu.ProDinner.WebUI.Controllers
 
         public ActionResult Create()
         {
-            return View(v.BuildInput(new TEntity()));
+            return View(v.ToInput(new TEntity()));
         }
 
         [HttpPost]
         public ActionResult Create(TCreateInput o)
         {
             if (!ModelState.IsValid)
-                return View(v.RebuildInput(o));
-            return Json(new {Id = s.Create(v.BuildEntity(o))});
+                return View(o);
+            return Json(new { Id = s.Create(v.ToEntity(o)) });
         }
 
         [OutputCache(Location = OutputCacheLocation.None)]//for ie8
         public ActionResult Edit(int id)
         {
             var o = s.Get(id);
-            if(o == null) throw new ProDinnerException("this entity doesn't exist anymore");
-            return View(EditView, ve.BuildInput(o));
+            if (o == null) throw new ProDinnerException("this entity doesn't exist anymore");
+            return View(EditView, ve.ToInput(o));
         }
 
         [HttpPost]
@@ -72,29 +72,29 @@ namespace Omu.ProDinner.WebUI.Controllers
             try
             {
                 if (!ModelState.IsValid)
-                    return View(EditView, ve.RebuildInput(input, input.Id));
-                s.Save(ve.BuildEntity(input, input.Id));
+                    return View(EditView, input);
+                s.Save(ve.ToEntity(input, input.Id));
             }
-            catch(ProDinnerException ex)
+            catch (ProDinnerException ex)
             {
                 return Content(ex.Message);
             }
-            return Json(new{input.Id});
+            return Json(new { input.Id });
         }
 
         [HttpPost]
         public ActionResult Delete(int id)
         {
             s.Delete(id);
-            return Json(new{Id = id});
+            return Json(new { Id = id });
         }
-        
+
         [HttpPost]
         [Authorize(Roles = "admin")]
         public ActionResult Restore(int id)
         {
             s.Restore(id);
-            return Json(new{Id = id});
+            return Json(new { Id = id });
         }
     }
 }

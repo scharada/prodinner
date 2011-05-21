@@ -7,7 +7,19 @@
             @Html.EditorFor(o => o.CountryId)
             @Html.EditorFor(o => o.ChefId)
             @Html.EditorFor(o => o.Address)
-            @Html.EditorFor(o => o.Date)
+            @Html.EditorFor(o => o.Start)
+            <div class="efield">
+                <div class="elabel">
+                    @Mui.Time (hh/mm) *:
+                </div>
+                <div class='einput'>
+                    @Html.TextBoxFor(o => o.Hour, new { @class = "stext" })
+                    @Html.ValidationMessageFor(o => o.Hour)
+                    @Html.TextBoxFor(o => o.Minute, new { @class = "stext" })
+                    @Html.ValidationMessageFor(o => o.Minute)
+                </div>                
+            </div>
+            @Html.EditorFor(o => o.Duration)
         </div>
         <div class="inputarea">
             @Html.EditorFor(o => o.Meals)

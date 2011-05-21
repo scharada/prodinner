@@ -4,13 +4,13 @@ using Omu.Awesome.Mvc;
 using Omu.ProDinner.Core.Model;
 using Omu.ProDinner.Core.Service;
 using Omu.ProDinner.WebUI.Dto;
-using Omu.ProDinner.WebUI.Builder;
+using Omu.ProDinner.WebUI.Mappers;
 
 namespace Omu.ProDinner.WebUI.Controllers
 {
     public class ChefController : Cruder<Chef, ChefInput>
     {
-        public ChefController(ICrudService<Chef> s, IBuilder<Chef, ChefInput> v)
+        public ChefController(ICrudService<Chef> s, IMapper<Chef, ChefInput> v)
             : base(s, v)
         {
         }

@@ -6,15 +6,17 @@
 <script type="text/javascript">     
     $(function () {  
         var o = '<%=o %>';     
-        ae_loadMultiLookupDisplay(o,'<%=Url.Action("GetMultiple", Model.Controller) %>');
+        $ae.loadMultiLookupDisplay(o,'<%=Url.Action("GetMultiple", Model.Controller, new{Model.Area}) %>');
         $("."+o+"ie8").remove();
         $("#lp"+o).addClass(o+"ie8");
-        ae_popup('lp'+o, <%=Model.Width %>, <%=Model.Height %>, '<%=AwesomeTools.JsEncode(Model.Title) %>', true, 'center', true, {'<%=AwesomeTools.JsEncode(Model.ChooseText) %>': function () {ae_multiLookupChoose(o, '<%=Url.Action("GetMultiple", Model.Controller) %>', '<%=Model.Prop %>');},'<%=AwesomeTools.JsEncode(Model.CancelText) %>': function () { $(this).dialog('close'); }}, <%=Model.Fullscreen.ToString().ToLower() %>);
+        $ae.popup('lp'+o, <%=Model.Width %>, <%=Model.Height %>, '<%=AwesomeTools.JsEncode(Model.Title) %>', true, 'center', true, {'<%=AwesomeTools.JsEncode(Model.ChooseText) %>': function () {$ae.multiLookupChoose(o, '<%=Url.Action("GetMultiple", Model.Controller, new{Model.Area}) %>', '<%=Model.Prop %>');},'<%=AwesomeTools.JsEncode(Model.CancelText) %>': function () { $(this).dialog('close'); }}, <%=Model.Fullscreen.ToString().ToLower() %>);
         
         var lck<%=o %> = null;        
-        ae_lookupPopupOpenClick(o, lck<%=o %>, '<%=Url.Action("index", Model.Controller) %>', <%=Model.Paging.ToString().ToLower() %>, <%=Model.Multiselect.ToString().ToLower() %>, [<%=Model.Data  != null ? AwesomeTools.MakeJsArray(Model.Data.Keys) :""%>], [<%=Model.Data != null ? AwesomeTools.MakeIdJsArray(Model.Data.Values) :""%>]);        
+        $ae.lookupPopupOpenClick(o, lck<%=o %>, '<%=Url.Action("index", Model.Controller, new{Model.Area}) %>', <%=Model.Paging.ToString().ToLower() %>, <%=Model.Multiselect.ToString().ToLower() %>, [<%=Model.Data  != null ? AwesomeTools.MakeJsArray(Model.Data.Keys) :""%>], [<%=Model.Data != null ? AwesomeTools.MakeIdJsArray(Model.Data.Values) :""%>],
+        [<%=Model.Parameters != null ? AwesomeTools.MakeJsArray(Model.Parameters.Keys) :""%>],
+        [<%=Model.Parameters != null ? AwesomeTools.MakeJsArrayObj(Model.Parameters.Values) :""%>]);        
         <%if(Model.ClearButton){%>
-        ae_multiLookupClear(o);
+        $ae.multiLookupClear(o);
         <%} %>        
     });  
 </script>

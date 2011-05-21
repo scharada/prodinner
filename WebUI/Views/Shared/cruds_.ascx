@@ -13,11 +13,12 @@
     }
 %>
 <%=Html.Partial("header")%>
-<% if(!HttpContext.Current.User.IsInRole("admin")){%>
+<% if (!HttpContext.Current.User.IsInRole("admin"))
+   {%>
 <%=Html.Confirm(Mui.confirm_delete)%>
 <%} %>
 <%=Html.MakePopupForm("create", successFunction: "create", height: h, fullScreen:f)%>
-<%=Html.MakePopupForm("Edit", new[] { "id" }, successFunction: "edit", height: he)%>
+<%=Html.MakePopupForm("Edit", new[] { "id" }, successFunction: "edit", height: he, fullScreen:f)%>
 <script type="text/javascript">
     var page = 1;
     function addStart(d) { $(d).css('opacity', 0).prependTo("#list").animate({ opacity: 1 }, 600, 'easeInCubic'); }
@@ -26,8 +27,8 @@
     function create(o) { 
         $.get('<%=Url.Action("row")%>', { id: o.Id }, 
             function (d) { 
-                            addStart(d); 
-                            $('#list > *:last').remove();
+                addStart(d); 
+                            
     }); }
     function edit(o) { $.get('<%=Url.Action("row")%>', { id: o.Id, ie8: Math.random() }, function (d) { $("#o" + o.Id).before(d).remove(); $("#o" + o.Id).hide().fadeIn('slow'); }); }
     var lfm;
@@ -60,6 +61,9 @@
     function more() {
         page++;
         $.post('<%= Url.Action("search")%>', lfm + '&page=' + page, function (d) {
+            $(d.rows).each(function(){
+            $('#'+$(this).attr('id')).remove();
+            });
             addEnd(d.rows);
             if (d.more) $('#more').show(); else $('#more').fadeOut('slow');
         });

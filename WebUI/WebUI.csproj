@@ -44,8 +44,13 @@
       <HintPath>..\packages\elmah.1.1\lib\Elmah.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Omu.Awesome.Mvc">
-      <HintPath>..\libs\Omu.Awesome.Mvc.dll</HintPath>
+    <Reference Include="Omu.Awesome.Core, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvcProjectAwesome.1.9\lib\40\Omu.Awesome.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Omu.Awesome.Mvc, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvcProjectAwesome.1.9\lib\40\Omu.Awesome.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Omu.Drawing">
       <HintPath>..\libs\Omu.Drawing.dll</HintPath>
@@ -91,17 +96,23 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.0.0.0\lib\WebActivator.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\MvcProjectAwesome.cs" />
     <Compile Include="AwesomeConfigurator.cs" />
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Builder\Builder.cs" />
-    <Compile Include="Builder\EntitiesToInts.cs" />
-    <Compile Include="Builder\EntityToNullInt.cs" />
-    <Compile Include="Builder\IBuilder.cs" />
-    <Compile Include="Builder\IntsToEntities.cs" />
-    <Compile Include="Builder\NormalToNullables.cs" />
-    <Compile Include="Builder\NullablesToNormal.cs" />
+    <Compile Include="JQueryUiDatePickerHelper.cs" />
+    <Compile Include="Mappers\Mapper.cs" />
+    <Compile Include="Mappers\DinnerMapper.cs" />
+    <Compile Include="Mappers\EntitiesToInts.cs" />
+    <Compile Include="Mappers\EntityToNullInt.cs" />
+    <Compile Include="Mappers\IMapper.cs" />
+    <Compile Include="Mappers\IntsToEntities.cs" />
+    <Compile Include="Mappers\NormalToNullables.cs" />
+    <Compile Include="Mappers\NullablesToNormal.cs" />
     <Compile Include="CastleWindsorControllerFactory.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -139,6 +150,7 @@
     <Compile Include="WindsorConfigurator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="! mvc project awesome readme.txt" />
     <Content Include="Content\Awesome.css" />
     <Content Include="Content\broccoli-recipe.png" />
     <Content Include="Content\broccoli.png" />
@@ -162,8 +174,10 @@
     <Content Include="f.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Awesome.js" />
+    <Content Include="Scripts\Awesome.min.js" />
     <Content Include="Scripts\jquery.fileupload-ui.js" />
     <Content Include="Scripts\jquery.fileupload.js" />
+    <Content Include="Scripts\jquery.form.js" />
     <Content Include="Scripts\jquery.form.min.js" />
     <Content Include="Scripts\jquery.Jcrop.min.js" />
     <Content Include="Scripts\jquery.tooltip.min.js" />
@@ -173,6 +187,19 @@
     <Content Include="Views\Dinner\About.cshtml" />
     <Content Include="Views\CountryIdLookup\item.cshtml" />
     <Content Include="Views\Meal\ChangePicture.ascx" />
+    <Content Include="Views\Shared\Awesome\AjaxCheckBoxList.ascx" />
+    <Content Include="Views\Shared\Awesome\AjaxDropdown.ascx" />
+    <Content Include="Views\Shared\Awesome\AjaxRadioList.ascx" />
+    <Content Include="Views\Shared\Awesome\Autocomplete.ascx" />
+    <Content Include="Views\Shared\Awesome\Confirm.ascx" />
+    <Content Include="Views\Shared\Awesome\header.ascx" />
+    <Content Include="Views\Shared\Awesome\Lookup.ascx" />
+    <Content Include="Views\Shared\Awesome\LookupList.ascx" />
+    <Content Include="Views\Shared\Awesome\LookupPopup.ascx" />
+    <Content Include="Views\Shared\Awesome\MultiLookup.ascx" />
+    <Content Include="Views\Shared\Awesome\MultiLookupPopup.ascx" />
+    <Content Include="Views\Shared\Awesome\Popup.ascx" />
+    <Content Include="Views\Shared\Awesome\PopupForm.ascx" />
     <Content Include="Views\Shared\doggy.ascx" />
     <Content Include="Views\Shared\EditorTemplates\Boolean.aspx" />
     <Content Include="Views\Shared\hrow_.ascx" />
@@ -185,13 +212,6 @@
     <Content Include="Views\Country\hrow.cshtml" />
     <Content Include="Views\Dinner\header.cshtml" />
     <None Include="Views\Meal\ocrop.cshtml" />
-    <Content Include="Views\Shared\Awesome\AjaxDropdown.ascx" />
-    <Content Include="Views\Shared\Awesome\header.ascx" />
-    <Content Include="Views\Shared\Awesome\MultiLookupPopup.ascx" />
-    <Content Include="Views\Shared\Awesome\MultiLookup.ascx" />
-    <Content Include="Views\Shared\Awesome\Autocomplete.ascx" />
-    <Content Include="Views\Shared\Awesome\Confirm.ascx" />
-    <Content Include="Views\Shared\Awesome\Popup.ascx" />
     <Content Include="Views\Shared\Awesome\SearchForm.ascx" />
     <Content Include="Views\Shared\EditorTemplates\AjaxDropdown.aspx" />
     <Content Include="Views\Shared\EditorTemplates\Autocomplete.aspx" />
@@ -200,10 +220,6 @@
     <Content Include="Views\Shared\EditorTemplates\Dropdown.aspx" />
     <Content Include="Views\Shared\EditorTemplates\Enum.aspx" />
     <Content Include="Views\Shared\EditorTemplates\Lookup.aspx" />
-    <Content Include="Views\Shared\Awesome\Lookup.ascx" />
-    <Content Include="Views\Shared\Awesome\LookupList.ascx" />
-    <Content Include="Views\Shared\Awesome\LookupPopup.ascx" />
-    <Content Include="Views\Shared\Awesome\PopupForm.ascx" />
     <Content Include="Views\Shared\EditorTemplates\Password.aspx" />
     <Content Include="Views\Shared\EditorTemplates\String.aspx" />
     <Content Include="Web.config">
@@ -236,7 +252,6 @@
     <Content Include="Views\Dinner\create.cshtml" />
     <Content Include="Views\Dinner\searchBox.cshtml" />
     <Content Include="Views\Dinner\rows.ascx" />
-    <Content Include="Views\Shared\Site.Master" />
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
     </Content>
