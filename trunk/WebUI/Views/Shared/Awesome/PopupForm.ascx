@@ -1,9 +1,9 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<Omu.Awesome.Mvc.Helpers.PopupFormInfo>" %>
 <%
-    var o = "pf" + (Model.Action + Model.Controller).ToLower();
+    var o = "pf" + Model.Prefix + (Model.Action + Model.Controller + Model.Area).ToLower();
 %>
 <script type="text/javascript">
-        $(function() {ae_popup('<%=o %>',<%=Model.Width %>, <%=Model.Height %>, '<%=Model.Title %>', true, <%=Model.Position %>, true, 
+        $(function() {$ae.popup('<%=o %>',<%=Model.Width %>, <%=Model.Height %>, '<%=Model.Title %>', true, <%=Model.Position %>, true, 
         {"<%=Model.OkText %>": function () { $("#<%=o %> form").submit(); }, "<%=Model.CancelText %>": function () { $(this).dialog('close'); } }, 
         <%=Model.FullScreen.ToString().ToLower() %>);});
 
@@ -11,7 +11,7 @@
         function call<%=o %>(<%=JsTools.MakeParameters(Model.Parameters) %>) { 
             if(l<%=o %> != null) return;
             l<%=o %> = true;
-            $.get('<%=Url.Action(Model.Action, Model.Controller) %>',
+            $.get('<%=Url.Action(Model.Action, Model.Controller, new {area = Model.Area}) %>',
             <%=JsTools.JsonParam(Model.Parameters) %>
             update<%=o %>
             );

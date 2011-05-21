@@ -3,15 +3,16 @@
 <%
     var o = ViewData["prop"].ToString();
     var pageable = (bool)ViewData["paging"];
-    var keys = ViewData["keys"] as string[];
-    var values = ViewData["values"] as string[];
+    var datak = ViewData["datak"] as string[];
+    var datav = ViewData["datav"] as string[];
     var moreText = ViewData["moreText"].ToString();
 %>
+
 <form id="lsf<%=o %>" action="<%=Url.Action("search") %>" method="post">
+<%=JsTools.MakePars(ViewData) %>
 <% Html.RenderAction("SearchForm"); %>
-<%if (null != keys)
-  {%>
-<div id='lsfv<%=o %>' style="display: none;">
+<%if(datak != null) {%>
+<div id='lsfv<%=o %>' style="display:none;">
 </div>
 <%}%>
 </form>
@@ -21,12 +22,23 @@
 <ul id="<%=o%>ls" class="ae-lookup-list ae-lookup-searchlist">
 </ul>
 <script type="text/javascript">
+<%if(datak != null) {%>
+$ae.takevals([<%=AwesomeTools.MakeIdJsArray(datak) %>],[<%=AwesomeTools.MakeJsArray(datav) %>], 'lsfv<%=o %>');
+<%}%>
+function lay<%=o %>() {
+    var av = $("#lp<%=o %>").height() - $('#lsf<%=o %>').height() - $('#<%=o %>lsh').height();
+    $('#<%=o %>ls').css('height', av+'px');     
+} 
+$("#lp<%=o %>").bind( "dialogresize", lay<%=o %>);
+$('#lsf<%=o %> input').keypress(function(e){ if(e.which == 13){ e.preventDefault(); $('#lsf<%=o %>').submit(); } });
+<%if(Settings.Lookup.Interactive) {%>
+$ae.interactive('#lsf<%=o %>');
+    <%}%>
 
 $('#lsf<%=o %>').submit(function(e){
     e.preventDefault();    
     var lfm = $('#lsf<%=o %>').serializeArray();
 
-    
     <% if(pageable){%>
         lfm.push({ name: "page", value: "1" });
 
@@ -69,20 +81,4 @@ $('#lsf<%=o %>').submit(function(e){
 
 $('#lsf<%=o %>').submit();
 $('#lsf<%=o %> input:first').focus();
-
-<%if(null != keys) {%>
-ae_takevals([<%=AwesomeTools.MakeIdJsArray(keys) %>],[<%=AwesomeTools.MakeJsArray(values) %>], 'lsfv<%=o %>');
-<%}%>
-
-function lay<%=o %>() {
-    var av = $("#lp<%=o %>").height() - $('#lsf<%=o %>').height() - $('#<%=o %>lsh').height();
-    $('#<%=o %>ls').css('height', av+'px');     
-}
- 
-$("#lp<%=o %>").bind("dialogresize", lay<%=o %>);
-
-$('#lsf<%=o %> input').keypress(function(e){ if(e.which == 13){ e.preventDefault(); $('#lsf<%=o %>').submit(); } });
-<%if(Settings.Lookup.Interactive) {%>
-ae_interactive('#lsf<%=o %>');
-<%}%>
 </script>

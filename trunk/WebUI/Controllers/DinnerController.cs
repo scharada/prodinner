@@ -5,13 +5,13 @@ using Omu.Awesome.Mvc;
 using Omu.ProDinner.Core.Model;
 using Omu.ProDinner.Core.Service;
 using Omu.ProDinner.WebUI.Dto;
-using Omu.ProDinner.WebUI.Builder;
+using Omu.ProDinner.WebUI.Mappers;
 
 namespace Omu.ProDinner.WebUI.Controllers
 {
     public class DinnerController: Cruder<Dinner,DinnerInput>
     {
-        public DinnerController(ICrudService<Dinner> s, IBuilder<Dinner, DinnerInput> v) : base(s, v)
+        public DinnerController(ICrudService<Dinner> s, IMapper<Dinner, DinnerInput> v) : base(s, v)
         {
         }
 

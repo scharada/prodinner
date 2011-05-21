@@ -4,13 +4,13 @@ using Omu.Awesome.Mvc;
 using Omu.ProDinner.Core.Model;
 using Omu.ProDinner.Core.Service;
 using Omu.ProDinner.WebUI.Dto;
-using Omu.ProDinner.WebUI.Builder;
+using Omu.ProDinner.WebUI.Mappers;
 
 namespace Omu.ProDinner.WebUI.Controllers
 {
     public class CountryController:Cruder<Country,CountryInput>
     {
-        public CountryController(ICrudService<Country> s, IBuilder<Country, CountryInput> v) : base(s, v)
+        public CountryController(ICrudService<Country> s, IMapper<Country, CountryInput> v) : base(s, v)
         {
         }
         public virtual ActionResult Search(string search, int page = 1, int ps = 5)

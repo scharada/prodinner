@@ -8,7 +8,7 @@ namespace Omu.ProDinner.WebUI
     {
         public static void Configure()
         {
-            ModelMetadataProviders.Current = new AwesomeModelMetadataProvider();
+            //ModelMetadataProviders.Current = new AwesomeModelMetadataProvider(); App_Start/MvcProjectAwesome.cs
 
             Settings.PopupForm.ClientSideValidation = false;
             Settings.Lookup.Interactive = true;

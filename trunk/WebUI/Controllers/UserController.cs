@@ -4,7 +4,7 @@ using Omu.Awesome.Mvc;
 using Omu.ProDinner.Core.Model;
 using Omu.ProDinner.Core.Service;
 using Omu.ProDinner.WebUI.Dto;
-using Omu.ProDinner.WebUI.Builder;
+using Omu.ProDinner.WebUI.Mappers;
 
 namespace Omu.ProDinner.WebUI.Controllers
 {
@@ -13,7 +13,7 @@ namespace Omu.ProDinner.WebUI.Controllers
     {
         private new readonly IUserService s;
 
-        public UserController(IBuilder<User, UserCreateInput> v, IBuilder<User, UserEditInput> ve, IUserService s) : base(s, v, ve)
+        public UserController(IMapper<User, UserCreateInput> v, IMapper<User, UserEditInput> ve, IUserService s) : base(s, v, ve)
         {
             this.s = s;
         }

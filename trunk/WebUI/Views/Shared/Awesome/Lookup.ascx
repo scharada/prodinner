@@ -8,22 +8,29 @@
     
     function lgc<%=o %>() {        
         $('li',$(this).parent()).removeClass('<%=sel %>').unbind('click').click(lgc<%=o %>);        
-        $(this).addClass('<%=sel %>').click(function(){ae_lookupChoose('<%=o %>', '<%=Url.Action("Get", Model.Controller) %>', '<%=sel %>');});
+        $(this).addClass('<%=sel %>').click(function(){$ae.lookupChoose('<%=o %>', '<%=Url.Action("Get", Model.Controller, new{Model.Area}) %>', '<%=sel %>');});
     }
     
     $(function () {
         var o = '<%=o %>';
         $("#ld"+o).addClass("ae-lookup-textbox");
-        ae_loadLookupDisplay(o, '<%=Url.Action("Get", Model.Controller) %>');
+        $ae.loadLookupDisplay(o, '<%=Url.Action("Get", Model.Controller, new{Model.Area}) %>');
         $("."+o+"ie8").remove();
         $("#lp"+o).addClass(o+"ie8");
 
-        ae_popup('lp'+o, <%=Model.Width %>, <%=Model.Height %>, '<%=AwesomeTools.JsEncode(Model.Title) %>', true, 'center', true, {'<%=AwesomeTools.JsEncode(Model.ChooseText) %>': function () {ae_lookupChoose('<%=o %>', '<%=Url.Action("Get", Model.Controller) %>', '<%=sel %>');},'<%=AwesomeTools.JsEncode(Model.CancelText) %>': function () { $(this).dialog('close'); }}, <%=Model.Fullscreen.ToString().ToLower() %>);
+        $ae.popup('lp'+o, <%=Model.Width %>, <%=Model.Height %>, '<%=AwesomeTools.JsEncode(Model.Title) %>', true, 'center', true, {'<%=AwesomeTools.JsEncode(Model.ChooseText) %>': function () {$ae.lookupChoose('<%=o %>', '<%=Url.Action("Get", Model.Controller, new{Model.Area}) %>', '<%=sel %>');},'<%=AwesomeTools.JsEncode(Model.CancelText) %>': function () { $(this).dialog('close'); }}, <%=Model.Fullscreen.ToString().ToLower() %>);
 
         var lck<%=o%> = null;
-        ae_lookupPopupOpenClick(o, lck<%=o %>, '<%=Url.Action("index", Model.Controller) %>', <%=Model.Paging.ToString().ToLower() %>, <%=Model.Multiselect.ToString().ToLower() %>, [<%=Model.Data  != null ? AwesomeTools.MakeJsArray(Model.Data.Keys) :""%>], [<%=Model.Data != null ? AwesomeTools.MakeIdJsArray(Model.Data.Values) :""%>]);        
+        $ae.lookupPopupOpenClick(o, lck<%=o %>, 
+        '<%=Url.Action("index", Model.Controller, new{Model.Area}) %>', 
+        <%=Model.Paging.ToString().ToLower() %>, 
+        <%=Model.Multiselect.ToString().ToLower() %>, 
+        [<%=Model.Data  != null ? AwesomeTools.MakeJsArray(Model.Data.Keys) :""%>], 
+        [<%=Model.Data != null ? AwesomeTools.MakeIdJsArray(Model.Data.Values) :""%>],
+        [<%=Model.Parameters != null ? AwesomeTools.MakeJsArray(Model.Parameters.Keys) :""%>],
+        [<%=Model.Parameters != null ? AwesomeTools.MakeJsArrayObj(Model.Parameters.Values) :""%>]);        
         <%if(Model.ClearButton){%>
-        ae_lookupClear(o);        
+        $ae.lookupClear(o);        
         <%} %>
     });    
 </script>

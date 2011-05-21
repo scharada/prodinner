@@ -22,8 +22,8 @@
             $('.thumbhead').addClass('ui-widget-header');
 
             //mybutton is from awesome.js, almost the same as jquery ui .button()
-            mybutton(".abtn");            
-            mybutton(".ae-lookup-morebtn");
+            $ae.mybutton(".abtn");            
+            $ae.mybutton(".ae-lookup-morebtn");
 
             $(".validation-summary-errors li").addClass('ui-state-error ui-corner-all');
 
@@ -41,7 +41,7 @@
 
             $(".dinner").addClass("ui-widget-content");
 
-           
+            $(".stext").forceNumeric();
            
         }
 
@@ -58,4 +58,32 @@
 
         function setFocusOnFirst() {
             $("input:text:visible:first").focus();
+        }
+
+        jQuery.fn.forceNumeric = function () {
+
+            return this.each(function () {
+                $(this).keydown(function (e) {
+                    var key = e.which || e.keyCode;
+
+                    if (!e.shiftKey && !e.altKey && !e.ctrlKey &&
+                    // numbers   
+                         key >= 48 && key <= 57 ||
+                    // Numeric keypad
+                         key >= 96 && key <= 105 ||
+                    // comma, period and minus
+                        key == 190 || key == 188 || key == 109 ||
+                    // Backspace and Tab and Enter
+                        key == 8 || key == 9 || key == 13 ||
+                    // Home and End
+                        key == 35 || key == 36 ||
+                    // left and right arrows
+                        key == 37 || key == 39 ||
+                    // Del and Ins
+                        key == 46 || key == 45)
+                        return true;
+
+                    return false;
+                });
+            });
         }

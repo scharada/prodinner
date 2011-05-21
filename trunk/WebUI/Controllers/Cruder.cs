@@ -1,7 +1,7 @@
 ﻿using Omu.ProDinner.Core.Model;
 using Omu.ProDinner.Core.Service;
 using Omu.ProDinner.WebUI.Dto;
-using Omu.ProDinner.WebUI.Builder;
+using Omu.ProDinner.WebUI.Mappers;
 
 namespace Omu.ProDinner.WebUI.Controllers
 {
@@ -14,7 +14,7 @@ namespace Omu.ProDinner.WebUI.Controllers
         where TInput : Input, new()
         where TEntity : DelEntity, new()
     {
-        public Cruder(ICrudService<TEntity> s, IBuilder<TEntity, TInput> v) : base(s, v, v)
+        public Cruder(ICrudService<TEntity> s, IMapper<TEntity, TInput> v) : base(s, v, v)
         {
         }
         

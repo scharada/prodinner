@@ -39,7 +39,7 @@ namespace Omu.ProDinner.WebUI
             using (var fakePage = new Page())
             {
                 var ignored = fakePage.Server; // Work around a WebForms quirk
-                fakePage.Culture = "en-US"; // Apply local formatting to this thread
+                fakePage.Culture = l; // Apply local formatting to this thread
                 fakePage.UICulture = l; // Apply local language to this thread
                 HttpContext.Current.Items.Add("lang", l);
             }
