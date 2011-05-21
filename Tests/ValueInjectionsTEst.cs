@@ -81,16 +81,6 @@ namespace Omu.ProDinner.Tests
             Assert.AreEqual(0, d.CountryId);
             Assert.AreEqual(default(DateTime), d.Start);
         }
-
-        [Test]
-        public void SameTest()
-        {
-            var c = new Chef {FirstName = "hey", LastName = "yo", Id = 3};
-            c.InjectFrom(new SameIgnoring("FirstName","Id"), new {FirstName = "a", LastName = "b", Id = 9});
-            
-            Assert.AreEqual("hey", c.FirstName);
-            Assert.AreEqual("b", c.LastName);
-            Assert.AreEqual(3, c.Id);
-        }
+        
     }
 }

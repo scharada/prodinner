@@ -33,7 +33,7 @@ namespace Omu.ProDinner.Service
             return e.Id;
         }
 
-        public virtual void Save(T e)
+        public void Save()
         {
             repo.Save();
         }

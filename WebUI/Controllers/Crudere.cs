@@ -73,7 +73,7 @@ namespace Omu.ProDinner.WebUI.Controllers
             {
                 if (!ModelState.IsValid)
                     return View(EditView, input);
-                s.Save(ve.ToEntity(input, input.Id));
+                s.Save();
             }
             catch (ProDinnerException ex)
             {
