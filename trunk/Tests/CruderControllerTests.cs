@@ -72,7 +72,7 @@ namespace Omu.ProDinner.Tests
         {
             c.Edit(A.Fake<CountryInput>()).ShouldBeJson();
             A.CallTo(() => v.ToEntity(A<CountryInput>.Ignored, A<int>.Ignored)).MustHaveHappened();
-            A.CallTo(() => s.Save(A<Country>.Ignored)).MustHaveHappened();
+            A.CallTo(() => s.Save()).MustHaveHappened();
         }
 
         [Test]
