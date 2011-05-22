@@ -1,18 +1,13 @@
 ﻿using Omu.ProDinner.Core.Model;
-using Omu.ProDinner.Core.Repository;
 using Omu.ProDinner.WebUI.Dto;
 
 namespace Omu.ProDinner.WebUI.Mappers
 {
     public class DinnerMapper : Mapper<Dinner, DinnerInput>
     {
-        public DinnerMapper(IRepo<Dinner> repo) : base(repo)
+        public override Dinner MapToEntity(DinnerInput input, Dinner e)
         {
-        }
-
-        public override Dinner ToEntity(DinnerInput input, int? id = null)
-        {
-            var entity = base.ToEntity(input, id);
+            var entity = base.MapToEntity(input, e);
 
             entity.Start = entity.Start.AddHours(input.Hour).AddMinutes(input.Minute);
             entity.End = entity.Start.AddMinutes(input.Duration);
@@ -20,9 +15,9 @@ namespace Omu.ProDinner.WebUI.Mappers
             return entity;
         }
 
-        public override DinnerInput ToInput(Dinner entity)
+        public override DinnerInput MapToInput(Dinner entity)
         {
-            var input = base.ToInput(entity);
+            var input = base.MapToInput(entity);
 
             input.Minute = entity.Start.Minute;
             input.Hour = entity.Start.Hour;

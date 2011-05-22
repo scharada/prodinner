@@ -2,7 +2,7 @@
 {
     public interface IMapper<TEntity, TInput> where TEntity : class, new() where TInput : new()
     {
-        TInput ToInput(TEntity entity);
-        TEntity ToEntity(TInput input, int? id = null);
+        TInput MapToInput(TEntity entity);
+        TEntity MapToEntity(TInput input, TEntity entity);
     }
 }

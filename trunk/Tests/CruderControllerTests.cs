@@ -35,7 +35,7 @@ namespace Omu.ProDinner.Tests
         public void CreateShouldBuildNewInput()
         {
             c.Create();
-            A.CallTo(() => v.ToInput(A<Country>.Ignored)).MustHaveHappened();
+            A.CallTo(() => v.MapToInput(A<Country>.Ignored)).MustHaveHappened();
         }
 
         [Test]
@@ -64,14 +64,15 @@ namespace Omu.ProDinner.Tests
         {
             A.CallTo(() => s.Get(1)).Returns(null);
             Assert.Throws<ProDinnerException>(() => c.Edit(1));
-            A.CallTo(() => v.ToInput(A<Country>.Ignored)).MustNotHaveHappened();
+            A.CallTo(() => v.MapToInput(A<Country>.Ignored)).MustNotHaveHappened();
         }
 
         [Test]
         public void EditShouldReturnJson()
         {
             c.Edit(A.Fake<CountryInput>()).ShouldBeJson();
-            A.CallTo(() => v.ToEntity(A<CountryInput>.Ignored, A<int>.Ignored)).MustHaveHappened();
+            A.CallTo(() => v.MapToEntity(A<CountryInput>.Ignored, A<Country>.Ignored)).MustHaveHappened();
+            A.CallTo(() => s.Get(A<int>.Ignored)).MustHaveHappened();
             A.CallTo(() => s.Save()).MustHaveHappened();
         }
 
@@ -85,7 +86,7 @@ namespace Omu.ProDinner.Tests
         [Test]
         public void EditShouldReturnContentOnError()
         {
-            A.CallTo(() => v.ToEntity(A<CountryInput>.Ignored, A<int>.Ignored)).Throws(new ProDinnerException("aa"));
+            A.CallTo(() => v.MapToEntity(A<CountryInput>.Ignored, A<Country>.Ignored)).Throws(new ProDinnerException("aa"));
             c.Edit(A.Fake<CountryInput>()).ShouldBeContent().Content.ShouldEqual("aa");
         }
 

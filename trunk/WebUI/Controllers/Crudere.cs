@@ -20,19 +20,19 @@ namespace Omu.ProDinner.WebUI.Controllers
         where TEntity : DelEntity, new()
     {
         protected readonly ICrudService<TEntity> s;
-        private readonly IMapper<TEntity, TCreateInput> v;
-        private readonly IMapper<TEntity, TEditInput> ve;
+        private readonly IMapper<TEntity, TCreateInput> createMapper;
+        private readonly IMapper<TEntity, TEditInput> editMapper;
 
         protected virtual string EditView
         {
             get { return "edit"; }
         }
 
-        public Crudere(ICrudService<TEntity> s, IMapper<TEntity, TCreateInput> v, IMapper<TEntity, TEditInput> ve)
+        public Crudere(ICrudService<TEntity> s, IMapper<TEntity, TCreateInput> createMapper, IMapper<TEntity, TEditInput> editMapper)
         {
             this.s = s;
-            this.v = v;
-            this.ve = ve;
+            this.createMapper = createMapper;
+            this.editMapper = editMapper;
         }
 
         public virtual ActionResult Index()
@@ -47,23 +47,23 @@ namespace Omu.ProDinner.WebUI.Controllers
 
         public ActionResult Create()
         {
-            return View(v.ToInput(new TEntity()));
+            return View(createMapper.MapToInput(new TEntity()));
         }
 
         [HttpPost]
-        public ActionResult Create(TCreateInput o)
+        public ActionResult Create(TCreateInput input)
         {
             if (!ModelState.IsValid)
-                return View(o);
-            return Json(new { Id = s.Create(v.ToEntity(o)) });
+                return View(input);
+            return Json(new { Id = s.Create(createMapper.MapToEntity(input, new TEntity())) });
         }
 
-        [OutputCache(Location = OutputCacheLocation.None)]//for ie8
+        [OutputCache(Location = OutputCacheLocation.None)]//for ie
         public ActionResult Edit(int id)
         {
-            var o = s.Get(id);
-            if (o == null) throw new ProDinnerException("this entity doesn't exist anymore");
-            return View(EditView, ve.ToInput(o));
+            var entity = s.Get(id);
+            if (entity == null) throw new ProDinnerException("this entity doesn't exist anymore");
+            return View(EditView, editMapper.MapToInput(entity));
         }
 
         [HttpPost]
@@ -73,6 +73,7 @@ namespace Omu.ProDinner.WebUI.Controllers
             {
                 if (!ModelState.IsValid)
                     return View(EditView, input);
+                editMapper.MapToEntity(input, s.Get(input.Id));
                 s.Save();
             }
             catch (ProDinnerException ex)
