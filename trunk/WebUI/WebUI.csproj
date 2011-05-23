@@ -56,7 +56,9 @@
       <HintPath>..\libs\Omu.Drawing.dll</HintPath>
     </Reference>
     <Reference Include="Omu.Encrypto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="Omu.ValueInjecter, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Omu.ValueInjecter">
+      <HintPath>..\packages\valueinjecter.2.3\lib\Omu.ValueInjecter.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
